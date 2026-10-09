@@ -15,6 +15,8 @@ Na<sub>5</sub>Nb<sub>5</sub>W<sub>11</sub>O<sub>48</sub>, Na<sub>11</sub>Si<sub>
 From scratch: 128x0e+128x1o, 2 interactions, correlation 3, r<sub>max</sub> 5 Å, 10 epochs, EMA + SWA.
 Fine-tuned: MACE-MPA-0 (medium), same data and epochs.
 
+![MACE LYC fine-tuned](../figures/training/parity_mace_lyc_finetuned.png)
+
 ![MACE LYC from scratch](../figures/training/parity_mace_lyc_scratch.png)
 
 ![MACE scratch vs fine-tuned](../figures/training/mace_scratch_vs_finetuned.png)

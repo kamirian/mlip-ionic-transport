@@ -54,8 +54,9 @@ diffusion module (MIT License), built on [pymatgen](https://pymatgen.org).
 
 ## Future work
 
-* Na analogues of known K-ion conductors (K→Na substitution, structure relaxation and screening): a
-  separate repository, in preparation.
+* **Na-ion conductors from K-ion frameworks**: whether Na placed in frameworks built for K becomes
+  more mobile (site-symmetry screening, ion-swap NEB, DFT checks, new candidates). Work in progress:
+  [na-from-k-conductors](https://github.com/kamirian/na-from-k-conductors).
 
 ## License
 
