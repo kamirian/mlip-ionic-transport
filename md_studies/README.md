@@ -43,7 +43,7 @@ deviates by up to 2.3×.
 
 ![7 FPs vs AIMD](../figures/md/lyc_7fp_vs_aimd.png)
 
-40 temperatures (300-1025 K) per potential, each run as 1-4 consecutive 400 ps jobs (0.4-1.6 ns per temperature); 572 jobs of 400 ps over the seven potentials, 223 ns analyzed in total.
+Each potential was run at 40 temperatures (300-1025 K), 0.4-1.6 ns per temperature (about 0.8 ns on average; 1-4 consecutive 400 ps jobs).
 
 | FP | E<sub>a</sub>, all T (eV) | E<sub>a</sub>, 500-900 K (eV) | σ(300 K), extrapolated (mS/cm) |
 |---|---|---|---|
