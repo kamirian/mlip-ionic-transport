@@ -1,0 +1,58 @@
+{
+ "study": "mace_lyc_ft_vs_mpa0_vs_scratch",
+ "description": "Li15Y7Cl36 (58 atoms): MACE fine-tuned from MACE-MPA-0 vs MACE-MPA-0 vs MACE trained from scratch. NVT, 1 fs, 400,000 steps, 29 temperatures 300-1000 K.",
+ "specie": "Li",
+ "charge": 1,
+ "site_distance": 3.38,
+ "arrhenius_windows": {
+  "all": null,
+  "769-1000K": [
+   769,
+   1000
+  ]
+ },
+ "series": [
+  {
+   "temperature_dir_regex": "^(\\d+)_NVT$",
+   "segments": [
+    "results_step_0/nvt_md.traj",
+    "results/nvt_md.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "MACE fine-tuned (from MPA-0)",
+   "root": "/path/to/data/MACE_env/jobs/md/LYC_NVT/nvt_final_finetuned_model",
+   "model_file": "MACE_env/jobs/lyc_nvt/fine_tuning_improved_model/MACE_models/medium_finetuned_initial_release_compiled.model"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)_NVT$",
+   "segments": [
+    "results_step_0/nvt_md.traj",
+    "results/nvt_md.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "MACE-MPA-0 (medium)",
+   "root": "/path/to/data/MACE_env/jobs/md/LYC_NVT/nvt_final_normal_mace_model",
+   "model_file": "MACE_env/foundation_models/imporved_highpressure_accuracy_mace-mpa-0/mace-mpa-0-medium.model"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)_NVT$",
+   "segments": [
+    "results_step_0/nvt_md.traj",
+    "results/nvt_md.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "MACE from scratch",
+   "root": "/path/to/data/MACE_env/jobs/md/LYC_NVT/nvt_final_simpler_model",
+   "model_file": "MACE_env/jobs/Training_NVT_structures/MACE_models/energy_corrected_mace_cpu_stagetwo_compiled.model"
+  }
+ ],
+ "fit": {
+  "lower_bound_in_a_square": 0.5,
+  "upper_bound": 0.8,
+  "minimum_msd_diff_in_a_square": 0.5,
+  "time_intervals_number": 1000
+ }
+}

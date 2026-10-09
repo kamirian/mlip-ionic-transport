@@ -1,0 +1,3534 @@
+{
+ "schema_version": "1.0",
+ "study": "aimd_lyc",
+ "description": "AIMD (VASP, PBE, NVT Nose, 2 fs) of Li15Y7Cl36 (58 atoms) at 500-900 K: the data set used to fine-tune / train the CHGNet and MACE LYC models.",
+ "units": {
+  "D": "cm^2/s",
+  "conductivity": "mS/cm",
+  "time": "ps",
+  "msd": "A^2",
+  "Ea": "eV",
+  "volume": "A^3",
+  "temperature": "K"
+ },
+ "method": {
+  "reference": "X. He, Y. Zhu, A. Epstein, Y. Mo, npj Comput. Mater. 4, 18 (2018)",
+  "msd": "FFT time-averaged MSD, framework centre-of-mass drift removed",
+  "D_error": "RSD = 3.43/sqrt(N_jump) + 0.04, D_std = RSD * D",
+  "arrhenius": "least squares on log10(D) vs 1000/T, weighted by sigma_log10D = log10(e)*D_std/D",
+  "stitching": "continuation runs concatenated after dropping their duplicated first frame; equilibration frames removed only from the start of each chain",
+  "specie": "Li",
+  "charge": 1,
+  "site_distance_A": 3.38,
+  "fit": {
+   "lower_bound_in_a_square": 0.5,
+   "upper_bound": 0.8,
+   "minimum_msd_diff_in_a_square": 0.5,
+   "time_intervals_number": 1000
+  },
+  "framework_melt_criterion": "framework melted if the time-averaged MSD of framework (non-mobile) atoms at the end of the fit window exceeds site_distance^2; the original single-atom check (any framework atom displaced > 4 A) is recorded as framework_single_atom_moved_4A",
+  "arrhenius_windows": {
+   "all": null
+  },
+  "primary_fit": "'<window> (no framework melt)': weighted, melted temperatures excluded"
+ },
+ "generation_metadata": {
+  "iondiff_version": "0.1.0",
+  "created_utc": "2026-10-09T02:11:00+00:00",
+  "python": "3.10.10",
+  "numpy": "1.26.4",
+  "scipy": "1.15.3",
+  "ase": "3.24.0",
+  "pymatgen": "2025.4.24",
+  "manifest": "aimd_lyc.json"
+ },
+ "series": [
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "reader": "vasp_runs",
+   "run_dir_regex": "^RUN_(\\d+)$",
+   "min_run_index": 1,
+   "stride": 10,
+   "frame_interval_fs": 20,
+   "equilibration_frames": 500,
+   "segments": [],
+   "label": "AIMD (PBE)",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5",
+   "model_file": "VASP PBE",
+   "temperatures": [
+    {
+     "temperature_K": 500.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_1",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 0,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_2",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_3",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_4",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_5",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_6",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_7",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_8",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_9",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_10",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_11",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_12",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_13",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_14",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_15",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_16",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_17",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_18",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_19",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_20",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_21",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_22",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_23",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_24",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_25",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_26",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_27",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_28",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_29",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_30",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_31",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_32",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_33",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_34",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_35",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_36",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_37",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_38",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_39",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_40",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_41",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_42",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_43",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_44",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_45",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_46",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_47",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_48",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_49",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_50",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_51",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_52",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_53",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_54",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_55",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_56",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_57",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_58",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_59",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_60",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_61",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_62",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_63",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_64",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_65",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_66",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_67",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_68",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_69",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_70",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_71",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_72",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_73",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_74",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_75",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_76",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_77",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_78",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_79",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_80",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_81",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_82",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_83",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_84",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_85",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_86",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_87",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_88",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_89",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_90",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_91",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_92",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_93",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_94",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_95",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_96",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_97",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_98",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_99",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_100",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_101",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_102",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/500/RUN_103",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 20,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 203.98,
+     "n_frames_analyzed": 10200,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1362.6487125506185,
+     "max_framework_displacement_A": 1.4474932588414993,
+     "framework_single_atom_moved_4A": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.23406730028964562,
+     "mobile_msd_at_fit_end_A2": 30.332098019459366,
+     "max_msd_A2": 44.25518987589781,
+     "fit_ok": true,
+     "framework_melt_flag": false,
+     "fit_window_ps": [
+      25.82,
+      163.02
+     ],
+     "D_cm2_s": 2.882748329356089e-06,
+     "D_std_cm2_s": 1.4124587853978358e-06,
+     "D_rsd": 0.48996950965654795,
+     "n_jump": 58.106145455207034,
+     "D_components_cm2_s": [
+      2.126863879007806e-06,
+      8.015716816184381e-07,
+      5.719809427442031e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.1201722033545685e-06,
+      1.1055387407701827e-06,
+      3.355675492213794e-06
+     ],
+     "D_components_rsd": [
+      0.9968537358129571,
+      1.379213819702326,
+      0.5866761008005285
+     ],
+     "conductivity_mS_cm": 117.9999234182688,
+     "conductivity_std_mS_cm": 57.81636461675938,
+     "nernst_einstein_factor": 40933133.91829321
+    },
+    {
+     "temperature_K": 600.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_1",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 0,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_2",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_3",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_4",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_5",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_6",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_7",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_8",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_9",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_10",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_11",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_12",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_13",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_14",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_15",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_16",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_17",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_18",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_19",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_20",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_21",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_22",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_23",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_24",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_25",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_26",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_27",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_28",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_29",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_30",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_31",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_32",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_33",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_34",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_35",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_36",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_37",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_38",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_39",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_40",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_41",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_42",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_43",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_44",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_45",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_46",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_47",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_48",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_49",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_50",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_51",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_52",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_53",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_54",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_55",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_56",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_57",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_58",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_59",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_60",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_61",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_62",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_63",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_64",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_65",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_66",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_67",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_68",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_69",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_70",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_71",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_72",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_73",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_74",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_75",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_76",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_77",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_78",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_79",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_80",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_81",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_82",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_83",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_84",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_85",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_86",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_87",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_88",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_89",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_90",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_91",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_92",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_93",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_94",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_95",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_96",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_97",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_98",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/600/RUN_99",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 20,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 195.98,
+     "n_frames_analyzed": 9800,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1362.6487125506185,
+     "max_framework_displacement_A": 1.9681115965340301,
+     "framework_single_atom_moved_4A": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.2741604743912498,
+     "mobile_msd_at_fit_end_A2": 81.7406631535793,
+     "max_msd_A2": 107.03999302368355,
+     "fit_ok": true,
+     "framework_melt_flag": false,
+     "fit_window_ps": [
+      9.38,
+      156.62
+     ],
+     "D_cm2_s": 7.856584756431965e-06,
+     "D_std_cm2_s": 2.5874021891107858e-06,
+     "D_rsd": 0.3293291257365425,
+     "n_jump": 140.54128841385574,
+     "D_components_cm2_s": [
+      3.1181855609673313e-06,
+      3.205827819744425e-06,
+      1.724574088858415e-05
+     ],
+     "D_components_std_cm2_s": [
+      2.0772765995627318e-06,
+      2.2923774469575568e-06,
+      7.010031988897378e-06
+     ],
+     "D_components_rsd": [
+      0.6661812002356633,
+      0.7150656790857562,
+      0.40647902773128647
+     ],
+     "conductivity_mS_cm": 267.99552997954225,
+     "conductivity_std_mS_cm": 88.25873358946401,
+     "nernst_einstein_factor": 34110944.931911014
+    },
+    {
+     "temperature_K": 700.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_1",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 0,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_2",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_3",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_4",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_5",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_6",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_7",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_8",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_9",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_10",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_11",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_12",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_13",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_14",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_15",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_16",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_17",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_18",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_19",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_20",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_21",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_22",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_23",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_24",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_25",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_26",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_27",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_28",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_29",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_30",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_31",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_32",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_33",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_34",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_35",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_36",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_37",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_38",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_39",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_40",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_41",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_42",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_43",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_44",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_45",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_46",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_47",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_48",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_49",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_50",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_51",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_52",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_53",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_54",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_55",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_56",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_57",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_58",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_59",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_60",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_61",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_62",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_63",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_64",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_65",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_66",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_67",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_68",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_69",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_70",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_71",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_72",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_73",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_74",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_75",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_76",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_77",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_78",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_79",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_80",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_81",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_82",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_83",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_84",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_85",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_86",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_87",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_88",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_89",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_90",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_91",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_92",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_93",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_94",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/700/RUN_95",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 20,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 187.98,
+     "n_frames_analyzed": 9400,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1362.6487125506185,
+     "max_framework_displacement_A": 1.7941027902202618,
+     "framework_single_atom_moved_4A": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.3218502714935429,
+     "mobile_msd_at_fit_end_A2": 127.58790087807205,
+     "max_msd_A2": 139.02871123001665,
+     "fit_ok": true,
+     "framework_melt_flag": false,
+     "fit_window_ps": [
+      4.7,
+      150.32
+     ],
+     "D_cm2_s": 1.299215683572411e-05,
+     "D_std_cm2_s": 3.81801697169386e-06,
+     "D_rsd": 0.29387091150220596,
+     "n_jump": 182.54181125050332,
+     "D_components_cm2_s": [
+      1.2139102574961915e-05,
+      1.4724390789955737e-05,
+      1.2112977142254684e-05
+     ],
+     "D_components_std_cm2_s": [
+      5.985581571347039e-06,
+      6.680111182231323e-06,
+      5.608752280664674e-06
+     ],
+     "D_components_rsd": [
+      0.4930827080819702,
+      0.453676574978448,
+      0.4630366436587424
+     ],
+     "conductivity_mS_cm": 379.86406831725975,
+     "conductivity_std_mS_cm": 111.63100000332935,
+     "nernst_einstein_factor": 29237952.798780866
+    },
+    {
+     "temperature_K": 800.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_1",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 0,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_2",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_3",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_4",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_5",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_6",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_7",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_8",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_9",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_10",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_11",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_12",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_13",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_14",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_15",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_16",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_17",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_18",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_19",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_20",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_21",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_22",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_23",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_24",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_25",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_26",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_27",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_28",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_29",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_30",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_31",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_32",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_33",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_34",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_35",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_36",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_37",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_38",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_39",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_40",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_41",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_42",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_43",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_44",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_45",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_46",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_47",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_48",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_49",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_50",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_51",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_52",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_53",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_54",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_55",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_56",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_57",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_58",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_59",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_60",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_61",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/800/RUN_62",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 20,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 121.98,
+     "n_frames_analyzed": 6100,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1362.6487125506187,
+     "max_framework_displacement_A": 2.4026022553518755,
+     "framework_single_atom_moved_4A": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.3904752618998936,
+     "mobile_msd_at_fit_end_A2": 171.7024880627379,
+     "max_msd_A2": 219.81064443923214,
+     "fit_ok": true,
+     "framework_melt_flag": false,
+     "fit_window_ps": [
+      2.9,
+      97.46
+     ],
+     "D_cm2_s": 2.9401926044758395e-05,
+     "D_std_cm2_s": 7.112387585006492e-06,
+     "D_rsd": 0.24190209764419318,
+     "n_jump": 288.60681231298645,
+     "D_components_cm2_s": [
+      2.949739605138456e-05,
+      1.5113288623645931e-05,
+      4.359509345924469e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.1704254947007768e-05,
+      7.836905955938131e-06,
+      1.4060436003609275e-05
+     ],
+     "D_components_rsd": [
+      0.3967894293658639,
+      0.5185440542488333,
+      0.322523359578385
+     ],
+     "conductivity_mS_cm": 752.1956101536553,
+     "conductivity_std_mS_cm": 181.95769593492295,
+     "nernst_einstein_factor": 25583208.698933255
+    },
+    {
+     "temperature_K": 900.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_1",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 0,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_2",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_3",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_4",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_5",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_6",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_7",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_8",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_9",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_10",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_11",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_12",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_13",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_14",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_15",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_16",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_17",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_18",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_19",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_20",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_21",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_22",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_23",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_24",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_25",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_26",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_27",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_28",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_29",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_30",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_31",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_32",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_33",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_34",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      },
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5/900/RUN_35",
+       "chain": 0,
+       "n_frames": 101,
+       "frames_used": 100,
+       "simulated_time_ps": 2.0,
+       "continuation_of_previous": true
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 20,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 67.98,
+     "n_frames_analyzed": 3400,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1362.648712550619,
+     "max_framework_displacement_A": 3.4678058588806944,
+     "framework_single_atom_moved_4A": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4924787836729071,
+     "mobile_msd_at_fit_end_A2": 133.31953850283762,
+     "max_msd_A2": 165.15897335936472,
+     "fit_ok": true,
+     "framework_melt_flag": false,
+     "fit_window_ps": [
+      2.06,
+      54.32
+     ],
+     "D_cm2_s": 4.173094739134089e-05,
+     "D_std_cm2_s": 1.1389374038795466e-05,
+     "D_rsd": 0.27292392698371243,
+     "n_jump": 216.8503028947228,
+     "D_components_cm2_s": [
+      3.642985736247018e-05,
+      2.7305892994229415e-05,
+      6.145709181732309e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.8233044137472573e-05,
+      1.3755732232699614e-05,
+      2.2289678018710867e-05
+     ],
+     "D_components_rsd": [
+      0.5004972694802847,
+      0.5037642327100098,
+      0.36268683335953117
+     ],
+     "conductivity_mS_cm": 948.9880322816692,
+     "conductivity_std_mS_cm": 259.0015404308592,
+     "nernst_einstein_factor": 22740629.95460733
+    }
+   ],
+   "arrhenius": {
+    "all (no framework melt)": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      500.0,
+      600.0,
+      700.0,
+      800.0,
+      900.0
+     ],
+     "n_points": 5,
+     "status": "ok",
+     "Ea_eV": 0.26543617505298184,
+     "Ea_std_eV": 0.0451304410882603,
+     "r_squared": 0.9894888538022932,
+     "slope": -1.3377911816527284,
+     "intercept": -2.894721749907396,
+     "D_300K_cm2_s": 4.425621937990124e-08,
+     "conductivity_300K_mS_cm": 3.0192429243247685,
+     "conductivity_300K_range_mS_cm": [
+      0.45425822370563623,
+      20.06750205141546
+     ],
+     "volume_for_extrapolation_A3": 1362.6487125506185
+    },
+    "all": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      500.0,
+      600.0,
+      700.0,
+      800.0,
+      900.0
+     ],
+     "n_points": 5,
+     "status": "ok",
+     "Ea_eV": 0.26543617505298184,
+     "Ea_std_eV": 0.0451304410882603,
+     "r_squared": 0.9894888538022932,
+     "slope": -1.3377911816527284,
+     "intercept": -2.894721749907396,
+     "D_300K_cm2_s": 4.425621937990124e-08,
+     "conductivity_300K_mS_cm": 3.0192429243247685,
+     "conductivity_300K_range_mS_cm": [
+      0.45425822370563623,
+      20.06750205141546
+     ],
+     "volume_for_extrapolation_A3": 1362.6487125506185
+    },
+    "all (unweighted)": {
+     "temperature_window_K": null,
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      500.0,
+      600.0,
+      700.0,
+      800.0,
+      900.0
+     ],
+     "n_points": 5,
+     "status": "ok",
+     "Ea_eV": 0.25957329694311276,
+     "Ea_std_eV": 0.015059780504218469,
+     "r_squared": 0.990002877906795,
+     "slope": -1.308242433698829,
+     "intercept": -2.937546351401969,
+     "D_300K_cm2_s": 5.030898278578856e-08,
+     "conductivity_300K_mS_cm": 3.4321738827729855,
+     "conductivity_300K_range_mS_cm": [
+      1.8087211825241025,
+      6.512787971637533
+     ],
+     "volume_for_extrapolation_A3": 1362.6487125506185
+    }
+   }
+  }
+ ]
+}

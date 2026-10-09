@@ -1,0 +1,176 @@
+{
+ "study": "chgnet_lyc_finetuned_nvt",
+ "description": "Li15Y7Cl36 (58 atoms), CHGNet MolecularDynamics NVT, 1 fs, 400,000 steps, pretrained vs fine-tuned CHGNet models (training data described in each label).",
+ "specie": "Li",
+ "charge": 1,
+ "site_distance": 3.38,
+ "arrhenius_windows": {
+  "all": null,
+  "500-1000K": [
+   500,
+   1000
+  ]
+ },
+ "series": [
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "CHGNet (pretrained)",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_new",
+   "model_file": "CHGNet.load() default"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: first 7,980 frames (900 K block), 10 epochs",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/10_epochs/09-26-2024/bestE_epoch9_e1_f35_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: first 7,980 frames (900 K block), 200 epochs",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/200_epochs/09-27-2024/bestE_epoch197_e1_f15_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: first 15,960 frames (900 K block), 10 epochs",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_25_itter",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/25_itteration_10_epochs/09-29-2024/bestE_epoch7_e1_f33_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: first 15,960 frames (900 K block), 20 epochs",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/25_itteration_20epoch",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/25_itteration_20_epochs/11-16-2024/bestE_epoch19_e1_f29_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: first 30,693 frames (900 K block), 10 epochs",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_new",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/13_itteration_10_epochs/09-30-2024/bestE_epoch7_e1_f32_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: energy-histogram 8,121 frames, batch 8",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/histogram_8000_first_try",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/histogram_8000-first-try/11-19-2024/bestE_epoch9_e1_f31_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: energy-histogram 16,279 frames, batch 8",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/histogram_16000_first_try",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/histogram_16000-first-try/11-19-2024/bestE_epoch7_e1_f29_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: energy-histogram 16,279 frames, batch 16",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/histogram_16000_first_try_batch_16",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/different_batch_sizes/histogram_16000-first-try_batch_16/12-19-2024/bestE_epoch9_e1_f30_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: energy-histogram 16,279 frames, batch 32",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/histogram_16000_first_try_batch_32",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/different_batch_sizes/histogram_16000-first-try_batch_32/12-19-2024/bestE_epoch9_e1_f32_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: energy-histogram 30,000 frames, batch 8",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_histogram_total",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/histogram_Total/11-13-2024/bestE_epoch9_e1_f27_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: energy-histogram 30,222 frames, batch 8",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/histogram_total_new",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/histogram_Total_new/11-19-2024/bestE_epoch9_e1_f27_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: energy-histogram 30,222 frames, batch 16",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/histogram_Total_first_try_batch_16",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/different_batch_sizes/histogram_Total_new_16/12-22-2024/bestE_epoch8_e1_f29_sNA_mNA.pth.tar"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT: energy-histogram 30,222 frames, batch 32",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/histogram_Total_first_try_batch_32",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/different_batch_sizes/histogram_Total_new_32/12-22-2024/bestE_epoch9_e1_f30_sNA_mNA.pth.tar"
+  }
+ ],
+ "fit": {
+  "lower_bound_in_a_square": 0.5,
+  "upper_bound": 0.8,
+  "minimum_msd_diff_in_a_square": 0.5,
+  "time_intervals_number": 1000
+ }
+}

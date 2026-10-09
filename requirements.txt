@@ -1,0 +1,12 @@
+# Analysis notebooks (read results/ only)
+numpy
+scipy
+pandas
+matplotlib
+jupyter
+# Re-running the analysis from raw trajectories (scripts/run_study.py) additionally needs:
+# ase
+# pymatgen          (tests/validate_against_original.py and scripts/na2o_path_equivalence.py)
+# Parity predictions need the model's own package, in its own environment:
+# mace-torch        (MACE models)
+# chgnet            (CHGNet models)

@@ -1,0 +1,5008 @@
+{
+ "schema_version": "1.0",
+ "study": "mace_20258_ft_vs_mpa0_vs_scratch",
+ "description": "Na9Y6Si3P9O42 (69 atoms): MACE fine-tuned from MACE-MPA-0 vs MACE-MPA-0 vs MACE trained from scratch. NVT, 1 fs, 400,000 steps, 29 temperatures 300-1000 K.",
+ "units": {
+  "D": "cm^2/s",
+  "conductivity": "mS/cm",
+  "time": "ps",
+  "msd": "A^2",
+  "Ea": "eV",
+  "volume": "A^3",
+  "temperature": "K"
+ },
+ "method": {
+  "reference": "X. He, Y. Zhu, A. Epstein, Y. Mo, npj Comput. Mater. 4, 18 (2018)",
+  "msd": "FFT time-averaged MSD, framework centre-of-mass drift removed",
+  "D_error": "RSD = 3.43/sqrt(N_jump) + 0.04, D_std = RSD * D",
+  "arrhenius": "least squares on log10(D) vs 1000/T, weighted by sigma_log10D = log10(e)*D_std/D",
+  "stitching": "continuation runs concatenated after dropping their duplicated first frame; equilibration frames removed only from the start of each chain",
+  "specie": "Na",
+  "charge": 1,
+  "site_distance_A": 3.38,
+  "fit": {
+   "lower_bound_in_a_square": 0.5,
+   "upper_bound": 0.8,
+   "minimum_msd_diff_in_a_square": 0.5,
+   "time_intervals_number": 1000
+  },
+  "arrhenius_windows": {
+   "all": null,
+   "769-1000K": [
+    769,
+    1000
+   ]
+  },
+  "primary_fit": "'<window> (no framework melt)': weighted, melted temperatures excluded",
+  "framework_melt_criterion": "framework melted if the time-averaged MSD of framework (non-mobile) atoms at the end of the fit window exceeds site_distance^2; the original single-atom check (any framework atom displaced > 4 A) is recorded as framework_single_atom_moved_4A"
+ },
+ "generation_metadata": {
+  "iondiff_version": "0.1.0",
+  "created_utc": "2026-10-09T01:46:04+00:00",
+  "python": "3.10.10",
+  "numpy": "1.26.4",
+  "scipy": "1.15.3",
+  "ase": "3.24.0",
+  "pymatgen": "2025.4.24",
+  "manifest": "mace_20258_ft_vs_mpa0_vs_scratch.json"
+ },
+ "series": [
+  {
+   "temperature_dir_regex": "^(\\d+)_NVT$",
+   "segments": [
+    "results_step_0/nvt_md.traj",
+    "results/nvt_md.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "MACE fine-tuned (from MPA-0)",
+   "root": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model",
+   "model_file": "MACE_env/jobs/20258_nvt_training/fine_tuning_improved_model/MACE_models/improved_20258_finetuned_compiled.model",
+   "temperatures": [
+    {
+     "temperature_K": 300.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/300_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/300_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.0051516704156187,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.07319895730859954,
+     "mobile_msd_at_fit_end_A2": 2.5332101232465223,
+     "max_msd_A2": 2.910850701841679,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 325.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/325_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/325_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.1364201951542507,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.08394322122421154,
+     "mobile_msd_at_fit_end_A2": 2.911680343802277,
+     "max_msd_A2": 4.248998506367965,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 350.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/350_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/350_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.0146014813683286,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.08903884437893508,
+     "mobile_msd_at_fit_end_A2": 3.657570366343558,
+     "max_msd_A2": 4.150763053494559,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 375.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/375_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/375_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.089435982863184,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.09448306275327446,
+     "mobile_msd_at_fit_end_A2": 9.418197344981694,
+     "max_msd_A2": 18.2589230763123,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 400.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/400_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/400_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.1560438349973237,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.10280081654359544,
+     "mobile_msd_at_fit_end_A2": 3.512736157598699,
+     "max_msd_A2": 5.379729501378911,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 425.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/425_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/425_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.7208957811596692,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.1730564956066375,
+     "mobile_msd_at_fit_end_A2": 6.041810710286267,
+     "max_msd_A2": 8.576206560625165,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 450.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/450_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/450_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.6513316839672016,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.17985784116998876,
+     "mobile_msd_at_fit_end_A2": 1.1382770586396216,
+     "max_msd_A2": 1.7494688943882795,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 475.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/475_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/475_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.5741948008422433,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.14516579919933176,
+     "mobile_msd_at_fit_end_A2": 10.103753972206084,
+     "max_msd_A2": 13.90359342501503,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 500.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/500_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/500_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.2124752246198782,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.30775275873675434,
+     "mobile_msd_at_fit_end_A2": 11.14801921377812,
+     "max_msd_A2": 11.317457249951444,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 525.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/525_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/525_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.3602234126900292,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.1572583135838003,
+     "mobile_msd_at_fit_end_A2": 16.74467781908696,
+     "max_msd_A2": 17.812362462052754,
+     "fit_ok": true,
+     "fit_window_ps": [
+      59.8,
+      311.8
+     ],
+     "D_cm2_s": 7.4449856618375e-07,
+     "D_std_cm2_s": 7.114789620872366e-07,
+     "D_rsd": 0.9556485323191826,
+     "n_jump": 14.032357249262526,
+     "D_components_cm2_s": [
+      2.2027650283840894e-07,
+      7.75087975240657e-08,
+      1.935710398188775e-06
+     ],
+     "D_components_std_cm2_s": [
+      5.218959816606892e-07,
+      1.6140453333228354e-07,
+      2.2097369184247617e-06
+     ],
+     "D_components_rsd": [
+      2.3692766815148825,
+      2.082402752825175,
+      1.1415638002938822
+     ],
+     "conductivity_mS_cm": 22.118458127339114,
+     "conductivity_std_mS_cm": 21.137472046554922,
+     "nernst_einstein_factor": 29709201.77955057,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 550.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/550_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/550_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.6206956970146067,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.1583554504566383,
+     "mobile_msd_at_fit_end_A2": 34.28180312666571,
+     "max_msd_A2": 48.29901001549102,
+     "fit_ok": true,
+     "fit_window_ps": [
+      32.8,
+      311.8
+     ],
+     "D_cm2_s": 1.7941134215400995e-06,
+     "D_std_cm2_s": 1.0693964795581175e-06,
+     "D_rsd": 0.596058458021081,
+     "n_jump": 38.049358403016285,
+     "D_components_cm2_s": [
+      3.266832627689645e-06,
+      5.050451350714222e-07,
+      1.6104625018592288e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.591079043216176e-06,
+      5.973327220338724e-07,
+      1.8271936198188146e-06
+     ],
+     "D_components_rsd": [
+      0.793147166847243,
+      1.182731365087596,
+      1.1345769415365936
+     ],
+     "conductivity_mS_cm": 50.87887412611947,
+     "conductivity_std_mS_cm": 30.32678325746345,
+     "nernst_einstein_factor": 28358783.516843725,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 575.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/575_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/575_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.9371890664844182,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.383711681522713,
+     "mobile_msd_at_fit_end_A2": 8.511847755231626,
+     "max_msd_A2": 9.722497447466505,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 600.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/600_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/600_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.1014933062556556,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.6736916897329056,
+     "mobile_msd_at_fit_end_A2": 24.445413481625575,
+     "max_msd_A2": 29.335039679964797,
+     "fit_ok": true,
+     "fit_window_ps": [
+      40.0,
+      311.8
+     ],
+     "D_cm2_s": 1.0357458956312808e-06,
+     "D_std_cm2_s": 7.804383578678949e-07,
+     "D_rsd": 0.7535036934828716,
+     "n_jump": 23.109778817240574,
+     "D_components_cm2_s": [
+      1.2576115283716875e-06,
+      1.0005087596534881e-06,
+      8.491173988686658e-07
+     ],
+     "D_components_std_cm2_s": [
+      1.519322046125381e-06,
+      1.2537243278698954e-06,
+      1.077277766956878e-06
+     ],
+     "D_components_rsd": [
+      1.208101239412577,
+      1.2530868078597381,
+      1.2687029713349474
+     ],
+     "conductivity_mS_cm": 26.924785829944664,
+     "conductivity_std_mS_cm": 20.28792556909859,
+     "nernst_einstein_factor": 25995551.55710675,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 625.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/625_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/625_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.061567068867477,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.2480675292199845,
+     "mobile_msd_at_fit_end_A2": 24.262738823792276,
+     "max_msd_A2": 39.6235856204155,
+     "fit_ok": true,
+     "fit_window_ps": [
+      36.4,
+      311.8
+     ],
+     "D_cm2_s": 1.1130667640289396e-06,
+     "D_std_cm2_s": 7.278580299453257e-07,
+     "D_rsd": 0.6539212682181942,
+     "n_jump": 31.214967139082972,
+     "D_components_cm2_s": [
+      4.2643336774019877e-07,
+      9.124448653399161e-07,
+      2.0003220590067032e-06
+     ],
+     "D_components_std_cm2_s": [
+      6.252753567706315e-07,
+      9.682748663114303e-07,
+      1.9039788785047744e-06
+     ],
+     "D_components_rsd": [
+      1.466290877011237,
+      1.0611872597372947,
+      0.951836165547377
+     ],
+     "conductivity_mS_cm": 27.777393072783617,
+     "conductivity_std_mS_cm": 18.164228105949945,
+     "nernst_einstein_factor": 24955729.494822476,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 650.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/650_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/650_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.945518250942618,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.46885254223939665,
+     "mobile_msd_at_fit_end_A2": 31.721261067894268,
+     "max_msd_A2": 42.78706154615472,
+     "fit_ok": true,
+     "fit_window_ps": [
+      30.4,
+      311.8
+     ],
+     "D_cm2_s": 1.6825503988634491e-06,
+     "D_std_cm2_s": 1.0613364217578154e-06,
+     "D_rsd": 0.6307902708143189,
+     "n_jump": 33.70711406423029,
+     "D_components_cm2_s": [
+      1.486134548399102e-06,
+      1.4067099587976305e-06,
+      2.1548066893936146e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.8212454173578373e-06,
+      1.767449881625932e-06,
+      1.7227709199150934e-06
+     ],
+     "D_components_rsd": [
+      1.2254916079568463,
+      1.2564422897358598,
+      0.7995013791236648
+     ],
+     "conductivity_mS_cm": 40.37430059177105,
+     "conductivity_std_mS_cm": 25.46771600422198,
+     "nernst_einstein_factor": 23995893.74502161,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 675.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/675_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/675_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.0872273888721953,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.6280867035737878,
+     "mobile_msd_at_fit_end_A2": 61.034369476301926,
+     "max_msd_A2": 86.95168208359507,
+     "fit_ok": true,
+     "fit_window_ps": [
+      27.7,
+      311.8
+     ],
+     "D_cm2_s": 3.3200174749714405e-06,
+     "D_std_cm2_s": 1.5087135953706584e-06,
+     "D_rsd": 0.45442941392458686,
+     "n_jump": 68.49945194078951,
+     "D_components_cm2_s": [
+      2.208269267915772e-06,
+      3.2961184312093803e-06,
+      4.455664725789168e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.8445489573408644e-06,
+      2.5551383467015287e-06,
+      2.9902388376696214e-06
+     ],
+     "D_components_rsd": [
+      0.8352916848232927,
+      0.7751961587630277,
+      0.6711094801101767
+     ],
+     "conductivity_mS_cm": 76.71616483654705,
+     "conductivity_std_mS_cm": 34.86208182521407,
+     "nernst_einstein_factor": 23107156.93965044,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 700.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/700_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/700_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.1677873184737217,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.49037928099815,
+     "mobile_msd_at_fit_end_A2": 33.19968483279047,
+     "max_msd_A2": 66.78029510158053,
+     "fit_ok": true,
+     "fit_window_ps": [
+      20.8,
+      311.8
+     ],
+     "D_cm2_s": 1.7375464319916863e-06,
+     "D_std_cm2_s": 8.911801571588562e-07,
+     "D_rsd": 0.5128957366263466,
+     "n_jump": 52.60868456235994,
+     "D_components_cm2_s": [
+      5.47111146240523e-07,
+      3.6088984778185305e-06,
+      1.0566296719160082e-06
+     ],
+     "D_components_std_cm2_s": [
+      4.918562345175285e-07,
+      2.5772552671806907e-06,
+      1.079187266552182e-06
+     ],
+     "D_components_rsd": [
+      0.8990060573565739,
+      0.7141390324558432,
+      1.0213486287918354
+     ],
+     "conductivity_mS_cm": 38.71583816203436,
+     "conductivity_std_mS_cm": 19.857188333223036,
+     "nernst_einstein_factor": 22281901.334662925,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 725.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/725_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/725_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.1362165172875343,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4943359169434887,
+     "mobile_msd_at_fit_end_A2": 72.64318131340926,
+     "max_msd_A2": 126.0661022363106,
+     "fit_ok": true,
+     "fit_window_ps": [
+      19.3,
+      311.8
+     ],
+     "D_cm2_s": 3.4376570959630574e-06,
+     "D_std_cm2_s": 1.3206921056708731e-06,
+     "D_rsd": 0.3841837823853348,
+     "n_jump": 99.3133048673712,
+     "D_components_cm2_s": [
+      3.0339570109013203e-06,
+      3.497374941422194e-06,
+      3.7816393355656566e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.8446849956406034e-06,
+      2.001804511668906e-06,
+      2.9435873137389504e-06
+     ],
+     "D_components_rsd": [
+      0.608012898341163,
+      0.5723734358475389,
+      0.7783892255549139
+     ],
+     "conductivity_mS_cm": 73.95624188173366,
+     "conductivity_std_mS_cm": 28.412788737129148,
+     "nernst_einstein_factor": 21513559.90932972,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 750.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/750_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/750_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.275963310559675,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4474435949478213,
+     "mobile_msd_at_fit_end_A2": 24.217511594942906,
+     "max_msd_A2": 40.19171364100152,
+     "fit_ok": true,
+     "fit_window_ps": [
+      22.3,
+      311.8
+     ],
+     "D_cm2_s": 9.422207823989509e-07,
+     "D_std_cm2_s": 6.120353368034356e-07,
+     "D_rsd": 0.6495667981820108,
+     "n_jump": 31.66253131621912,
+     "D_components_cm2_s": [
+      8.668765488775571e-07,
+      9.085845754161981e-07,
+      1.0512012229030974e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.1649134983123473e-06,
+      8.791196603637243e-07,
+      1.00382137437241e-06
+     ],
+     "D_components_rsd": [
+      1.3438055278121115,
+      0.9675705312970158,
+      0.9549278982002716
+     ],
+     "conductivity_mS_cm": 19.59483914162351,
+     "conductivity_std_mS_cm": 12.728156922115923,
+     "nernst_einstein_factor": 20796441.2456854,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 775.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/775_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/775_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.1232633816551916,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.423163217997835,
+     "mobile_msd_at_fit_end_A2": 65.25481993861305,
+     "max_msd_A2": 95.13064313372482,
+     "fit_ok": true,
+     "fit_window_ps": [
+      13.3,
+      311.8
+     ],
+     "D_cm2_s": 3.1648077738164935e-06,
+     "D_std_cm2_s": 1.3805321074667455e-06,
+     "D_rsd": 0.43621357318708154,
+     "n_jump": 74.94273556629,
+     "D_components_cm2_s": [
+      1.1624833287611023e-06,
+      3.5117186238913257e-06,
+      4.820221368797055e-06
+     ],
+     "D_components_std_cm2_s": [
+      9.47017707438544e-07,
+      2.7518856116103972e-06,
+      2.887977225915273e-06
+     ],
+     "D_components_rsd": [
+      0.8146505709013588,
+      0.7836293013023465,
+      0.5991378828802634
+     ],
+     "conductivity_mS_cm": 63.69361831167397,
+     "conductivity_std_mS_cm": 27.78402083294943,
+     "nernst_einstein_factor": 20125588.30227619,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 800.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/800_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/800_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.142334181883353,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4689331938669504,
+     "mobile_msd_at_fit_end_A2": 86.9065371868158,
+     "max_msd_A2": 97.1521565442164,
+     "fit_ok": true,
+     "fit_window_ps": [
+      13.6,
+      311.8
+     ],
+     "D_cm2_s": 4.581989857393884e-06,
+     "D_std_cm2_s": 1.979739241862106e-06,
+     "D_rsd": 0.43206975647653006,
+     "n_jump": 76.53525864797693,
+     "D_components_cm2_s": [
+      3.579007695301624e-06,
+      1.5455500146255565e-06,
+      8.62141186225447e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.893903685673369e-06,
+      1.3070922235555825e-06,
+      4.955135695897609e-06
+     ],
+     "D_components_rsd": [
+      0.8085771062946773,
+      0.84571331318078,
+      0.5747475906576
+     ],
+     "conductivity_mS_cm": 89.33351517901718,
+     "conductivity_std_mS_cm": 38.59831014859036,
+     "nernst_einstein_factor": 19496663.66783006,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 825.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/825_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/825_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 3.4508569076233697,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.7178777526513148,
+     "mobile_msd_at_fit_end_A2": 141.5860921665693,
+     "max_msd_A2": 170.12507330227515,
+     "fit_ok": true,
+     "fit_window_ps": [
+      11.8,
+      311.8
+     ],
+     "D_cm2_s": 7.108824593343115e-06,
+     "D_std_cm2_s": 2.390570408134653e-06,
+     "D_rsd": 0.3362820923128761,
+     "n_jump": 134.02241340643505,
+     "D_components_cm2_s": [
+      8.921490387784834e-06,
+      5.94855793531988e-06,
+      6.456425456924624e-06
+     ],
+     "D_components_std_cm2_s": [
+      4.629109526432961e-06,
+      3.307811155614371e-06,
+      3.670951488990468e-06
+     ],
+     "D_components_rsd": [
+      0.5188717720047163,
+      0.5560694191064469,
+      0.5685733558734596
+     ],
+     "conductivity_mS_cm": 134.39841180122133,
+     "conductivity_std_mS_cm": 45.19577912404225,
+     "nernst_einstein_factor": 18905855.677895814,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 850.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/850_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/850_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.2559738205216884,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4395887928621199,
+     "mobile_msd_at_fit_end_A2": 61.00246953669787,
+     "max_msd_A2": 88.3083630843979,
+     "fit_ok": true,
+     "fit_window_ps": [
+      10.3,
+      311.8
+     ],
+     "D_cm2_s": 2.6195450813233955e-06,
+     "D_std_cm2_s": 1.1820268979619818e-06,
+     "D_rsd": 0.4512336536559322,
+     "n_jump": 69.56822833230464,
+     "D_components_cm2_s": [
+      3.779284455729974e-06,
+      3.0678655060441125e-06,
+      1.011485282196096e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.3912240573771715e-06,
+      2.016967175425872e-06,
+      1.1796930042055534e-06
+     ],
+     "D_components_rsd": [
+      0.6327187290048278,
+      0.6574496735440886,
+      1.1662977454741128
+     ],
+     "conductivity_mS_cm": 48.06813121249956,
+     "conductivity_std_mS_cm": 21.68995847142893,
+     "nernst_einstein_factor": 18349801.099134173,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 875.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/875_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/875_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.3520885349046066,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.5327840940847044,
+     "mobile_msd_at_fit_end_A2": 84.76333362908015,
+     "max_msd_A2": 134.49456286936098,
+     "fit_ok": true,
+     "fit_window_ps": [
+      7.6,
+      311.8
+     ],
+     "D_cm2_s": 4.516146935725451e-06,
+     "D_std_cm2_s": 1.6855376410116588e-06,
+     "D_rsd": 0.37322471234893567,
+     "n_jump": 105.95314115614379,
+     "D_components_cm2_s": [
+      4.308961907261603e-06,
+      3.8144640354035673e-06,
+      5.425014864511177e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.998507490373014e-06,
+      2.5044759403452323e-06,
+      2.690454581019478e-06
+     ],
+     "D_components_rsd": [
+      0.6958770012145689,
+      0.656573483745079,
+      0.49593496943568327
+     ],
+     "conductivity_mS_cm": 80.50267234773985,
+     "conductivity_std_mS_cm": 30.045586730305825,
+     "nernst_einstein_factor": 17825521.06773034,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 900.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/900_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/900_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.2116155765018464,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.48761190503893015,
+     "mobile_msd_at_fit_end_A2": 136.18038771570843,
+     "max_msd_A2": 209.21318026253923,
+     "fit_ok": true,
+     "fit_window_ps": [
+      6.1,
+      311.8
+     ],
+     "D_cm2_s": 7.218097637813475e-06,
+     "D_std_cm2_s": 2.217215708963328e-06,
+     "D_rsd": 0.3071745243993364,
+     "n_jump": 164.81553712780132,
+     "D_components_cm2_s": [
+      1.3355438610779453e-05,
+      3.905188787267234e-06,
+      4.3936655153937275e-06
+     ],
+     "D_components_std_cm2_s": [
+      5.8943084170129265e-06,
+      1.8115530212394843e-06,
+      2.8459005416700262e-06
+     ],
+     "D_components_rsd": [
+      0.4413414331638279,
+      0.4638835969072751,
+      0.6477280830092952
+     ],
+     "conductivity_mS_cm": 125.09228619200708,
+     "conductivity_std_mS_cm": 38.42516351705545,
+     "nernst_einstein_factor": 17330367.70473783,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 925.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/925_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/925_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.368275786422039,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4650020522475191,
+     "mobile_msd_at_fit_end_A2": 121.80949921876852,
+     "max_msd_A2": 153.50018744152123,
+     "fit_ok": true,
+     "fit_window_ps": [
+      6.1,
+      311.8
+     ],
+     "D_cm2_s": 6.587166614045115e-06,
+     "D_std_cm2_s": 2.3181172985595387e-06,
+     "D_rsd": 0.3519141740876667,
+     "n_jump": 120.92553543063016,
+     "D_components_cm2_s": [
+      8.600105666339528e-06,
+      7.171772694521007e-06,
+      3.989621481274812e-06
+     ],
+     "D_components_std_cm2_s": [
+      4.583374892593288e-06,
+      4.013407586749633e-06,
+      2.6836198292718856e-06
+     ],
+     "D_components_rsd": [
+      0.5329440207383074,
+      0.5596116549839542,
+      0.6726502355843499
+     ],
+     "conductivity_mS_cm": 111.07266767394295,
+     "conductivity_std_mS_cm": 39.08804610818951,
+     "nernst_einstein_factor": 16861979.388393562,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 950.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/950_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/950_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.838638949226065,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.49186782768488424,
+     "mobile_msd_at_fit_end_A2": 241.03567221586886,
+     "max_msd_A2": 296.092373163474,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.9,
+      311.8
+     ],
+     "D_cm2_s": 1.2609190212819614e-05,
+     "D_std_cm2_s": 3.3361713510911444e-06,
+     "D_rsd": 0.26458252233353563,
+     "n_jump": 233.25788299352843,
+     "D_components_cm2_s": [
+      1.266696421074813e-05,
+      8.016184650364949e-06,
+      1.7144421777345753e-05
+     ],
+     "D_components_std_cm2_s": [
+      5.685582326240723e-06,
+      4.531638632749157e-06,
+      5.9417235017564155e-06
+     ],
+     "D_components_rsd": [
+      0.44885121893818974,
+      0.5653111586623504,
+      0.34656890613876945
+     ],
+     "conductivity_mS_cm": 207.02075006571667,
+     "conductivity_std_mS_cm": 54.77407222776778,
+     "nernst_einstein_factor": 16418243.088698998,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 975.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/975_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/975_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.532919282792165,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4686179585324426,
+     "mobile_msd_at_fit_end_A2": 176.36405608592185,
+     "max_msd_A2": 220.22375028401146,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.9,
+      311.8
+     ],
+     "D_cm2_s": 8.083348808456384e-06,
+     "D_std_cm2_s": 2.428317996296582e-06,
+     "D_rsd": 0.30040989864945583,
+     "n_jump": 173.48952702602355,
+     "D_components_cm2_s": [
+      3.6234978003284165e-06,
+      1.2496557384874897e-05,
+      8.12999124016584e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.570645620888261e-06,
+      4.825964848952416e-06,
+      4.29281332526046e-06
+     ],
+     "D_components_rsd": [
+      0.709437610436874,
+      0.38618354642163144,
+      0.5280218881481713
+     ],
+     "conductivity_mS_cm": 129.31145274111097,
+     "conductivity_std_mS_cm": 38.84644041217105,
+     "nernst_einstein_factor": 15997262.496681076,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 1000.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/1000_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_finetuned_model/1000_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.170136283988544,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4859147928145059,
+     "mobile_msd_at_fit_end_A2": 215.47841561754433,
+     "max_msd_A2": 262.5820469467148,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.3,
+      311.8
+     ],
+     "D_cm2_s": 1.1205887086465233e-05,
+     "D_std_cm2_s": 3.1206467432766224e-06,
+     "D_rsd": 0.2784827938384121,
+     "n_jump": 206.85886545642953,
+     "D_components_cm2_s": [
+      2.4111906784449808e-05,
+      7.428271065724949e-06,
+      2.0774834092209556e-06
+     ],
+     "D_components_std_cm2_s": [
+      8.271496249618683e-06,
+      4.4329987262934075e-06,
+      1.1612626534469473e-06
+     ],
+     "D_components_rsd": [
+      0.343046127523731,
+      0.5967739581755256,
+      0.5589756569379363
+     ],
+     "conductivity_mS_cm": 174.7819292995942,
+     "conductivity_std_mS_cm": 48.67375998381882,
+     "nernst_einstein_factor": 15597330.934264047,
+     "framework_single_atom_moved_4A": false
+    }
+   ],
+   "arrhenius": {
+    "all (no framework melt)": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      525.0,
+      550.0,
+      600.0,
+      625.0,
+      650.0,
+      675.0,
+      700.0,
+      725.0,
+      750.0,
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 19,
+     "status": "ok",
+     "Ea_eV": 0.2615848431711329,
+     "Ea_std_eV": 0.03873896331130783,
+     "r_squared": 0.7014307244114155,
+     "slope": -1.318380572574568,
+     "intercept": -3.6929617481220967,
+     "D_300K_cm2_s": 8.174032183041081e-09,
+     "conductivity_300K_mS_cm": 0.4249769500873885,
+     "conductivity_300K_range_mS_cm": [
+      0.08612117649868808,
+      2.097107998847758
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "all": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      525.0,
+      550.0,
+      600.0,
+      625.0,
+      650.0,
+      675.0,
+      700.0,
+      725.0,
+      750.0,
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 19,
+     "status": "ok",
+     "Ea_eV": 0.2615848431711329,
+     "Ea_std_eV": 0.03873896331130783,
+     "r_squared": 0.7014307244114155,
+     "slope": -1.318380572574568,
+     "intercept": -3.6929617481220967,
+     "D_300K_cm2_s": 8.174032183041081e-09,
+     "conductivity_300K_mS_cm": 0.4249769500873885,
+     "conductivity_300K_range_mS_cm": [
+      0.08612117649868808,
+      2.097107998847758
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "all (unweighted)": {
+     "temperature_window_K": null,
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      525.0,
+      550.0,
+      600.0,
+      625.0,
+      650.0,
+      675.0,
+      700.0,
+      725.0,
+      750.0,
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 19,
+     "status": "ok",
+     "Ea_eV": 0.23616841204051459,
+     "Ea_std_eV": 0.03568468855430976,
+     "r_squared": 0.7203973838489971,
+     "slope": -1.1902824434147496,
+     "intercept": -3.902638750231857,
+     "D_300K_cm2_s": 1.3481962196874722e-08,
+     "conductivity_300K_mS_cm": 0.700942086759642,
+     "conductivity_300K_range_mS_cm": [
+      0.15766267086384353,
+      3.1162722685020414
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "769-1000K (no framework melt)": {
+     "temperature_window_K": [
+      769,
+      1000
+     ],
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 10,
+     "status": "ok",
+     "Ea_eV": 0.34510642801007246,
+     "Ea_std_eV": 0.10406903592772139,
+     "r_squared": 0.5663073335053397,
+     "slope": -1.7393271133122465,
+     "intercept": -3.2208269489334675,
+     "D_300K_cm2_s": 9.581113979769019e-10,
+     "conductivity_300K_mS_cm": 0.04981326848712035,
+     "conductivity_300K_range_mS_cm": [
+      0.0007152544476780041,
+      3.469201380607152
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "769-1000K": {
+     "temperature_window_K": [
+      769,
+      1000
+     ],
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 10,
+     "status": "ok",
+     "Ea_eV": 0.34510642801007246,
+     "Ea_std_eV": 0.10406903592772139,
+     "r_squared": 0.5663073335053397,
+     "slope": -1.7393271133122465,
+     "intercept": -3.2208269489334675,
+     "D_300K_cm2_s": 9.581113979769019e-10,
+     "conductivity_300K_mS_cm": 0.04981326848712035,
+     "conductivity_300K_range_mS_cm": [
+      0.0007152544476780041,
+      3.469201380607152
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "769-1000K (unweighted)": {
+     "temperature_window_K": [
+      769,
+      1000
+     ],
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 10,
+     "status": "ok",
+     "Ea_eV": 0.34395591091991295,
+     "Ea_std_eV": 0.1035651098277072,
+     "r_squared": 0.5796128285099056,
+     "slope": -1.7335285381284047,
+     "intercept": -3.251687029415507,
+     "D_300K_cm2_s": 9.330061579629632e-10,
+     "conductivity_300K_mS_cm": 0.04850801936484859,
+     "conductivity_300K_range_mS_cm": [
+      0.0007036064631247283,
+      3.3442386703650824
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    }
+   }
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)_NVT$",
+   "segments": [
+    "results_step_0/nvt_md.traj",
+    "results/nvt_md.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "MACE-MPA-0 (medium)",
+   "root": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model",
+   "model_file": "MACE_env/foundation_models/imporved_highpressure_accuracy_mace-mpa-0/mace-mpa-0-medium.model",
+   "temperatures": [
+    {
+     "temperature_K": 300.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/300_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/300_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.0747548574397585,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.07064345253706533,
+     "mobile_msd_at_fit_end_A2": 2.598677051094911,
+     "max_msd_A2": 2.766080081556282,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 325.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/325_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/325_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.0053032208084165,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.07530933561244829,
+     "mobile_msd_at_fit_end_A2": 1.8338599743988222,
+     "max_msd_A2": 3.764473557562565,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 350.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/350_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/350_NVT/results_step_0/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 3906,
+       "frames_used": 3806,
+       "simulated_time_ps": 390.5,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/350_NVT/results/nvt_md.traj",
+       "chain": 1,
+       "n_frames": 93,
+       "frames_used": 0,
+       "simulated_time_ps": 9.2,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 380.5,
+     "n_frames_analyzed": 3806,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.1265920162881806,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.08710963641571332,
+     "mobile_msd_at_fit_end_A2": 2.9646601105875376,
+     "max_msd_A2": 4.4663234646562655,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 375.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/375_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/375_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.3535050004609404,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.11642398796636556,
+     "mobile_msd_at_fit_end_A2": 5.171165455332644,
+     "max_msd_A2": 6.788658336126118,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 400.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/400_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/400_NVT/results_step_0/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 3220,
+       "frames_used": 3120,
+       "simulated_time_ps": 321.9,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/400_NVT/results/nvt_md.traj",
+       "chain": 1,
+       "n_frames": 780,
+       "frames_used": 680,
+       "simulated_time_ps": 77.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 2,
+     "analyzed_time_ps": 311.9,
+     "n_frames_analyzed": 3120,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.8274434164807,
+     "max_framework_displacement_A": 1.678085447019607,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.221880105122332,
+     "mobile_msd_at_fit_end_A2": 3.0734425545623236,
+     "max_msd_A2": 6.449851854509799,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 425.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/425_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/425_NVT/results_step_0/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 2773,
+       "frames_used": 2673,
+       "simulated_time_ps": 277.2,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/425_NVT/results/nvt_md.traj",
+       "chain": 1,
+       "n_frames": 1226,
+       "frames_used": 1126,
+       "simulated_time_ps": 122.5,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 2,
+     "analyzed_time_ps": 267.2,
+     "n_frames_analyzed": 2673,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.8274434164807,
+     "max_framework_displacement_A": 1.2487224279514677,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.0964111022781872,
+     "mobile_msd_at_fit_end_A2": 8.953686385810505,
+     "max_msd_A2": 10.46223427668665,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 450.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/450_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/450_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.480604913000125,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.12222037617652766,
+     "mobile_msd_at_fit_end_A2": 4.778299895565433,
+     "max_msd_A2": 8.248626028603367,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 475.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/475_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/475_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.256079702218059,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.1313363540596639,
+     "mobile_msd_at_fit_end_A2": 5.316355920113874,
+     "max_msd_A2": 5.99637452130551,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 500.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/500_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/500_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.5113917409340758,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.14287598988289088,
+     "mobile_msd_at_fit_end_A2": 22.681516320531866,
+     "max_msd_A2": 28.168073454558467,
+     "fit_ok": true,
+     "fit_window_ps": [
+      59.5,
+      311.8
+     ],
+     "D_cm2_s": 9.372505627327358e-07,
+     "D_std_cm2_s": 7.199335248905487e-07,
+     "D_rsd": 0.7681334677372109,
+     "n_jump": 22.19045736240207,
+     "D_components_cm2_s": [
+      9.359989115479456e-07,
+      1.1207122849385079e-06,
+      7.550404917117516e-07
+     ],
+     "D_components_std_cm2_s": [
+      1.4501334660538884e-06,
+      1.3006411347263858e-06,
+      9.24548852157097e-07
+     ],
+     "D_components_rsd": [
+      1.5492896927152109,
+      1.160548654820671,
+      1.2245023443193797
+     ],
+     "conductivity_mS_cm": 29.237214390535375,
+     "conductivity_std_mS_cm": 22.45808287677822,
+     "nernst_einstein_factor": 31194661.868528094,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 525.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/525_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/525_NVT/results_step_0/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 3125,
+       "frames_used": 3025,
+       "simulated_time_ps": 312.4,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/525_NVT/results/nvt_md.traj",
+       "chain": 1,
+       "n_frames": 875,
+       "frames_used": 775,
+       "simulated_time_ps": 87.4,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 2,
+     "analyzed_time_ps": 302.4,
+     "n_frames_analyzed": 3025,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.4628664223190282,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.1536436274524356,
+     "mobile_msd_at_fit_end_A2": 9.417183052733867,
+     "max_msd_A2": 19.08539591411625,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 550.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/550_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/550_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.617113944017345,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.1520500073106144,
+     "mobile_msd_at_fit_end_A2": 52.18147210583809,
+     "max_msd_A2": 55.834787554618885,
+     "fit_ok": true,
+     "fit_window_ps": [
+      26.2,
+      311.8
+     ],
+     "D_cm2_s": 2.437830412353616e-06,
+     "D_std_cm2_s": 1.3582970233449811e-06,
+     "D_rsd": 0.5571745337419128,
+     "n_jump": 43.9859500710383,
+     "D_components_cm2_s": [
+      7.00900327468205e-07,
+      1.3889508356296422e-06,
+      5.223640073963001e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.0471038075005681e-06,
+      1.574314414417527e-06,
+      3.473296746424156e-06
+     ],
+     "D_components_rsd": [
+      1.4939411018438538,
+      1.1334558243768618,
+      0.6649188491635646
+     ],
+     "conductivity_mS_cm": 69.13390491471407,
+     "conductivity_std_mS_cm": 38.51965123661355,
+     "nernst_einstein_factor": 28358783.516843725,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 575.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/575_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/575_NVT/results_step_0/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 3471,
+       "frames_used": 3371,
+       "simulated_time_ps": 347.0,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/575_NVT/results/nvt_md.traj",
+       "chain": 1,
+       "n_frames": 528,
+       "frames_used": 428,
+       "simulated_time_ps": 52.7,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 2,
+     "analyzed_time_ps": 337.0,
+     "n_frames_analyzed": 3371,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.8274434164807,
+     "max_framework_displacement_A": 1.820414989255077,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.34079346630702606,
+     "mobile_msd_at_fit_end_A2": 13.201306305222634,
+     "max_msd_A2": 20.066700030850694,
+     "fit_ok": true,
+     "fit_window_ps": [
+      78.1,
+      269.5
+     ],
+     "D_cm2_s": 6.328877017585606e-07,
+     "D_std_cm2_s": 5.712974047166388e-07,
+     "D_rsd": 0.9026836880053362,
+     "n_jump": 15.808296302445315,
+     "D_components_cm2_s": [
+      7.010834656821818e-07,
+      5.794221805352933e-07,
+      6.181574590582078e-07
+     ],
+     "D_components_std_cm2_s": [
+      1.0826374577382513e-06,
+      1.1083020929653224e-06,
+      7.752417496939775e-07
+     ],
+     "D_components_rsd": [
+      1.544234760528552,
+      1.9127712576370977,
+      1.2541169540768708
+     ],
+     "conductivity_mS_cm": 17.167580745311444,
+     "conductivity_std_mS_cm": 15.496895101307134,
+     "nernst_einstein_factor": 27125792.929154877,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 600.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/600_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/600_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.93551785401752,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.29797929237234905,
+     "mobile_msd_at_fit_end_A2": 11.977727207205938,
+     "max_msd_A2": 15.068571859294988,
+     "fit_ok": true,
+     "fit_window_ps": [
+      134.8,
+      311.8
+     ],
+     "D_cm2_s": 5.147412567596818e-07,
+     "D_std_cm2_s": 5.330290306601181e-07,
+     "D_rsd": 1.035528090395471,
+     "n_jump": 11.870833193310363,
+     "D_components_cm2_s": [
+      5.901966856468081e-07,
+      5.132631889784631e-07,
+      4.407638956537744e-07
+     ],
+     "D_components_std_cm2_s": [
+      9.680158152137138e-07,
+      9.061423740242954e-07,
+      8.466017981978329e-07
+     ],
+     "D_components_rsd": [
+      1.6401579994520747,
+      1.7654536570755666,
+      1.9207603130517055
+     ],
+     "conductivity_mS_cm": 13.38098287866623,
+     "conductivity_std_mS_cm": 13.856383647959733,
+     "nernst_einstein_factor": 25995551.55710675,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 625.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/625_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/625_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.301256098235501,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.34392919972569647,
+     "mobile_msd_at_fit_end_A2": 12.172147918031754,
+     "max_msd_A2": 13.727292041251225,
+     "fit_ok": true,
+     "fit_window_ps": [
+      128.5,
+      311.8
+     ],
+     "D_cm2_s": 6.035497907618188e-07,
+     "D_std_cm2_s": 6.536630068889361e-07,
+     "D_rsd": 1.0830307903244618,
+     "n_jump": 10.814189661711865,
+     "D_components_cm2_s": [
+      5.282731236339118e-07,
+      9.68648362697003e-07,
+      3.1372788595454175e-07
+     ],
+     "D_components_std_cm2_s": [
+      1.0726517992349647e-06,
+      1.3414875473522673e-06,
+      7.565192357200231e-07
+     ],
+     "D_components_rsd": [
+      2.0304871689408563,
+      1.3849066379642347,
+      2.411386649351408
+     ],
+     "conductivity_mS_cm": 15.062025314908656,
+     "conductivity_std_mS_cm": 16.312637180692573,
+     "nernst_einstein_factor": 24955729.494822476,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 650.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/650_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/650_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.1113424410561032,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4076472789947526,
+     "mobile_msd_at_fit_end_A2": 21.731507862395055,
+     "max_msd_A2": 28.245509399577024,
+     "fit_ok": true,
+     "fit_window_ps": [
+      38.2,
+      311.8
+     ],
+     "D_cm2_s": 9.494504146660169e-07,
+     "D_std_cm2_s": 7.283563423195017e-07,
+     "D_rsd": 0.7671346824106783,
+     "n_jump": 22.251460435225766,
+     "D_components_cm2_s": [
+      1.1551168912816496e-06,
+      1.2242877924914359e-06,
+      4.6894656022496553e-07
+     ],
+     "D_components_std_cm2_s": [
+      1.289633995347394e-06,
+      1.2589593627490307e-06,
+      8.567770203460997e-07
+     ],
+     "D_components_rsd": [
+      1.1164532395647786,
+      1.0283197876105894,
+      1.8270248531838726
+     ],
+     "conductivity_mS_cm": 22.78291126649245,
+     "conductivity_std_mS_cm": 17.47756139881135,
+     "nernst_einstein_factor": 23995893.74502161,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 675.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/675_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/675_NVT/results_step_0/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 3392,
+       "frames_used": 3292,
+       "simulated_time_ps": 339.1,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/675_NVT/results/nvt_md.traj",
+       "chain": 1,
+       "n_frames": 608,
+       "frames_used": 508,
+       "simulated_time_ps": 60.7,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 2,
+     "analyzed_time_ps": 329.1,
+     "n_frames_analyzed": 3292,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.1009057312657906,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.37183679651620855,
+     "mobile_msd_at_fit_end_A2": 45.52615076495775,
+     "max_msd_A2": 50.566262676608176,
+     "fit_ok": true,
+     "fit_window_ps": [
+      16.6,
+      262.9
+     ],
+     "D_cm2_s": 2.89407095684754e-06,
+     "D_std_cm2_s": 1.6885440495759837e-06,
+     "D_rsd": 0.5834494298008798,
+     "n_jump": 39.835471805037784,
+     "D_components_cm2_s": [
+      2.4406998251048537e-06,
+      2.610613627257663e-06,
+      3.6308994181801025e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.448232520265342e-06,
+      2.53893909980806e-06,
+      3.2655565441670404e-06
+     ],
+     "D_components_rsd": [
+      1.0030862849593414,
+      0.97254495008329,
+      0.8993795112627545
+     ],
+     "conductivity_mS_cm": 66.87375179436042,
+     "conductivity_std_mS_cm": 39.017452353065146,
+     "nernst_einstein_factor": 23107156.93965044,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 700.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/700_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/700_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.0352676392896396,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.36262848283391524,
+     "mobile_msd_at_fit_end_A2": 69.64419282921429,
+     "max_msd_A2": 112.22079885638954,
+     "fit_ok": true,
+     "fit_window_ps": [
+      19.9,
+      311.8
+     ],
+     "D_cm2_s": 3.741839317568116e-06,
+     "D_std_cm2_s": 1.514690451800492e-06,
+     "D_rsd": 0.4047983687297707,
+     "n_jump": 88.40614734318704,
+     "D_components_cm2_s": [
+      1.6149865836007585e-06,
+      7.341452951478328e-06,
+      2.2690784176252585e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.163977094978737e-06,
+      3.788723101738367e-06,
+      2.2408551738740227e-06
+     ],
+     "D_components_rsd": [
+      0.7207348387895242,
+      0.5160726530264615,
+      0.9875618032713152
+     ],
+     "conductivity_mS_cm": 83.37529448421522,
+     "conductivity_std_mS_cm": 33.75018319957457,
+     "nernst_einstein_factor": 22281901.334662925,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 725.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/725_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/725_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.0429373073800052,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4457510315256995,
+     "mobile_msd_at_fit_end_A2": 66.75990952297892,
+     "max_msd_A2": 70.74952071885558,
+     "fit_ok": true,
+     "fit_window_ps": [
+      16.3,
+      311.8
+     ],
+     "D_cm2_s": 3.8087522072514686e-06,
+     "D_std_cm2_s": 1.9022392184588553e-06,
+     "D_rsd": 0.4994389540062988,
+     "n_jump": 55.73559105683452,
+     "D_components_cm2_s": [
+      6.4724100798618246e-06,
+      2.2369036206852256e-06,
+      2.716942921207363e-06
+     ],
+     "D_components_std_cm2_s": [
+      4.308610622704277e-06,
+      2.1524296934054386e-06,
+      2.4287932116732662e-06
+     ],
+     "D_components_rsd": [
+      0.6656887572853324,
+      0.9622362239934548,
+      0.8939434070237855
+     ],
+     "conductivity_mS_cm": 81.93981879049628,
+     "conductivity_std_mS_cm": 40.92393738819113,
+     "nernst_einstein_factor": 21513559.90932972,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 750.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/750_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/750_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.9496433732335092,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4638285147361462,
+     "mobile_msd_at_fit_end_A2": 91.20640568143862,
+     "max_msd_A2": 107.95400774744411,
+     "fit_ok": true,
+     "fit_window_ps": [
+      15.1,
+      311.8
+     ],
+     "D_cm2_s": 4.326692595887159e-06,
+     "D_std_cm2_s": 1.7823277205047724e-06,
+     "D_rsd": 0.4119376824225984,
+     "n_jump": 85.04482246131063,
+     "D_components_cm2_s": [
+      1.7152401352472507e-06,
+      4.053448079746347e-06,
+      7.21138957266789e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.3295449326022841e-06,
+      2.917853255752168e-06,
+      3.903090905408668e-06
+     ],
+     "D_components_rsd": [
+      0.7751363236440542,
+      0.7198447342477763,
+      0.5412397799450321
+     ],
+     "conductivity_mS_cm": 89.97980835850935,
+     "conductivity_std_mS_cm": 37.066073720033884,
+     "nernst_einstein_factor": 20796441.2456854,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 775.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/775_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/775_NVT/results_step_0/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 3964,
+       "frames_used": 3864,
+       "simulated_time_ps": 396.3,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/775_NVT/results/nvt_md.traj",
+       "chain": 1,
+       "n_frames": 36,
+       "frames_used": 0,
+       "simulated_time_ps": 3.5,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 386.3,
+     "n_frames_analyzed": 3864,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.035757046542753,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4878657432291004,
+     "mobile_msd_at_fit_end_A2": 43.411492531738645,
+     "max_msd_A2": 45.13772419225114,
+     "fit_ok": true,
+     "fit_window_ps": [
+      13.6,
+      308.8
+     ],
+     "D_cm2_s": 1.958497077972751e-06,
+     "D_std_cm2_s": 1.2048696304708036e-06,
+     "D_rsd": 0.6152011376590715,
+     "n_jump": 35.55893681333465,
+     "D_components_cm2_s": [
+      1.321299830823176e-06,
+      1.446927556292167e-06,
+      3.1072638468029074e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.4367107678822646e-06,
+      1.6336282162069579e-06,
+      2.716034556273649e-06
+     ],
+     "D_components_rsd": [
+      1.0873465161856466,
+      1.1290324861828065,
+      0.8740920276429702
+     ],
+     "conductivity_mS_cm": 39.4159058824905,
+     "conductivity_std_mS_cm": 24.248710140771042,
+     "nernst_einstein_factor": 20125588.30227619,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 800.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/800_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/800_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.3734257705356354,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.44868897912902683,
+     "mobile_msd_at_fit_end_A2": 69.02418441801058,
+     "max_msd_A2": 99.5097022498326,
+     "fit_ok": true,
+     "fit_window_ps": [
+      12.1,
+      311.8
+     ],
+     "D_cm2_s": 3.097245417486918e-06,
+     "D_std_cm2_s": 1.323755054608425e-06,
+     "D_rsd": 0.4273975343169642,
+     "n_jump": 78.39250378562494,
+     "D_components_cm2_s": [
+      6.067518778354914e-06,
+      1.5165478134770556e-06,
+      1.707669660628787e-06
+     ],
+     "D_components_std_cm2_s": [
+      3.199514021841689e-06,
+      1.714747855050821e-06,
+      1.3123446919581532e-06
+     ],
+     "D_components_rsd": [
+      0.5273183551166813,
+      1.130691587704936,
+      0.7685003266234349
+     ],
+     "conductivity_mS_cm": 60.38595220147034,
+     "conductivity_std_mS_cm": 25.808807078290478,
+     "nernst_einstein_factor": 19496663.66783006,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 825.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/825_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/825_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.5227230660552946,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4184948816417807,
+     "mobile_msd_at_fit_end_A2": 99.22967856823425,
+     "max_msd_A2": 134.8683575394997,
+     "fit_ok": true,
+     "fit_window_ps": [
+      10.0,
+      311.8
+     ],
+     "D_cm2_s": 5.348534663499421e-06,
+     "D_std_cm2_s": 1.9937337789901802e-06,
+     "D_rsd": 0.372762617132545,
+     "n_jump": 106.24761194071439,
+     "D_components_cm2_s": [
+      9.380263964047057e-06,
+      4.456752422741667e-06,
+      2.2085876037095412e-06
+     ],
+     "D_components_std_cm2_s": [
+      4.78996639835547e-06,
+      2.6316802654904537e-06,
+      1.8009824006924504e-06
+     ],
+     "D_components_rsd": [
+      0.5106430284600295,
+      0.5904928108776388,
+      0.8154453088786346
+     ],
+     "conductivity_mS_cm": 101.11862443634311,
+     "conductivity_std_mS_cm": 37.693243085734174,
+     "nernst_einstein_factor": 18905855.677895814,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 850.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/850_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/850_NVT/results_step_0/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 2067,
+       "frames_used": 1967,
+       "simulated_time_ps": 206.6,
+       "continuation_of_previous": false
+      },
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/850_NVT/results/nvt_md.traj",
+       "chain": 1,
+       "n_frames": 1933,
+       "frames_used": 1833,
+       "simulated_time_ps": 193.2,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 2,
+     "analyzed_time_ps": 196.6,
+     "n_frames_analyzed": 1967,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.1742156658407517,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.47189577221734863,
+     "mobile_msd_at_fit_end_A2": 66.9377028256482,
+     "max_msd_A2": 83.209648871927,
+     "fit_ok": true,
+     "fit_window_ps": [
+      9.8,
+      157.2
+     ],
+     "D_cm2_s": 7.098697015598911e-06,
+     "D_std_cm2_s": 3.2912797806680096e-06,
+     "D_rsd": 0.4636456202364522,
+     "n_jump": 65.55152479319204,
+     "D_components_cm2_s": [
+      8.158924657632377e-06,
+      7.772235695697859e-06,
+      5.364930693466495e-06
+     ],
+     "D_components_std_cm2_s": [
+      5.665363691509572e-06,
+      5.642641291163053e-06,
+      4.873392589571781e-06
+     ],
+     "D_components_rsd": [
+      0.6943762725164806,
+      0.7259997653296086,
+      0.9083794121528321
+     ],
+     "conductivity_mS_cm": 130.25967829925736,
+     "conductivity_std_mS_cm": 60.394329336859926,
+     "nernst_einstein_factor": 18349801.099134173,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 875.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/875_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/875_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 3.6687471311536854,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 1.01079246951685,
+     "mobile_msd_at_fit_end_A2": 272.08016328716366,
+     "max_msd_A2": 347.3626356563421,
+     "fit_ok": true,
+     "fit_window_ps": [
+      9.4,
+      311.8
+     ],
+     "D_cm2_s": 1.6114951870536167e-05,
+     "D_std_cm2_s": 3.985986991117342e-06,
+     "D_rsd": 0.24734712353718766,
+     "n_jump": 273.647957083705,
+     "D_components_cm2_s": [
+      1.7312869204214727e-05,
+      2.8120678784359417e-05,
+      2.911307623034344e-06
+     ],
+     "D_components_std_cm2_s": [
+      6.250558827988824e-06,
+      9.222513692279786e-06,
+      2.2843964449446e-06
+     ],
+     "D_components_rsd": [
+      0.36103540980181137,
+      0.32796198708436947,
+      0.7846633680585295
+     ],
+     "conductivity_mS_cm": 287.25741407370293,
+     "conductivity_std_mS_cm": 71.05229508586126,
+     "nernst_einstein_factor": 17825521.06773034,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 900.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/900_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/900_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.906312733071766,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.49146655535418043,
+     "mobile_msd_at_fit_end_A2": 177.64072077994052,
+     "max_msd_A2": 238.14892470194303,
+     "fit_ok": true,
+     "fit_window_ps": [
+      6.1,
+      311.8
+     ],
+     "D_cm2_s": 7.932221367717828e-06,
+     "D_std_cm2_s": 2.3036585409536363e-06,
+     "D_rsd": 0.2904178330585874,
+     "n_jump": 187.61075612876718,
+     "D_components_cm2_s": [
+      7.798206178006761e-06,
+      9.821830713090237e-06,
+      6.176627212056494e-06
+     ],
+     "D_components_std_cm2_s": [
+      3.3424898500851717e-06,
+      4.446286749911846e-06,
+      3.2522132565443777e-06
+     ],
+     "D_components_rsd": [
+      0.4286229132427888,
+      0.4526942969996388,
+      0.5265354610030869
+     ],
+     "conductivity_mS_cm": 137.4683130179284,
+     "conductivity_std_mS_cm": 39.92324958088637,
+     "nernst_einstein_factor": 17330367.70473783,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 925.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/925_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/925_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 3.793102758815315,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.7684684412126788,
+     "mobile_msd_at_fit_end_A2": 202.61638333030712,
+     "max_msd_A2": 234.35199284999396,
+     "fit_ok": true,
+     "fit_window_ps": [
+      6.1,
+      311.8
+     ],
+     "D_cm2_s": 1.0341786027128776e-05,
+     "D_std_cm2_s": 3.0243342843602544e-06,
+     "D_rsd": 0.29243829609573835,
+     "n_jump": 184.6195805162587,
+     "D_components_cm2_s": [
+      9.55576613517833e-06,
+      9.634536360008377e-06,
+      1.1835055586199632e-05
+     ],
+     "D_components_std_cm2_s": [
+      4.429680299794566e-06,
+      4.477512706677354e-06,
+      5.845266458686235e-06
+     ],
+     "D_components_rsd": [
+      0.4635609784847355,
+      0.46473566961279916,
+      0.4938942969986687
+     ],
+     "conductivity_mS_cm": 174.38298282862198,
+     "conductivity_std_mS_cm": 50.996262366494605,
+     "nernst_einstein_factor": 16861979.388393562,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 950.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/950_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/950_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.1065713316620793,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4291669935363221,
+     "mobile_msd_at_fit_end_A2": 218.38946791139156,
+     "max_msd_A2": 269.077758040437,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.9,
+      311.8
+     ],
+     "D_cm2_s": 1.2141180817130658e-05,
+     "D_std_cm2_s": 3.3459472742486255e-06,
+     "D_rsd": 0.2755866438895008,
+     "n_jump": 211.97610573543759,
+     "D_components_cm2_s": [
+      1.4289828692106882e-05,
+      9.649273345513091e-06,
+      1.2484440413771991e-05
+     ],
+     "D_components_std_cm2_s": [
+      5.29790659156214e-06,
+      5.3873165433476465e-06,
+      5.6378543948634055e-06
+     ],
+     "D_components_rsd": [
+      0.37074668323270293,
+      0.5583131859201342,
+      0.45159047646573774
+     ],
+     "conductivity_mS_cm": 199.33685803950027,
+     "conductivity_std_mS_cm": 54.93457571058375,
+     "nernst_einstein_factor": 16418243.088698998,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 975.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/975_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/975_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.4389180787217772,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4482047822467207,
+     "mobile_msd_at_fit_end_A2": 205.10827763763368,
+     "max_msd_A2": 267.6965385411253,
+     "fit_ok": true,
+     "fit_window_ps": [
+      6.7,
+      311.8
+     ],
+     "D_cm2_s": 1.0169031356044892e-05,
+     "D_std_cm2_s": 2.808621722766291e-06,
+     "D_rsd": 0.27619363383088896,
+     "n_jump": 210.88799822048668,
+     "D_components_cm2_s": [
+      9.695208404855012e-06,
+      7.230220853073935e-06,
+      1.3581664810205737e-05
+     ],
+     "D_components_std_cm2_s": [
+      4.428129451034674e-06,
+      3.2581556367314185e-06,
+      5.817164139015208e-06
+     ],
+     "D_components_rsd": [
+      0.4567338076835178,
+      0.45063016786633986,
+      0.4283100945507054
+     ],
+     "conductivity_mS_cm": 162.67666393963086,
+     "conductivity_std_mS_cm": 44.930258952972984,
+     "nernst_einstein_factor": 15997262.496681076,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 1000.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/1000_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_normal_mace_model/1000_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 3.3142568283202705,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4664587642417748,
+     "mobile_msd_at_fit_end_A2": 289.1100505674805,
+     "max_msd_A2": 435.043481789086,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.0,
+      311.8
+     ],
+     "D_cm2_s": 1.5720493850764135e-05,
+     "D_std_cm2_s": 3.5414772457523595e-06,
+     "D_rsd": 0.22527773487091926,
+     "n_jump": 342.7218353788185,
+     "D_components_cm2_s": [
+      1.596366798687724e-05,
+      1.3540496611633973e-05,
+      1.765731695378119e-05
+     ],
+     "D_components_std_cm2_s": [
+      4.9984671726836195e-06,
+      5.057861874476966e-06,
+      7.339348951043107e-06
+     ],
+     "D_components_rsd": [
+      0.31311520490106376,
+      0.37353592113684064,
+      0.41565482288470995
+     ],
+     "conductivity_mS_cm": 245.19774504043116,
+     "conductivity_std_mS_cm": 55.23759259816551,
+     "nernst_einstein_factor": 15597330.934264047,
+     "framework_single_atom_moved_4A": false
+    }
+   ],
+   "arrhenius": {
+    "all (no framework melt)": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      500.0,
+      550.0,
+      575.0,
+      600.0,
+      625.0,
+      650.0,
+      675.0,
+      700.0,
+      725.0,
+      750.0,
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 20,
+     "status": "ok",
+     "Ea_eV": 0.2821095560131353,
+     "Ea_std_eV": 0.03582063134695712,
+     "r_squared": 0.6987570357620844,
+     "slope": -1.4218245731540093,
+     "intercept": -3.4414359198462465,
+     "D_300K_cm2_s": 6.593998382983298e-09,
+     "conductivity_300K_mS_cm": 0.3428292498646417,
+     "conductivity_300K_range_mS_cm": [
+      0.07857417725384255,
+      1.495808148051658
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "all": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      500.0,
+      550.0,
+      575.0,
+      600.0,
+      625.0,
+      650.0,
+      675.0,
+      700.0,
+      725.0,
+      750.0,
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 20,
+     "status": "ok",
+     "Ea_eV": 0.2821095560131353,
+     "Ea_std_eV": 0.03582063134695712,
+     "r_squared": 0.6987570357620844,
+     "slope": -1.4218245731540093,
+     "intercept": -3.4414359198462465,
+     "D_300K_cm2_s": 6.593998382983298e-09,
+     "conductivity_300K_mS_cm": 0.3428292498646417,
+     "conductivity_300K_range_mS_cm": [
+      0.07857417725384255,
+      1.495808148051658
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "all (unweighted)": {
+     "temperature_window_K": null,
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      500.0,
+      550.0,
+      575.0,
+      600.0,
+      625.0,
+      650.0,
+      675.0,
+      700.0,
+      725.0,
+      750.0,
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 20,
+     "status": "ok",
+     "Ea_eV": 0.28551581825744654,
+     "Ea_std_eV": 0.04091721333712088,
+     "r_squared": 0.7300983085891237,
+     "slope": -1.438992043231992,
+     "intercept": -3.5011547896084774,
+     "D_300K_cm2_s": 5.0373840913785635e-09,
+     "conductivity_300K_mS_cm": 0.26189915572076156,
+     "conductivity_300K_range_mS_cm": [
+      0.04709631731011173,
+      1.45640193723854
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "769-1000K (no framework melt)": {
+     "temperature_window_K": [
+      769,
+      1000
+     ],
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 10,
+     "status": "ok",
+     "Ea_eV": 0.4043526294676316,
+     "Ea_std_eV": 0.1053363719309056,
+     "r_squared": 0.6860897542527571,
+     "slope": -2.0379263748504424,
+     "intercept": -2.766073652265061,
+     "D_300K_cm2_s": 2.759551043073724e-10,
+     "conductivity_300K_mS_cm": 0.01434721028293814,
+     "conductivity_300K_range_mS_cm": [
+      0.00019657102044264634,
+      1.047165764512601
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "769-1000K": {
+     "temperature_window_K": [
+      769,
+      1000
+     ],
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 10,
+     "status": "ok",
+     "Ea_eV": 0.4043526294676316,
+     "Ea_std_eV": 0.1053363719309056,
+     "r_squared": 0.6860897542527571,
+     "slope": -2.0379263748504424,
+     "intercept": -2.766073652265061,
+     "D_300K_cm2_s": 2.759551043073724e-10,
+     "conductivity_300K_mS_cm": 0.01434721028293814,
+     "conductivity_300K_range_mS_cm": [
+      0.00019657102044264634,
+      1.047165764512601
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "769-1000K (unweighted)": {
+     "temperature_window_K": [
+      769,
+      1000
+     ],
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 10,
+     "status": "ok",
+     "Ea_eV": 0.5280907416477838,
+     "Ea_std_eV": 0.10695045029426256,
+     "r_squared": 0.7529416743816881,
+     "slope": -2.6615631315054924,
+     "intercept": -2.104038389324612,
+     "D_300K_cm2_s": 1.0570231663220566e-11,
+     "conductivity_300K_mS_cm": 0.0005495580043436249,
+     "conductivity_300K_range_mS_cm": [
+      6.941181290162116e-06,
+      0.043510461334038124
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    }
+   }
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)_NVT$",
+   "segments": [
+    "results_step_0/nvt_md.traj",
+    "results/nvt_md.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "MACE from scratch",
+   "root": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model",
+   "model_file": "MACE_env/jobs/20258_nvt_training/from_scratch_training/MACE_models/2058_mace_cpu_stagetwo_compiled.model",
+   "temperatures": [
+    {
+     "temperature_K": 300.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/300_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/300_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 0.8730391725795094,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.06358010201094272,
+     "mobile_msd_at_fit_end_A2": 0.9150584858930623,
+     "max_msd_A2": 2.938764296904115,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 325.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/325_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/325_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.1096198136048048,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.07248710814696588,
+     "mobile_msd_at_fit_end_A2": 2.0993486692039465,
+     "max_msd_A2": 3.0164630641454226,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 350.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/350_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/350_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.038291925748813,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.08214557249965226,
+     "mobile_msd_at_fit_end_A2": 2.7610129740804608,
+     "max_msd_A2": 4.760676388696037,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 375.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/375_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/375_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.1384863570033648,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.10545393213697359,
+     "mobile_msd_at_fit_end_A2": 7.582458778267904,
+     "max_msd_A2": 8.449850130791908,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 400.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/400_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/400_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.311745768665862,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.08536232117845802,
+     "mobile_msd_at_fit_end_A2": 0.8029113635605838,
+     "max_msd_A2": 3.3427979621076442,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 425.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/425_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/425_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.3314009205503632,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.12053414699255373,
+     "mobile_msd_at_fit_end_A2": 8.111822026741233,
+     "max_msd_A2": 15.407813485140204,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 450.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/450_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/450_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.4877131368880543,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.1385590335663801,
+     "mobile_msd_at_fit_end_A2": 6.888700796193131,
+     "max_msd_A2": 13.457958657564756,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 475.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/475_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/475_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.6755171014279282,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.18742103977078556,
+     "mobile_msd_at_fit_end_A2": 25.45908915805454,
+     "max_msd_A2": 34.76610638703744,
+     "fit_ok": true,
+     "fit_window_ps": [
+      55.0,
+      311.8
+     ],
+     "D_cm2_s": 1.0918962804777248e-06,
+     "D_std_cm2_s": 7.593130791484201e-07,
+     "D_rsd": 0.6954076982625186,
+     "n_jump": 27.388305511303614,
+     "D_components_cm2_s": [
+      8.704675169098076e-07,
+      9.204511187605646e-07,
+      1.484770205762802e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.2173749733053443e-06,
+      8.17024634195618e-07,
+      1.732572182521077e-06
+     ],
+     "D_components_rsd": [
+      1.3985300423697271,
+      0.8876350058608047,
+      1.1668958440817894
+     ],
+     "conductivity_mS_cm": 35.85403712105909,
+     "conductivity_std_mS_cm": 24.933173427774605,
+     "nernst_einstein_factor": 32836486.177397996,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 500.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/500_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/500_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.3858585523519575,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.13360006939226923,
+     "mobile_msd_at_fit_end_A2": 10.245021678725905,
+     "max_msd_A2": 10.627417155774266,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 525.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/525_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/525_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.564697976552059,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.14582642582049835,
+     "mobile_msd_at_fit_end_A2": 21.28527461091685,
+     "max_msd_A2": 24.441325813088977,
+     "fit_ok": true,
+     "fit_window_ps": [
+      70.3,
+      311.8
+     ],
+     "D_cm2_s": 1.1578459100275822e-06,
+     "D_std_cm2_s": 9.513750451823661e-07,
+     "D_rsd": 0.8216767334434877,
+     "n_jump": 19.254571996586325,
+     "D_components_cm2_s": [
+      5.136356724631543e-07,
+      6.828351754802501e-07,
+      2.2770668821393425e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.0126048030801384e-06,
+      1.2327154860235385e-06,
+      2.193636493357829e-06
+     ],
+     "D_components_rsd": [
+      1.9714456323178717,
+      1.805289959112824,
+      0.9633605892580857
+     ],
+     "conductivity_mS_cm": 34.398677770636795,
+     "conductivity_std_mS_cm": 28.264593185351956,
+     "nernst_einstein_factor": 29709201.77955057,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 550.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/550_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/550_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.103799536284221,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.5226668162991984,
+     "mobile_msd_at_fit_end_A2": 37.730223896335275,
+     "max_msd_A2": 64.29025199761867,
+     "fit_ok": true,
+     "fit_window_ps": [
+      28.6,
+      311.8
+     ],
+     "D_cm2_s": 1.8666943731218642e-06,
+     "D_std_cm2_s": 9.74352236652233e-07,
+     "D_rsd": 0.5219666650747568,
+     "n_jump": 50.647059624887795,
+     "D_components_cm2_s": [
+      2.7614839242634017e-06,
+      1.6311590431855846e-06,
+      1.2074401519166046e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.265058073192042e-06,
+      1.392083142679311e-06,
+      1.152104900978884e-06
+     ],
+     "D_components_rsd": [
+      0.8202322140246474,
+      0.8534318885058758,
+      0.9541714337974554
+     ],
+     "conductivity_mS_cm": 52.93718161947325,
+     "conductivity_std_mS_cm": 27.631444148373163,
+     "nernst_einstein_factor": 28358783.516843725,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 575.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/575_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/575_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.8373832865354685,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.3118614735891967,
+     "mobile_msd_at_fit_end_A2": 30.271661949768063,
+     "max_msd_A2": 31.495873670472786,
+     "fit_ok": true,
+     "fit_window_ps": [
+      46.9,
+      311.8
+     ],
+     "D_cm2_s": 1.5962174605914192e-06,
+     "D_std_cm2_s": 1.1629932027957538e-06,
+     "D_rsd": 0.7285932095773778,
+     "n_jump": 24.81205691627176,
+     "D_components_cm2_s": [
+      1.5329878220289665e-06,
+      1.5034145606349873e-06,
+      1.7522499991103003e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.7650765415169217e-06,
+      1.962021750515216e-06,
+      2.1400297143713704e-06
+     ],
+     "D_components_rsd": [
+      1.1513963230189117,
+      1.3050437330382978,
+      1.2213038752791918
+     ],
+     "conductivity_mS_cm": 43.29866430590425,
+     "conductivity_std_mS_cm": 31.54711279705223,
+     "nernst_einstein_factor": 27125792.929154865,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 600.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/600_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/600_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.305664340677725,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.5059330593697229,
+     "mobile_msd_at_fit_end_A2": 28.761972336151107,
+     "max_msd_A2": 29.90442057650482,
+     "fit_ok": true,
+     "fit_window_ps": [
+      55.3,
+      311.8
+     ],
+     "D_cm2_s": 1.5580530489231646e-06,
+     "D_std_cm2_s": 1.1633646908394122e-06,
+     "D_rsd": 0.7466784854620079,
+     "n_jump": 23.558329994445522,
+     "D_components_cm2_s": [
+      1.3418834119620809e-06,
+      1.601736873430746e-06,
+      1.7305388613766675e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.8815041313453374e-06,
+      1.872438686569673e-06,
+      2.0694919449826466e-06
+     ],
+     "D_components_rsd": [
+      1.4021368135061985,
+      1.1690051703430622,
+      1.1958656295856525
+     ],
+     "conductivity_mS_cm": 40.50244836198949,
+     "conductivity_std_mS_cm": 30.242306800433493,
+     "nernst_einstein_factor": 25995551.55710675,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 625.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/625_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/625_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.060304336830142,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.3771224576765476,
+     "mobile_msd_at_fit_end_A2": 18.299635863478876,
+     "max_msd_A2": 20.576923003195226,
+     "fit_ok": true,
+     "fit_window_ps": [
+      62.5,
+      311.8
+     ],
+     "D_cm2_s": 8.330741142198494e-07,
+     "D_std_cm2_s": 7.43036338771215e-07,
+     "D_rsd": 0.8919210501061454,
+     "n_jump": 16.210243603931676,
+     "D_components_cm2_s": [
+      6.815282623432816e-07,
+      5.855503313104456e-07,
+      1.2321437490058212e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.0650134447845387e-06,
+      1.1316307439548182e-06,
+      1.4171700122988354e-06
+     ],
+     "D_components_rsd": [
+      1.5626841961369726,
+      1.9325934654024695,
+      1.1501661339777165
+     ],
+     "conductivity_mS_cm": 20.789972243609405,
+     "conductivity_std_mS_cm": 18.543013875197715,
+     "nernst_einstein_factor": 24955729.494822476,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 650.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/650_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/650_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.005488519856097,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.45257756650108405,
+     "mobile_msd_at_fit_end_A2": 15.645096662303892,
+     "max_msd_A2": 17.793099491987633,
+     "fit_ok": true,
+     "fit_window_ps": [
+      51.7,
+      311.8
+     ],
+     "D_cm2_s": 4.4866862931065384e-07,
+     "D_std_cm2_s": 4.289918371631977e-07,
+     "D_rsd": 0.9561440429260943,
+     "n_jump": 14.017182121414578,
+     "D_components_cm2_s": [
+      4.4357735857859124e-08,
+      6.165305199799574e-07,
+      6.851176320941448e-07
+     ],
+     "D_components_std_cm2_s": [
+      9.313159260148088e-08,
+      8.552854773091778e-07,
+      9.968234195852177e-07
+     ],
+     "D_components_rsd": [
+      2.0995569498838655,
+      1.3872556987721905,
+      1.4549668157544078
+     ],
+     "conductivity_mS_cm": 10.766204755662939,
+     "conductivity_std_mS_cm": 10.294042542049706,
+     "nernst_einstein_factor": 23995893.74502161,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 675.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/675_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/675_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.9438898917299818,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.2904966097823212,
+     "mobile_msd_at_fit_end_A2": 48.25078827240051,
+     "max_msd_A2": 60.58151043895638,
+     "fit_ok": true,
+     "fit_window_ps": [
+      19.3,
+      311.8
+     ],
+     "D_cm2_s": 2.54953956773387e-06,
+     "D_std_cm2_s": 1.3678287481993432e-06,
+     "D_rsd": 0.5365003020585095,
+     "n_jump": 47.72535922679594,
+     "D_components_cm2_s": [
+      2.7764632679287698e-06,
+      2.435654246242906e-06,
+      2.436501189029938e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.70221866963824e-06,
+      2.1236467452677924e-06,
+      2.068947678059174e-06
+     ],
+     "D_components_rsd": [
+      0.9732592902819436,
+      0.8718999211581867,
+      0.8491470011893979
+     ],
+     "conductivity_mS_cm": 58.91261091547508,
+     "conductivity_std_mS_cm": 31.606633551207825,
+     "nernst_einstein_factor": 23107156.93965044,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 700.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/700_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/700_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.1363745728099532,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.35113667256160436,
+     "mobile_msd_at_fit_end_A2": 25.883492647250133,
+     "max_msd_A2": 34.82577609145457,
+     "fit_ok": true,
+     "fit_window_ps": [
+      31.0,
+      311.8
+     ],
+     "D_cm2_s": 9.604997204942302e-07,
+     "D_std_cm2_s": 6.673993668074079e-07,
+     "D_rsd": 0.6948459771169887,
+     "n_jump": 27.435312561105285,
+     "D_components_cm2_s": [
+      1.1134646860702114e-06,
+      8.922229157741833e-07,
+      8.758115596382961e-07
+     ],
+     "D_components_std_cm2_s": [
+      1.3533678021739544e-06,
+      1.0017892057099805e-06,
+      9.962457213431161e-07
+     ],
+     "D_components_rsd": [
+      1.2154564209399772,
+      1.1228014748317985,
+      1.1375115004814031
+     ],
+     "conductivity_mS_cm": 21.401760004023753,
+     "conductivity_std_mS_cm": 14.870926842019173,
+     "nernst_einstein_factor": 22281901.334662925,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 725.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/725_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/725_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.220335775712072,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.5513986755559322,
+     "mobile_msd_at_fit_end_A2": 82.285744190504,
+     "max_msd_A2": 119.41079722262293,
+     "fit_ok": true,
+     "fit_window_ps": [
+      15.1,
+      311.8
+     ],
+     "D_cm2_s": 4.4870428183380785e-06,
+     "D_std_cm2_s": 1.7663028635126098e-06,
+     "D_rsd": 0.39364519908165646,
+     "n_jump": 94.0703384863631,
+     "D_components_cm2_s": [
+      3.6348220344635587e-06,
+      6.094738792978068e-06,
+      3.73156762757261e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.8325362770141287e-06,
+      3.5062012180333773e-06,
+      2.4094988242410795e-06
+     ],
+     "D_components_rsd": [
+      0.7792778436351053,
+      0.5752832626843627,
+      0.6457068622948854
+     ],
+     "conductivity_mS_cm": 96.53226448804392,
+     "conductivity_std_mS_cm": 37.99946247219916,
+     "nernst_einstein_factor": 21513559.90932972,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 750.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/750_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/750_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.096074452635107,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.41559504110414025,
+     "mobile_msd_at_fit_end_A2": 46.85506150785195,
+     "max_msd_A2": 54.19302024732784,
+     "fit_ok": true,
+     "fit_window_ps": [
+      18.4,
+      311.8
+     ],
+     "D_cm2_s": 2.5486564949988384e-06,
+     "D_std_cm2_s": 1.4398633260475045e-06,
+     "D_rsd": 0.5649499369071157,
+     "n_jump": 42.692586238747815,
+     "D_components_cm2_s": [
+      1.1995207801772765e-06,
+      2.679487362493098e-06,
+      3.7669613423261427e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.596914935412091e-06,
+      2.1758647371786957e-06,
+      3.0324296540018374e-06
+     ],
+     "D_components_rsd": [
+      1.3312940982782173,
+      0.8120451574566068,
+      0.8050068419680879
+     ],
+     "conductivity_mS_cm": 53.002985053677826,
+     "conductivity_std_mS_cm": 29.944033061964085,
+     "nernst_einstein_factor": 20796441.2456854,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 775.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/775_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/775_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 1.839527261289136,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4474459089180833,
+     "mobile_msd_at_fit_end_A2": 52.64339228989641,
+     "max_msd_A2": 71.15470765279022,
+     "fit_ok": true,
+     "fit_window_ps": [
+      22.3,
+      311.8
+     ],
+     "D_cm2_s": 2.6515734895840652e-06,
+     "D_std_cm2_s": 1.3208255455670857e-06,
+     "D_rsd": 0.4981289603156633,
+     "n_jump": 56.05479227575295,
+     "D_components_cm2_s": [
+      3.051362883310874e-06,
+      3.0613245948023815e-06,
+      1.8420329906389393e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.2801868732417867e-06,
+      2.353948100503343e-06,
+      1.8759045334119864e-06
+     ],
+     "D_components_rsd": [
+      0.7472683389160438,
+      0.7689312347014603,
+      1.0183881303674687
+     ],
+     "conductivity_mS_cm": 53.36447640459872,
+     "conductivity_std_mS_cm": 26.58239114921251,
+     "nernst_einstein_factor": 20125588.30227619,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 800.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/800_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/800_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.2348640325076943,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4134127846514869,
+     "mobile_msd_at_fit_end_A2": 97.8192733436293,
+     "max_msd_A2": 109.40071623696718,
+     "fit_ok": true,
+     "fit_window_ps": [
+      9.4,
+      311.8
+     ],
+     "D_cm2_s": 4.643473018787504e-06,
+     "D_std_cm2_s": 1.90136409147554e-06,
+     "D_rsd": 0.40947025723690345,
+     "n_jump": 86.1845213869179,
+     "D_components_cm2_s": [
+      6.814380995742349e-06,
+      5.96533743021405e-06,
+      1.1507006304061163e-06
+     ],
+     "D_components_std_cm2_s": [
+      4.0551471393325014e-06,
+      3.2415436752866596e-06,
+      1.5645254055272305e-06
+     ],
+     "D_components_rsd": [
+      0.5950866471754621,
+      0.5433965325864802,
+      1.3596285290771617
+     ],
+     "conductivity_mS_cm": 90.5322316979435,
+     "conductivity_std_mS_cm": 37.070256201587874,
+     "nernst_einstein_factor": 19496663.66783006,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 825.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/825_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/825_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.1648578726747454,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.46194894984495855,
+     "mobile_msd_at_fit_end_A2": 44.6773092186093,
+     "max_msd_A2": 71.90793796090547,
+     "fit_ok": true,
+     "fit_window_ps": [
+      23.5,
+      311.8
+     ],
+     "D_cm2_s": 2.2951104197694477e-06,
+     "D_std_cm2_s": 1.137739505292523e-06,
+     "D_rsd": 0.49572321030498095,
+     "n_jump": 56.648177729084175,
+     "D_components_cm2_s": [
+      3.345712756614761e-06,
+      1.8127534132272565e-06,
+      1.7268650894663277e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.2366714038094952e-06,
+      2.0609800842683142e-06,
+      1.4011235338343844e-06
+     ],
+     "D_components_rsd": [
+      0.668518658509283,
+      1.136933500844518,
+      0.8113682663348004
+     ],
+     "conductivity_mS_cm": 43.39102636099606,
+     "conductivity_std_mS_cm": 21.509938886101022,
+     "nernst_einstein_factor": 18905855.677895814,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 850.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/850_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/850_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.7706138160910156,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.44611874661700474,
+     "mobile_msd_at_fit_end_A2": 63.61211163084128,
+     "max_msd_A2": 106.49827712069344,
+     "fit_ok": true,
+     "fit_window_ps": [
+      9.1,
+      311.8
+     ],
+     "D_cm2_s": 2.739115926803673e-06,
+     "D_std_cm2_s": 1.1352843160169862e-06,
+     "D_rsd": 0.4144710725484961,
+     "n_jump": 83.89801600838916,
+     "D_components_cm2_s": [
+      4.478400913116455e-06,
+      1.991320615727345e-06,
+      1.7476262515672229e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.476757585136168e-06,
+      1.6699199072449859e-06,
+      1.3158437707404236e-06
+     ],
+     "D_components_rsd": [
+      0.5530450786311197,
+      0.8385992160458977,
+      0.7529320239727524
+     ],
+     "conductivity_mS_cm": 50.26223244431796,
+     "conductivity_std_mS_cm": 20.83224138987828,
+     "nernst_einstein_factor": 18349801.099134173,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 875.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/875_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/875_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 4.170967555642517,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.016666666666666666,
+     "framework_msd_at_fit_end_A2": 0.7181104359253788,
+     "mobile_msd_at_fit_end_A2": 156.21630814358318,
+     "max_msd_A2": 190.34953710693648,
+     "fit_ok": true,
+     "fit_window_ps": [
+      7.6,
+      311.8
+     ],
+     "D_cm2_s": 8.951523445975959e-06,
+     "D_std_cm2_s": 2.8653857972539843e-06,
+     "D_rsd": 0.32010035102372225,
+     "n_jump": 149.95499404453875,
+     "D_components_cm2_s": [
+      7.883265469254485e-06,
+      8.271930919463026e-06,
+      1.069937394921038e-05
+     ],
+     "D_components_std_cm2_s": [
+      4.1899370229160654e-06,
+      4.024624295683899e-06,
+      5.722913448765022e-06
+     ],
+     "D_components_rsd": [
+      0.5314976438707074,
+      0.48653988226791894,
+      0.5348830198786889
+     ],
+     "conductivity_mS_cm": 159.56556977452655,
+     "conductivity_std_mS_cm": 51.076994896126195,
+     "nernst_einstein_factor": 17825521.06773034,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 900.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/900_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/900_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.2010861761895275,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.47436190142585477,
+     "mobile_msd_at_fit_end_A2": 227.25326489678454,
+     "max_msd_A2": 303.82555221625313,
+     "fit_ok": true,
+     "fit_window_ps": [
+      7.0,
+      311.8
+     ],
+     "D_cm2_s": 1.2316361470474048e-05,
+     "D_std_cm2_s": 3.2232655133519725e-06,
+     "D_rsd": 0.26170598525214533,
+     "n_jump": 239.34998511486629,
+     "D_components_cm2_s": [
+      3.5433781642921622e-06,
+      2.918460243465503e-05,
+      4.221103812474949e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.2391712659095405e-06,
+      8.895109071328633e-06,
+      2.4628681556157374e-06
+     ],
+     "D_components_rsd": [
+      0.6319312142504117,
+      0.3047877417979217,
+      0.583465431088673
+     ],
+     "conductivity_mS_cm": 213.4470730677808,
+     "conductivity_std_mS_cm": 55.86037655639023,
+     "nernst_einstein_factor": 17330367.70473783,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 925.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/925_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/925_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 2.6253968777069345,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.49439669595828695,
+     "mobile_msd_at_fit_end_A2": 195.47982964200133,
+     "max_msd_A2": 221.61254037928995,
+     "fit_ok": true,
+     "fit_window_ps": [
+      5.8,
+      311.8
+     ],
+     "D_cm2_s": 9.531142674307814e-06,
+     "D_std_cm2_s": 2.8554603349467947e-06,
+     "D_rsd": 0.299592654576873,
+     "n_jump": 174.58359856216603,
+     "D_components_cm2_s": [
+      4.568004823400383e-06,
+      1.4082944191397907e-05,
+      9.94247900812514e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.8451226595096024e-06,
+      5.943676365600892e-06,
+      4.654009242704345e-06
+     ],
+     "D_components_rsd": [
+      0.6228370523899136,
+      0.42204785340492845,
+      0.4680934441904298
+     ],
+     "conductivity_mS_cm": 160.71393132201666,
+     "conductivity_std_mS_cm": 48.14871331224823,
+     "nernst_einstein_factor": 16861979.388393562,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 950.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/950_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/950_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 3.65245798578868,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 1.0444664002673205,
+     "mobile_msd_at_fit_end_A2": 160.4243082249344,
+     "max_msd_A2": 223.57768682934247,
+     "fit_ok": true,
+     "fit_window_ps": [
+      5.5,
+      311.8
+     ],
+     "D_cm2_s": 7.860363458034078e-06,
+     "D_std_cm2_s": 2.3459198599312615e-06,
+     "D_rsd": 0.29844928576852214,
+     "n_jump": 176.13171645461316,
+     "D_components_cm2_s": [
+      7.074774097099111e-06,
+      1.1601271726120923e-05,
+      4.9050445508822124e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.7446460996867904e-06,
+      5.769307346837099e-06,
+      3.195790183265072e-06
+     ],
+     "D_components_rsd": [
+      0.38794823156433855,
+      0.4972995618960614,
+      0.6515313265993237
+     ],
+     "conductivity_mS_cm": 129.05335801953015,
+     "conductivity_std_mS_cm": 38.51588252695816,
+     "nernst_einstein_factor": 16418243.088698998,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 975.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/975_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/975_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 3.7148234437175938,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 1.0561371725704891,
+     "mobile_msd_at_fit_end_A2": 146.9200417938804,
+     "max_msd_A2": 175.69906493902397,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.9,
+      311.8
+     ],
+     "D_cm2_s": 7.56954968576089e-06,
+     "D_std_cm2_s": 2.5096425030162044e-06,
+     "D_rsd": 0.3315444917069641,
+     "n_jump": 138.41353457960295,
+     "D_components_cm2_s": [
+      4.253083994027707e-06,
+      1.3297145239098499e-05,
+      5.158419824156466e-06
+     ],
+     "D_components_std_cm2_s": [
+      3.163022784062333e-06,
+      6.154286605385022e-06,
+      2.679563808196563e-06
+     ],
+     "D_components_rsd": [
+      0.7437009916813149,
+      0.46282765922486546,
+      0.5194543871067611
+     ],
+     "conductivity_mS_cm": 121.09207330478671,
+     "conductivity_std_mS_cm": 40.14740989357795,
+     "nernst_einstein_factor": 15997262.496681076,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 1000.0,
+     "directory": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/1000_NVT",
+     "segments": [
+      {
+       "path": "/path/to/data/MACE_env/jobs/md/20258_NVT/nvt_final_simpler_model/1000_NVT/results/nvt_md.traj",
+       "chain": 0,
+       "n_frames": 4000,
+       "frames_used": 3900,
+       "simulated_time_ps": 399.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 389.9,
+     "n_frames_analyzed": 3900,
+     "n_atoms": 69,
+     "n_diffusing_ions": 9,
+     "mean_volume_A3": 1072.827443416481,
+     "max_framework_displacement_A": 3.5451254605876885,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.6627136744050147,
+     "mobile_msd_at_fit_end_A2": 305.1145615889966,
+     "max_msd_A2": 398.0530288868453,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.3,
+      311.8
+     ],
+     "D_cm2_s": 1.649612119676046e-05,
+     "D_std_cm2_s": 3.855066112646135e-06,
+     "D_rsd": 0.23369530731886232,
+     "n_jump": 313.58121739273906,
+     "D_components_cm2_s": [
+      1.1710320590169969e-05,
+      1.149452351784255e-05,
+      2.628351948226887e-05
+     ],
+     "D_components_std_cm2_s": [
+      4.321113968360783e-06,
+      5.515883655521396e-06,
+      8.541071850547225e-06
+     ],
+     "D_components_rsd": [
+      0.36900048423849896,
+      0.4798705789726108,
+      0.32495921470140704
+     ],
+     "conductivity_mS_cm": 257.2954614376008,
+     "conductivity_std_mS_cm": 60.12874193240861,
+     "nernst_einstein_factor": 15597330.934264047,
+     "framework_single_atom_moved_4A": false
+    }
+   ],
+   "arrhenius": {
+    "all (no framework melt)": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      475.0,
+      525.0,
+      550.0,
+      575.0,
+      600.0,
+      625.0,
+      650.0,
+      675.0,
+      700.0,
+      725.0,
+      750.0,
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 21,
+     "status": "ok",
+     "Ea_eV": 0.2461890048154781,
+     "Ea_std_eV": 0.031813015544864785,
+     "r_squared": 0.5348881202880376,
+     "slope": -1.2407859614322296,
+     "intercept": -3.725069414418167,
+     "D_300K_cm2_s": 1.377137742091381e-08,
+     "conductivity_300K_mS_cm": 0.7159891035154814,
+     "conductivity_300K_range_mS_cm": [
+      0.19270059365747513,
+      2.66029484716648
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "all": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      475.0,
+      525.0,
+      550.0,
+      575.0,
+      600.0,
+      625.0,
+      650.0,
+      675.0,
+      700.0,
+      725.0,
+      750.0,
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 21,
+     "status": "ok",
+     "Ea_eV": 0.2461890048154781,
+     "Ea_std_eV": 0.031813015544864785,
+     "r_squared": 0.5348881202880376,
+     "slope": -1.2407859614322296,
+     "intercept": -3.725069414418167,
+     "D_300K_cm2_s": 1.377137742091381e-08,
+     "conductivity_300K_mS_cm": 0.7159891035154814,
+     "conductivity_300K_range_mS_cm": [
+      0.19270059365747513,
+      2.66029484716648
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "all (unweighted)": {
+     "temperature_window_K": null,
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      475.0,
+      525.0,
+      550.0,
+      575.0,
+      600.0,
+      625.0,
+      650.0,
+      675.0,
+      700.0,
+      725.0,
+      750.0,
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 21,
+     "status": "ok",
+     "Ea_eV": 0.20698143839493263,
+     "Ea_std_eV": 0.039312953390061585,
+     "r_squared": 0.5933209324702158,
+     "slope": -1.043180881412523,
+     "intercept": -4.081199421768517,
+     "D_300K_cm2_s": 2.7639550351271558e-08,
+     "conductivity_300K_mS_cm": 1.4370107123434555,
+     "conductivity_300K_range_mS_cm": [
+      0.2746451312908905,
+      7.518792624081509
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "769-1000K (no framework melt)": {
+     "temperature_window_K": [
+      769,
+      1000
+     ],
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 10,
+     "status": "ok",
+     "Ea_eV": 0.4757777670518427,
+     "Ea_std_eV": 0.10708140658605038,
+     "r_squared": 0.6197716225480748,
+     "slope": -2.397907146836092,
+     "intercept": -2.4486132446929023,
+     "D_300K_cm2_s": 3.6171201295504146e-11,
+     "conductivity_300K_mS_cm": 0.0018805806563195289,
+     "conductivity_300K_range_mS_cm": [
+      2.396478525998911e-05,
+      0.1475741829753745
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "769-1000K": {
+     "temperature_window_K": [
+      769,
+      1000
+     ],
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 10,
+     "status": "ok",
+     "Ea_eV": 0.4757777670518427,
+     "Ea_std_eV": 0.10708140658605038,
+     "r_squared": 0.6197716225480748,
+     "slope": -2.397907146836092,
+     "intercept": -2.4486132446929023,
+     "D_300K_cm2_s": 3.6171201295504146e-11,
+     "conductivity_300K_mS_cm": 0.0018805806563195289,
+     "conductivity_300K_range_mS_cm": [
+      2.396478525998911e-05,
+      0.1475741829753745
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    },
+    "769-1000K (unweighted)": {
+     "temperature_window_K": [
+      769,
+      1000
+     ],
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      775.0,
+      800.0,
+      825.0,
+      850.0,
+      875.0,
+      900.0,
+      925.0,
+      950.0,
+      975.0,
+      1000.0
+     ],
+     "n_points": 10,
+     "status": "ok",
+     "Ea_eV": 0.48960077786602096,
+     "Ea_std_eV": 0.12943071277389886,
+     "r_squared": 0.6414004459271861,
+     "slope": -2.4675747494807085,
+     "intercept": -2.4110004598717394,
+     "D_300K_cm2_s": 2.310736237968775e-11,
+     "conductivity_300K_mS_cm": 0.0012013772601798436,
+     "conductivity_300K_range_mS_cm": [
+      6.053834271063788e-06,
+      0.23841209664030122
+     ],
+     "volume_for_extrapolation_A3": 1072.827443416481
+    }
+   }
+  }
+ ]
+}

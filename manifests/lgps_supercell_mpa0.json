@@ -1,0 +1,94 @@
+{
+ "study": "lgps_supercell_mpa0",
+ "description": "Li10GeP2S12 supercells (1x1x2 = 100 atoms up to 3x3x3 = 1350 atoms), MACE-MPA-0, NVT Nose-Hoover chain, 2 fs. Larger cells did not reach 400 ps (see analyzed_time_ps).",
+ "specie": "Li",
+ "charge": 1,
+ "site_distance": 3.38,
+ "arrhenius_windows": {
+  "all": null,
+  "500-1000K": [
+   500,
+   1000
+  ]
+ },
+ "series": [
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "supercell 1x1x2",
+   "root": "/path/to/data/MACE_env/jobs/md/LGPS_ase_NVT_different_supercells/supercell_1x1x2",
+   "model_file": "MACE_env/foundation_models/imporved_highpressure_accuracy_mace-mpa-0/mace-mpa-0-medium.model"
+  },
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "supercell 1x1x3",
+   "root": "/path/to/data/MACE_env/jobs/md/LGPS_ase_NVT_different_supercells/supercell_1x1x3",
+   "model_file": "MACE_env/foundation_models/imporved_highpressure_accuracy_mace-mpa-0/mace-mpa-0-medium.model"
+  },
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "supercell 2x2x2",
+   "root": "/path/to/data/MACE_env/jobs/md/LGPS_ase_NVT_different_supercells/supercell_2x2x2",
+   "model_file": "MACE_env/foundation_models/imporved_highpressure_accuracy_mace-mpa-0/mace-mpa-0-medium.model"
+  },
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "supercell 2x2x3",
+   "root": "/path/to/data/MACE_env/jobs/md/LGPS_ase_NVT_different_supercells/supercell_2x2x3",
+   "model_file": "MACE_env/foundation_models/imporved_highpressure_accuracy_mace-mpa-0/mace-mpa-0-medium.model"
+  },
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "supercell 3x3x2",
+   "root": "/path/to/data/MACE_env/jobs/md/LGPS_ase_NVT_different_supercells/supercell_3x3x2",
+   "model_file": "MACE_env/foundation_models/imporved_highpressure_accuracy_mace-mpa-0/mace-mpa-0-medium.model"
+  },
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "supercell 3x3x3",
+   "root": "/path/to/data/MACE_env/jobs/md/LGPS_ase_NVT_different_supercells/supercell_3x3x3",
+   "model_file": "MACE_env/foundation_models/imporved_highpressure_accuracy_mace-mpa-0/mace-mpa-0-medium.model"
+  }
+ ],
+ "fit": {
+  "lower_bound_in_a_square": 0.5,
+  "upper_bound": 0.8,
+  "minimum_msd_diff_in_a_square": 0.5,
+  "time_intervals_number": 1000
+ }
+}

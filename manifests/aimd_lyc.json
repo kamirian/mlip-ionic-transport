@@ -1,0 +1,31 @@
+{
+ "study": "aimd_lyc",
+ "description": "AIMD (VASP, PBE, NVT Nose, 2 fs) of Li15Y7Cl36 (58 atoms) at 500-900 K: the data set used to fine-tune / train the CHGNet and MACE LYC models.",
+ "specie": "Li",
+ "charge": 1,
+ "site_distance": 3.38,
+ "arrhenius_windows": {
+  "all": null
+ },
+ "series": [
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "reader": "vasp_runs",
+   "run_dir_regex": "^RUN_(\\d+)$",
+   "min_run_index": 1,
+   "stride": 10,
+   "frame_interval_fs": 20,
+   "equilibration_frames": 500,
+   "segments": [],
+   "label": "AIMD (PBE)",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_data/second_take/aimd/li2.5",
+   "model_file": "VASP PBE"
+  }
+ ],
+ "fit": {
+  "lower_bound_in_a_square": 0.5,
+  "upper_bound": 0.8,
+  "minimum_msd_diff_in_a_square": 0.5,
+  "time_intervals_number": 1000
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "description": "Models and frames for parity plots (inference only). MACE: the model files used for MD; frames from each run's first_train.sh. CHGNet: checkpoints used for MD; frames = first n_rows of the LYC frame table, indices from the training log.",
+ "mace": [
+  {"key": "mace_lyc_scratch", "dir": "MACE_env/jobs/Training/lyc_nvt/from_scratch_training", "model": "MACE_models/energy_corrected_mace_cpu_stagetwo_compiled.model", "train": "train_set_corrected.xyz", "valid": "val_set_corrected.xyz", "test": "test_set_corrected.xyz"},
+  {"key": "mace_lyc_finetuned", "dir": "MACE_env/jobs/Training/lyc_nvt/fine_tuning_improved_model", "model": "MACE_models/medium_finetuned_initial_release_compiled.model", "train": "../train_set_corrected.xyz", "valid": "../val_set_corrected.xyz", "test": "../test_set_corrected.xyz"},
+  {"key": "mace_20258_scratch", "dir": "MACE_env/jobs/Training/20258_nvt_training/from_scratch_training", "model": "MACE_models/2058_mace_cpu_stagetwo_compiled.model", "xyz": "MACE_env/jobs/data_extraction/20258_xyz/{split}_set_20258.xyz"},
+  {"key": "mace_20258_finetuned", "dir": "MACE_env/jobs/Training/20258_nvt_training/fine_tuning_improved_model", "model": "MACE_models/improved_20258_finetuned_compiled.model", "xyz": "MACE_env/jobs/data_extraction/20258_xyz/{split}_set_20258.xyz"},
+  {"key": "mace_45802_scratch", "dir": "MACE_env/jobs/Training/45802_nvt_training/from_scratch_training", "model": "MACE_models/45802_mace_cpu_stagetwo_compiled.model", "xyz": "MACE_env/jobs/data_extraction/45802_xyz/{split}_set_45802.xyz"},
+  {"key": "mace_45802_finetuned", "dir": "MACE_env/jobs/Training/45802_nvt_training/fine_tuning_improved_model", "model": "MACE_models/improved_45802_finetuned_compiled.model", "xyz": "MACE_env/jobs/data_extraction/45802_xyz/{split}_set_45802.xyz"},
+  {"key": "mace_75421_scratch", "dir": "MACE_env/jobs/Training/75421_nvt_training/from_scratch_training", "model": "MACE_models/75421_mace_cpu_stagetwo_compiled.model", "xyz": "MACE_env/jobs/data_extraction/75421_xyz/{split}_set_75421.xyz"},
+  {"key": "mace_75421_finetuned", "dir": "MACE_env/jobs/Training/75421_nvt_training/fine_tuning_improved_model", "model": "MACE_models/improved_75421_finetuned_compiled.model", "xyz": "MACE_env/jobs/data_extraction/75421_xyz/{split}_set_75421.xyz"}
+ ],
+ "chgnet_frames_csv": "RCHnet/JOBS/LYC_fiinetune2/data_grabber/vasp_output_all_with_corrections.csv",
+ "chgnet": [
+  {"key": "chgnet_lyc_7980_10ep", "dir": "RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/10_epochs", "checkpoint": "09-26-2024/bestE_epoch9_e1_f35_sNA_mNA.pth.tar", "n_rows": 7980},
+  {"key": "chgnet_lyc_7980_200ep", "dir": "RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/200_epochs", "checkpoint": "09-27-2024/bestE_epoch197_e1_f15_sNA_mNA.pth.tar", "n_rows": 7980},
+  {"key": "chgnet_lyc_15960_10ep", "dir": "RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/25_itteration_10_epochs", "checkpoint": "09-29-2024/bestE_epoch7_e1_f33_sNA_mNA.pth.tar", "n_rows": 15960},
+  {"key": "chgnet_lyc_15960_20ep", "dir": "RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/25_itteration_20_epochs", "checkpoint": "11-16-2024/bestE_epoch19_e1_f29_sNA_mNA.pth.tar", "n_rows": 15960},
+  {"key": "chgnet_lyc_30693_10ep", "dir": "RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/13_itteration_10_epochs", "checkpoint": "09-30-2024/bestE_epoch7_e1_f32_sNA_mNA.pth.tar", "n_rows": 30693}
+ ]
+}

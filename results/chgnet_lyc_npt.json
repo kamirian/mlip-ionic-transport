@@ -1,0 +1,5957 @@
+{
+ "schema_version": "1.0",
+ "study": "chgnet_lyc_npt",
+ "description": "Li15Y7Cl36 (58 atoms), CHGNet MolecularDynamics NPT (1 atm), 1 fs; per-frame cells used for displacements. The 5 ns-target runs stopped at the 144 h wall time (3.5-6.1 ns).",
+ "units": {
+  "D": "cm^2/s",
+  "conductivity": "mS/cm",
+  "time": "ps",
+  "msd": "A^2",
+  "Ea": "eV",
+  "volume": "A^3",
+  "temperature": "K"
+ },
+ "method": {
+  "reference": "X. He, Y. Zhu, A. Epstein, Y. Mo, npj Comput. Mater. 4, 18 (2018)",
+  "msd": "FFT time-averaged MSD, framework centre-of-mass drift removed",
+  "D_error": "RSD = 3.43/sqrt(N_jump) + 0.04, D_std = RSD * D",
+  "arrhenius": "least squares on log10(D) vs 1000/T, weighted by sigma_log10D = log10(e)*D_std/D",
+  "stitching": "continuation runs concatenated after dropping their duplicated first frame; equilibration frames removed only from the start of each chain",
+  "specie": "Li",
+  "charge": 1,
+  "site_distance_A": 3.38,
+  "fit": {
+   "lower_bound_in_a_square": 0.5,
+   "upper_bound": 0.8,
+   "minimum_msd_diff_in_a_square": 0.5,
+   "time_intervals_number": 1000
+  },
+  "arrhenius_windows": {
+   "all": null
+  },
+  "primary_fit": "'<window> (no framework melt)': weighted, melted temperatures excluded",
+  "framework_melt_criterion": "framework melted if the time-averaged MSD of framework (non-mobile) atoms at the end of the fit window exceeds site_distance^2; the original single-atom check (any framework atom displaced > 4 A) is recorded as framework_single_atom_moved_4A"
+ },
+ "generation_metadata": {
+  "iondiff_version": "0.1.0",
+  "created_utc": "2026-10-09T01:47:45+00:00",
+  "python": "3.10.10",
+  "numpy": "1.26.4",
+  "scipy": "1.15.3",
+  "ase": "3.24.0",
+  "pymatgen": "2025.4.24",
+  "manifest": "chgnet_lyc_npt.json"
+ },
+ "series": [
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT 7,980 frames, 10 ep: NPT, target 5 ns",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/10_epochs/09-26-2024/bestE_epoch9_e1_f35_sNA_mNA.pth.tar",
+   "frame_interval_overrides_fs": {
+    "600": 200,
+    "700": 200
+   },
+   "temperatures": [
+    {
+     "temperature_K": 300.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/300",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/300/LYC.traj",
+       "chain": 0,
+       "n_frames": 35975,
+       "frames_used": 35875,
+       "simulated_time_ps": 3597.4,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 3587.4,
+     "n_frames_analyzed": 35875,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1708.0245414582898,
+     "max_framework_displacement_A": 2.4784837446242034,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.6057536463672564,
+     "mobile_msd_at_fit_end_A2": 331.9536712833885,
+     "max_msd_A2": 521.4475278121607,
+     "fit_ok": true,
+     "fit_window_ps": [
+      31.6,
+      2866.6
+     ],
+     "D_cm2_s": 1.921733353993968e-06,
+     "D_std_cm2_s": 3.287837450834377e-07,
+     "D_rsd": 0.17108707844411472,
+     "n_jump": 684.6497774222202,
+     "D_components_cm2_s": [
+      2.2704892750346846e-06,
+      2.314410212438719e-06,
+      1.1803005745084988e-06
+     ],
+     "D_components_std_cm2_s": [
+      6.14359985322558e-07,
+      5.32275855716431e-07,
+      3.921607827624854e-07
+     ],
+     "D_components_rsd": [
+      0.2705848435743758,
+      0.22998336805451883,
+      0.3322550130298709
+     ],
+     "conductivity_mS_cm": 104.59397724283886,
+     "conductivity_std_mS_cm": 17.894677989327523,
+     "nernst_einstein_factor": 54426893.83803408,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 330.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/330",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/330/LYC.traj",
+       "chain": 0,
+       "n_frames": 35723,
+       "frames_used": 35623,
+       "simulated_time_ps": 3572.2,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 3562.2,
+     "n_frames_analyzed": 35623,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1714.3045205573276,
+     "max_framework_displacement_A": 2.757650523008496,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.8259404441158299,
+     "mobile_msd_at_fit_end_A2": 940.5593599141245,
+     "max_msd_A2": 1235.8214520708793,
+     "fit_ok": true,
+     "fit_window_ps": [
+      17.6,
+      2845.6
+     ],
+     "D_cm2_s": 5.570252952416934e-06,
+     "D_std_cm2_s": 6.971200769947931e-07,
+     "D_rsd": 0.12515052421314415,
+     "n_jump": 1622.6079077293505,
+     "D_components_cm2_s": [
+      3.145507511263238e-06,
+      7.816746439856297e-06,
+      5.748504906131277e-06
+     ],
+     "D_components_std_cm2_s": [
+      7.153970760215275e-07,
+      1.1925748023162066e-06,
+      1.2072710835637715e-06
+     ],
+     "D_components_rsd": [
+      0.22743454703569393,
+      0.1525666479643583,
+      0.21001479572125137
+     ],
+     "conductivity_mS_cm": 274.6008758803788,
+     "conductivity_std_mS_cm": 34.36644356581793,
+     "nernst_einstein_factor": 49297738.940424494,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 350.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/350",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/350/LYC.traj",
+       "chain": 0,
+       "n_frames": 35781,
+       "frames_used": 35681,
+       "simulated_time_ps": 3578.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 3568.0,
+     "n_frames_analyzed": 35681,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1717.5320196467896,
+     "max_framework_displacement_A": 2.9091178433082687,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.9699066274212396,
+     "mobile_msd_at_fit_end_A2": 1062.2935692066008,
+     "max_msd_A2": 1330.6090611559707,
+     "fit_ok": true,
+     "fit_window_ps": [
+      10.6,
+      2852.6
+     ],
+     "D_cm2_s": 5.766696600916404e-06,
+     "D_std_cm2_s": 7.038921834393536e-07,
+     "D_rsd": 0.12206159473128791,
+     "n_jump": 1747.0620704229161,
+     "D_components_cm2_s": [
+      8.346612336969463e-06,
+      5.077513361259249e-06,
+      3.875964104520507e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.2906676936064648e-06,
+      9.90536104427792e-07,
+      8.008833182975455e-07
+     ],
+     "D_components_rsd": [
+      0.1546337174292544,
+      0.1950829144016539,
+      0.2066281566858376
+     ],
+     "conductivity_mS_cm": 267.53655288898386,
+     "conductivity_std_mS_cm": 32.655938294540924,
+     "nernst_einstein_factor": 46393381.06438074,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 375.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/375",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/375/LYC.traj",
+       "chain": 0,
+       "n_frames": 35392,
+       "frames_used": 35292,
+       "simulated_time_ps": 3539.1,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 3529.1,
+     "n_frames_analyzed": 35292,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1725.7422911285773,
+     "max_framework_displacement_A": 3.1582652351047424,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 1.1256456621575521,
+     "mobile_msd_at_fit_end_A2": 1973.48102238429,
+     "max_msd_A2": 2213.3425010223223,
+     "fit_ok": true,
+     "fit_window_ps": [
+      7.1,
+      2821.1
+     ],
+     "D_cm2_s": 1.1062998810611656e-05,
+     "D_std_cm2_s": 1.1464244574840857e-06,
+     "D_rsd": 0.10362691681611974,
+     "n_jump": 2906.0727491452362,
+     "D_components_cm2_s": [
+      1.0973555615719232e-05,
+      7.172707203092678e-06,
+      1.504273361302306e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.7610364432905926e-06,
+      1.2842526987134538e-06,
+      1.8782388107056786e-06
+     ],
+     "D_components_rsd": [
+      0.1604800216957911,
+      0.1790471383189486,
+      0.12486020553336241
+     ],
+     "conductivity_mS_cm": 476.7542429252735,
+     "conductivity_std_mS_cm": 49.404572273349466,
+     "nernst_einstein_factor": 43094485.598965235,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 400.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/400",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/400/LYC.traj",
+       "chain": 0,
+       "n_frames": 38274,
+       "frames_used": 38174,
+       "simulated_time_ps": 3827.3,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 3817.3,
+     "n_frames_analyzed": 38174,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1732.9652679876647,
+     "max_framework_displacement_A": 3.2888117249740296,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 1.6139473930046697,
+     "mobile_msd_at_fit_end_A2": 2292.333988150702,
+     "max_msd_A2": 2716.0281488740193,
+     "fit_ok": true,
+     "fit_window_ps": [
+      7.7,
+      3051.5
+     ],
+     "D_cm2_s": 1.2920259880278469e-05,
+     "D_std_cm2_s": 1.2589221431137609e-06,
+     "D_rsd": 0.09743783443825184,
+     "n_jump": 3566.08856772437,
+     "D_components_cm2_s": [
+      8.860128292878814e-06,
+      1.5074607677318462e-05,
+      1.4826043670638152e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.5187024346989918e-06,
+      2.065813771766995e-06,
+      1.793692756774086e-06
+     ],
+     "D_components_rsd": [
+      0.1714086280127145,
+      0.13703930583050974,
+      0.12098256261893775
+     ],
+     "conductivity_mS_cm": 519.8167984442744,
+     "conductivity_std_mS_cm": 50.64982314503533,
+     "nernst_einstein_factor": 40232689.06825354,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 420.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/420",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/420/LYC.traj",
+       "chain": 0,
+       "n_frames": 37850,
+       "frames_used": 37750,
+       "simulated_time_ps": 3784.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 3774.9,
+     "n_frames_analyzed": 37750,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1741.5320647378235,
+     "max_framework_displacement_A": 4.0501139317087045,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.023255813953488372,
+     "framework_msd_at_fit_end_A2": 1.7249967500115289,
+     "mobile_msd_at_fit_end_A2": 3387.63031430211,
+     "max_msd_A2": 4164.437796885079,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.8,
+      3015.6
+     ],
+     "D_cm2_s": 1.8520710531503323e-05,
+     "D_std_cm2_s": 1.5999302530344006e-06,
+     "D_rsd": 0.08638600826425932,
+     "n_jump": 5467.820362844105,
+     "D_components_cm2_s": [
+      1.2608745768792995e-05,
+      2.426446868127966e-05,
+      1.8688917144437315e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.7074745472467865e-06,
+      2.7782596392884816e-06,
+      2.158822524816063e-06
+     ],
+     "D_components_rsd": [
+      0.13541985686418032,
+      0.11449909230577729,
+      0.11551351574473795
+     ],
+     "conductivity_mS_cm": 706.1643510254089,
+     "conductivity_std_mS_cm": 61.00271946360629,
+     "nernst_einstein_factor": 38128361.75071355,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 425.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/425",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/425/LYC.traj",
+       "chain": 0,
+       "n_frames": 39874,
+       "frames_used": 39774,
+       "simulated_time_ps": 3987.3,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 3977.3,
+     "n_frames_analyzed": 39774,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1743.821042323677,
+     "max_framework_displacement_A": 3.710319689033569,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 2.0861853671085906,
+     "mobile_msd_at_fit_end_A2": 4378.380707068613,
+     "max_msd_A2": 6126.421703187071,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.0,
+      3178.6
+     ],
+     "D_cm2_s": 2.400285618778479e-05,
+     "D_std_cm2_s": 1.8780761769428707e-06,
+     "D_rsd": 0.07824386240745117,
+     "n_jump": 8043.864495974063,
+     "D_components_cm2_s": [
+      2.065583561393363e-05,
+      1.9935837818212886e-05,
+      3.141689513120784e-05
+     ],
+     "D_components_std_cm2_s": [
+      2.250973891084984e-06,
+      2.085689515662709e-06,
+      3.26950814017721e-06
+     ],
+     "D_components_rsd": [
+      0.10897520357717042,
+      0.10462010850415701,
+      0.1040684678267095
+     ],
+     "conductivity_mS_cm": 903.235482578435,
+     "conductivity_std_mS_cm": 70.67263282039482,
+     "nernst_einstein_factor": 37630333.46998502,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 430.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/430",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/430/LYC.traj",
+       "chain": 0,
+       "n_frames": 35611,
+       "frames_used": 35511,
+       "simulated_time_ps": 3561.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 3551.0,
+     "n_frames_analyzed": 35511,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1744.7347224394885,
+     "max_framework_displacement_A": 3.868375528947479,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 1.8827227091075054,
+     "mobile_msd_at_fit_end_A2": 2613.2875484270608,
+     "max_msd_A2": 2837.7651513869205,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.6,
+      2838.6
+     ],
+     "D_cm2_s": 1.556650142898268e-05,
+     "D_std_cm2_s": 1.4973778910436108e-06,
+     "D_rsd": 0.09619232027664865,
+     "n_jump": 3725.926724449758,
+     "D_components_cm2_s": [
+      1.303453922920762e-05,
+      1.8665025590463293e-05,
+      1.4999939467277122e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.8260582336355618e-06,
+      2.4275084232695515e-06,
+      2.044605507008515e-06
+     ],
+     "D_components_rsd": [
+      0.14009380780747163,
+      0.13005652799693254,
+      0.13630758387184772
+     ],
+     "conductivity_mS_cm": 578.6581403506939,
+     "conductivity_std_mS_cm": 55.662469167303854,
+     "nernst_einstein_factor": 37173294.396987125,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 450.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/450",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/450/LYC.traj",
+       "chain": 0,
+       "n_frames": 35548,
+       "frames_used": 35448,
+       "simulated_time_ps": 3554.7,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 3544.7,
+     "n_frames_analyzed": 35448,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1753.0647758447112,
+     "max_framework_displacement_A": 3.629344756255641,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 1.9087174617197136,
+     "mobile_msd_at_fit_end_A2": 4046.286361253957,
+     "max_msd_A2": 5720.568585762399,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.6,
+      2831.6
+     ],
+     "D_cm2_s": 2.2747422194611253e-05,
+     "D_std_cm2_s": 1.81017725746994e-06,
+     "D_rsd": 0.07957724800565585,
+     "n_jump": 7510.987779352613,
+     "D_components_cm2_s": [
+      1.1222782751577387e-05,
+      1.5158534103401703e-05,
+      4.186094972885469e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.4417383400178799e-06,
+      1.7701434617702945e-06,
+      3.903605191181345e-06
+     ],
+     "D_components_rsd": [
+      0.12846531666268246,
+      0.11677537218938996,
+      0.09325171111659217
+     ],
+     "conductivity_mS_cm": 804.1751000377877,
+     "conductivity_std_mS_cm": 63.99404137568015,
+     "nernst_einstein_factor": 35352361.82622454,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 500.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/500",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/500/LYC.traj",
+       "chain": 0,
+       "n_frames": 35935,
+       "frames_used": 35835,
+       "simulated_time_ps": 3593.4,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 3583.4,
+     "n_frames_analyzed": 35835,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1789.2982550831648,
+     "max_framework_displacement_A": 6.376709901527399,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.3953488372093023,
+     "framework_msd_at_fit_end_A2": 5.326519589496083,
+     "mobile_msd_at_fit_end_A2": 5832.880070723536,
+     "max_msd_A2": 6974.70250051184,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.6,
+      2863.1
+     ],
+     "D_cm2_s": 3.318733742745376e-05,
+     "D_std_cm2_s": 2.5170217397097776e-06,
+     "D_rsd": 0.07584283449107329,
+     "n_jump": 9157.639570364976,
+     "D_components_cm2_s": [
+      2.201972973908596e-05,
+      3.7075105850024993e-05,
+      4.04671766932503e-05
+     ],
+     "D_components_std_cm2_s": [
+      2.2783896974688525e-06,
+      3.6429580167496825e-06,
+      4.049000468430535e-06
+     ],
+     "D_components_rsd": [
+      0.10347037518015553,
+      0.09825887029118831,
+      0.10005641112852545
+     ],
+     "conductivity_mS_cm": 1034.5430777171407,
+     "conductivity_std_mS_cm": 78.46267941718668,
+     "nernst_einstein_factor": 31172825.47835035,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 550.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/550",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/550/LYC.traj",
+       "chain": 0,
+       "n_frames": 36391,
+       "frames_used": 36291,
+       "simulated_time_ps": 3639.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 3629.0,
+     "n_frames_analyzed": 36291,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1893.2844962052284,
+     "max_framework_displacement_A": 39.794593302968224,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 155.05022934838965,
+     "mobile_msd_at_fit_end_A2": 12001.783085778681,
+     "max_msd_A2": 12828.009318575987,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.7,
+      2901.7
+     ],
+     "D_cm2_s": 7.433453585342127e-05,
+     "D_std_cm2_s": 4.937990715529837e-06,
+     "D_rsd": 0.06642929371708137,
+     "n_jump": 16842.909892741834,
+     "D_components_cm2_s": [
+      9.20026668906065e-05,
+      8.300077062660273e-05,
+      4.800017004305469e-05
+     ],
+     "D_components_std_cm2_s": [
+      7.439716467869951e-06,
+      7.136419210069436e-06,
+      4.334167027917731e-06
+     ],
+     "D_components_rsd": [
+      0.08086413926148425,
+      0.08598015604185402,
+      0.09029482653978341
+     ],
+     "conductivity_mS_cm": 1990.8611733537582,
+     "conductivity_std_mS_cm": 132.25150163465005,
+     "nernst_einstein_factor": 26782452.46973084,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 600.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/600",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/600/LYC.traj",
+       "chain": 0,
+       "n_frames": 30514,
+       "frames_used": 30414,
+       "simulated_time_ps": 6102.6,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 200,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 6082.6,
+     "n_frames_analyzed": 30414,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2353.7984083450697,
+     "max_framework_displacement_A": 165.47266993932107,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 4893.59057435879,
+     "mobile_msd_at_fit_end_A2": 20261.80763589377,
+     "max_msd_A2": 28387.770195656867,
+     "fit_ok": true,
+     "fit_window_ps": [
+      6.2,
+      4860.2
+     ],
+     "D_cm2_s": 6.650769552727291e-05,
+     "D_std_cm2_s": 3.841910454671194e-06,
+     "D_rsd": 0.057766404687646045,
+     "n_jump": 37272.55286359486,
+     "D_components_cm2_s": [
+      7.754406679857598e-05,
+      7.254134339678798e-05,
+      4.943767638645469e-05
+     ],
+     "D_components_std_cm2_s": [
+      5.480745255432649e-06,
+      4.9136436969995946e-06,
+      3.665212110900756e-06
+     ],
+     "D_components_rsd": [
+      0.07067910520696727,
+      0.06773576924434464,
+      0.07413803355662926
+     ],
+     "conductivity_mS_cm": 1313.3494470657067,
+     "conductivity_std_mS_cm": 75.86747565549379,
+     "nernst_einstein_factor": 19747330.54052579,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 700.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/700",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt_10ns/700/LYC.traj",
+       "chain": 0,
+       "n_frames": 29889,
+       "frames_used": 29789,
+       "simulated_time_ps": 5977.6,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 200,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 5957.6,
+     "n_frames_analyzed": 29789,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2516.398337930608,
+     "max_framework_displacement_A": 182.58873701827926,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 6527.725582959089,
+     "mobile_msd_at_fit_end_A2": 28965.81553617615,
+     "max_msd_A2": 33657.64326153415,
+     "fit_ok": true,
+     "fit_window_ps": [
+      6.0,
+      4762.0
+     ],
+     "D_cm2_s": 0.00010834304218609243,
+     "D_std_cm2_s": 6.101486012988134e-06,
+     "D_rsd": 0.056316362268174866,
+     "n_jump": 44191.78678293934,
+     "D_components_cm2_s": [
+      6.903853070791765e-05,
+      0.00012396546965463517,
+      0.00013202512619572447
+     ],
+     "D_components_std_cm2_s": [
+      5.249337820033369e-06,
+      7.99367776160949e-06,
+      8.832214003789652e-06
+     ],
+     "D_components_rsd": [
+      0.07603490060125731,
+      0.06448309988160159,
+      0.06689797812195294
+     ],
+     "conductivity_mS_cm": 1715.3490536932227,
+     "conductivity_std_mS_cm": 96.60221872415848,
+     "nernst_einstein_factor": 15832572.346887775,
+     "framework_single_atom_moved_4A": true
+    }
+   ],
+   "arrhenius": {
+    "all (no framework melt)": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0
+     ],
+     "n_points": 10,
+     "status": "ok",
+     "Ea_eV": 0.16942204699023808,
+     "Ea_std_eV": 0.008208843801630025,
+     "r_squared": 0.95432558715681,
+     "slope": -0.8538825591344299,
+     "intercept": -2.7292217660203035,
+     "D_300K_cm2_s": 2.657682133703512e-06,
+     "conductivity_300K_mS_cm": 144.64938334632095,
+     "conductivity_300K_range_mS_cm": [
+      97.5863864018286,
+      214.40945683053636
+     ],
+     "volume_for_extrapolation_A3": 1708.0245414582898
+    },
+    "all": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0,
+      550.0,
+      600.0,
+      700.0
+     ],
+     "n_points": 13,
+     "status": "ok",
+     "Ea_eV": 0.17056741315573207,
+     "Ea_std_eV": 0.0041171123778192065,
+     "r_squared": 0.9720828662348546,
+     "slope": -0.859655173796525,
+     "intercept": -2.7058571688573347,
+     "D_300K_cm2_s": 2.6830303486807455e-06,
+     "conductivity_300K_mS_cm": 146.02900795187048,
+     "conductivity_300K_range_mS_cm": [
+      120.89160343630121,
+      176.39331895075327
+     ],
+     "volume_for_extrapolation_A3": 1708.0245414582898
+    },
+    "all (unweighted)": {
+     "temperature_window_K": null,
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0,
+      550.0,
+      600.0,
+      700.0
+     ],
+     "n_points": 13,
+     "status": "ok",
+     "Ea_eV": 0.17772226119111575,
+     "Ea_std_eV": 0.008723049149966125,
+     "r_squared": 0.9741841336293793,
+     "slope": -0.8957154154191715,
+     "intercept": -2.6318621454392743,
+     "D_300K_cm2_s": 2.412236047855568e-06,
+     "conductivity_300K_mS_cm": 131.2905152889139,
+     "conductivity_300K_range_mS_cm": [
+      86.5767136501237,
+      199.09740943145516
+     ],
+     "volume_for_extrapolation_A3": 1708.0245414582898
+    }
+   }
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT 7,980 frames, 10 ep: NPT, 400 ps",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/10_epochs/09-26-2024/bestE_epoch9_e1_f35_sNA_mNA.pth.tar",
+   "temperatures": [
+    {
+     "temperature_K": 300.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/300",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/300/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1714.1068028845268,
+     "max_framework_displacement_A": 2.1130716780206056,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.3084944074689307,
+     "mobile_msd_at_fit_end_A2": 55.327132630880776,
+     "max_msd_A2": 81.94560859924944,
+     "fit_ok": true,
+     "fit_window_ps": [
+      26.5,
+      311.8
+     ],
+     "D_cm2_s": 2.8117510291236897e-06,
+     "D_std_cm2_s": 1.0422479237655268e-06,
+     "D_rsd": 0.3706757507937514,
+     "n_jump": 107.59288268869628,
+     "D_components_cm2_s": [
+      2.6318043598745973e-06,
+      2.9756513834422974e-06,
+      2.8277973440541787e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.5814699305147834e-06,
+      1.7341180924381458e-06,
+      1.790126162807196e-06
+     ],
+     "D_components_rsd": [
+      0.6009071018448114,
+      0.5827692390605518,
+      0.6330461291970498
+     ],
+     "conductivity_mS_cm": 152.4918525211408,
+     "conductivity_std_mS_cm": 56.525031923203876,
+     "nernst_einstein_factor": 54233767.834226206,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 330.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/330",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/330/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1713.9173527496187,
+     "max_framework_displacement_A": 2.146274984057212,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.3678524303167709,
+     "mobile_msd_at_fit_end_A2": 87.38124367329627,
+     "max_msd_A2": 133.3657329524776,
+     "fit_ok": true,
+     "fit_window_ps": [
+      13.9,
+      311.8
+     ],
+     "D_cm2_s": 3.949435133142683e-06,
+     "D_std_cm2_s": 1.1816900036339596e-06,
+     "D_rsd": 0.2992048138017281,
+     "n_jump": 175.10643835012468,
+     "D_components_cm2_s": [
+      4.6454976188573e-06,
+      3.647583537697251e-06,
+      3.5552242428735e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.1836633990783987e-06,
+      1.7838503136941493e-06,
+      1.7810618964380425e-06
+     ],
+     "D_components_rsd": [
+      0.4700601697037435,
+      0.4890498861118088,
+      0.5009703396370025
+     ],
+     "conductivity_mS_cm": 194.7422037887129,
+     "conductivity_std_mS_cm": 58.26780482394003,
+     "nernst_einstein_factor": 49308875.123554885,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 350.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/350",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/350/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1712.9286651607058,
+     "max_framework_displacement_A": 2.139962632582146,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.36411082553011853,
+     "mobile_msd_at_fit_end_A2": 155.4809234242604,
+     "max_msd_A2": 214.1857231392138,
+     "fit_ok": true,
+     "fit_window_ps": [
+      8.5,
+      311.8
+     ],
+     "D_cm2_s": 8.572343002715149e-06,
+     "D_std_cm2_s": 2.096247166528189e-06,
+     "D_rsd": 0.24453608142654082,
+     "n_jump": 281.2214074339315,
+     "D_components_cm2_s": [
+      9.504248388735831e-06,
+      9.769828974532784e-06,
+      6.442951644876832e-06
+     ],
+     "D_components_std_cm2_s": [
+      3.6782617375676125e-06,
+      3.5003519050533172e-06,
+      2.8360520199511176e-06
+     ],
+     "D_components_rsd": [
+      0.3870123745847157,
+      0.3582817994232813,
+      0.44017900122007414
+     ],
+     "conductivity_mS_cm": 398.7687614170575,
+     "conductivity_std_mS_cm": 97.5133503122424,
+     "nernst_einstein_factor": 46518059.44894575,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 375.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/375",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/375/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1723.264096616837,
+     "max_framework_displacement_A": 2.2184616540597837,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.3921396496919466,
+     "mobile_msd_at_fit_end_A2": 189.47432025897297,
+     "max_msd_A2": 269.682830936718,
+     "fit_ok": true,
+     "fit_window_ps": [
+      6.4,
+      311.8
+     ],
+     "D_cm2_s": 9.605139615772835e-06,
+     "D_std_cm2_s": 2.1350285053957497e-06,
+     "D_rsd": 0.2222797992326699,
+     "n_jump": 354.0879577090062,
+     "D_components_cm2_s": [
+      1.154935243705129e-05,
+      4.033449760145914e-06,
+      1.3232616650121287e-05
+     ],
+     "D_components_std_cm2_s": [
+      3.789739163575129e-06,
+      1.8279053868830487e-06,
+      4.318652778153946e-06
+     ],
+     "D_components_rsd": [
+      0.32813434209673337,
+      0.45318660094502394,
+      0.32636423258844743
+     ],
+     "conductivity_mS_cm": 414.5238139100758,
+     "conductivity_std_mS_cm": 92.14027013309227,
+     "nernst_einstein_factor": 43156458.98882887,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 400.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/400",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/400/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1735.214646137354,
+     "max_framework_displacement_A": 2.6947087056416796,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.47380938971441316,
+     "mobile_msd_at_fit_end_A2": 232.2809435390547,
+     "max_msd_A2": 345.87320378497765,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.6,
+      311.8
+     ],
+     "D_cm2_s": 1.0976540305372334e-05,
+     "D_std_cm2_s": 2.2057998509199563e-06,
+     "D_rsd": 0.20095583759122668,
+     "n_jump": 454.124335350186,
+     "D_components_cm2_s": [
+      9.608550486637106e-06,
+      1.4708791186656808e-05,
+      8.612279242823077e-06
+     ],
+     "D_components_std_cm2_s": [
+      3.0505684009364447e-06,
+      4.610705451270463e-06,
+      2.798164605933683e-06
+     ],
+     "D_components_rsd": [
+      0.3174847658009353,
+      0.3134659669010122,
+      0.32490407324698567
+     ],
+     "conductivity_mS_cm": 441.04326173798074,
+     "conductivity_std_mS_cm": 88.63021807652254,
+     "nernst_einstein_factor": 40180534.98351548,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 420.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/420",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/420/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1743.883111930323,
+     "max_framework_displacement_A": 2.6785151671046648,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.478983496098178,
+     "mobile_msd_at_fit_end_A2": 361.74461294445405,
+     "max_msd_A2": 433.72161030531555,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.4,
+      311.8
+     ],
+     "D_cm2_s": 2.0731115850222094e-05,
+     "D_std_cm2_s": 3.809011856566323e-06,
+     "D_rsd": 0.18373404905387747,
+     "n_jump": 569.4674691519672,
+     "D_components_cm2_s": [
+      1.135426366354609e-05,
+      3.3467578434361434e-05,
+      1.737150545275875e-05
+     ],
+     "D_components_std_cm2_s": [
+      3.569455260507226e-06,
+      8.506548064582866e-06,
+      5.212972552540779e-06
+     ],
+     "D_components_rsd": [
+      0.314371355666796,
+      0.2541727983477025,
+      0.30008755238383283
+     ],
+     "conductivity_mS_cm": 789.3778341187656,
+     "conductivity_std_mS_cm": 145.03558569602083,
+     "nernst_einstein_factor": 38076958.31820403,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 425.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/425",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/425/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1748.1405996184778,
+     "max_framework_displacement_A": 3.077718528322603,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.5205395089508947,
+     "mobile_msd_at_fit_end_A2": 403.03845687069537,
+     "max_msd_A2": 513.5183450285923,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.1,
+      311.8
+     ],
+     "D_cm2_s": 2.1389874402193485e-05,
+     "D_std_cm2_s": 3.6810958356354382e-06,
+     "D_rsd": 0.17209525247413093,
+     "n_jump": 674.2389250576736,
+     "D_components_cm2_s": [
+      2.3140466349261866e-05,
+      2.262110290741363e-05,
+      1.840805394990498e-05
+     ],
+     "D_components_std_cm2_s": [
+      6.003750814721498e-06,
+      6.029730373944293e-06,
+      4.912582882722158e-06
+     ],
+     "D_components_rsd": [
+      0.2594481340222863,
+      0.2665533329043901,
+      0.2668713866273472
+     ],
+     "conductivity_mS_cm": 802.9192238853477,
+     "conductivity_std_mS_cm": 138.17858655088216,
+     "nernst_einstein_factor": 37537351.028251484,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 430.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/430",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/430/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1746.499568787438,
+     "max_framework_displacement_A": 2.745539599072077,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.5096267986900359,
+     "mobile_msd_at_fit_end_A2": 286.69730031520453,
+     "max_msd_A2": 358.85052212792647,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.4,
+      311.8
+     ],
+     "D_cm2_s": 1.3623198068260925e-05,
+     "D_std_cm2_s": 2.6976475498399088e-06,
+     "D_rsd": 0.19801866906162352,
+     "n_jump": 471.1632848918891,
+     "D_components_cm2_s": [
+      1.0291315927720439e-05,
+      1.5530484807867858e-05,
+      1.504779346919449e-05
+     ],
+     "D_components_std_cm2_s": [
+      3.4168504126278144e-06,
+      4.610079275372824e-06,
+      4.384616311972459e-06
+     ],
+     "D_components_rsd": [
+      0.33201297449476497,
+      0.2968406545195114,
+      0.29137935212551586
+     ],
+     "conductivity_mS_cm": 505.9074133919604,
+     "conductivity_std_mS_cm": 100.17911266828456,
+     "nernst_einstein_factor": 37135730.60136402,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 450.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/450",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/450/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1756.0863026130107,
+     "max_framework_displacement_A": 2.683119708459172,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.562618017720175,
+     "mobile_msd_at_fit_end_A2": 644.3954396293628,
+     "max_msd_A2": 757.3361050265819,
+     "fit_ok": true,
+     "fit_window_ps": [
+      2.5,
+      311.8
+     ],
+     "D_cm2_s": 3.522787967079754e-05,
+     "D_std_cm2_s": 5.240955164849255e-06,
+     "D_rsd": 0.14877293819059426,
+     "n_jump": 994.366581649691,
+     "D_components_cm2_s": [
+      5.082997184941172e-05,
+      4.315142320824925e-05,
+      1.1702243954731647e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.020949309102454e-05,
+      8.691537599780472e-06,
+      4.529709533539126e-06
+     ],
+     "D_components_rsd": [
+      0.20085576913697817,
+      0.20141948871153137,
+      0.3870804224439021
+     ],
+     "conductivity_mS_cm": 1243.2459292959154,
+     "conductivity_std_mS_cm": 184.96134979484913,
+     "nernst_einstein_factor": 35291534.458331734,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 500.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/500",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/500/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1777.1799932310994,
+     "max_framework_displacement_A": 3.5675579275160567,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.6453796897533465,
+     "mobile_msd_at_fit_end_A2": 659.2571854072814,
+     "max_msd_A2": 766.8142918670388,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.9,
+      311.8
+     ],
+     "D_cm2_s": 3.5317472888019074e-05,
+     "D_std_cm2_s": 5.230468484397872e-06,
+     "D_rsd": 0.14809860549711729,
+     "n_jump": 1006.8112441796142,
+     "D_components_cm2_s": [
+      3.957826449108402e-05,
+      4.89970659975105e-05,
+      1.7377088175462686e-05
+     ],
+     "D_components_std_cm2_s": [
+      9.117158645872673e-06,
+      1.0153118408691595e-05,
+      4.276230187708367e-06
+     ],
+     "D_components_rsd": [
+      0.230357716870747,
+      0.20721890590770203,
+      0.24608439253629483
+     ],
+     "conductivity_mS_cm": 1108.4525619685407,
+     "conductivity_std_mS_cm": 164.16027868724785,
+     "nernst_einstein_factor": 31385387.212814048,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 550.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/550",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/550/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1836.3231486773993,
+     "max_framework_displacement_A": 8.707148895297893,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.5116279069767442,
+     "framework_msd_at_fit_end_A2": 10.628028385627617,
+     "mobile_msd_at_fit_end_A2": 1233.6292316140077,
+     "max_msd_A2": 1430.5226193996373,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.3,
+      311.8
+     ],
+     "D_cm2_s": 6.604469375526556e-05,
+     "D_std_cm2_s": 7.868826947873998e-06,
+     "D_rsd": 0.11914396903758279,
+     "n_jump": 1878.24649793377,
+     "D_components_cm2_s": [
+      8.190331181674353e-05,
+      8.672654029865287e-05,
+      2.9504229150400282e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.3032711884864596e-05,
+      1.4045174026697338e-05,
+      6.5008120660243675e-06
+     ],
+     "D_components_rsd": [
+      0.159123136730111,
+      0.1619478187222868,
+      0.22033492327103119
+     ],
+     "conductivity_mS_cm": 1823.7069079468831,
+     "conductivity_std_mS_cm": 217.28367937404929,
+     "nernst_einstein_factor": 27613223.77698941,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 600.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/600",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/600/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2049.5894387610138,
+     "max_framework_displacement_A": 28.67380039878314,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 118.96976226850295,
+     "mobile_msd_at_fit_end_A2": 1214.011631598776,
+     "max_msd_A2": 1644.0901929933716,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.3,
+      311.8
+     ],
+     "D_cm2_s": 6.585743473975795e-05,
+     "D_std_cm2_s": 7.496210371273353e-06,
+     "D_rsd": 0.11382481569310066,
+     "n_jump": 2158.6562878488653,
+     "D_components_cm2_s": [
+      4.9526291388912565e-05,
+      4.655681084843596e-05,
+      0.00010148920198192518
+     ],
+     "D_components_std_cm2_s": [
+      8.650427183374357e-06,
+      8.39682939664126e-06,
+      1.537134339789338e-05
+     ],
+     "D_components_rsd": [
+      0.17466333417629826,
+      0.1803566276044302,
+      0.15145791963790348
+     ],
+     "conductivity_mS_cm": 1493.5356591961215,
+     "conductivity_std_mS_cm": 170.0014211390721,
+     "nernst_einstein_factor": 22678315.137812044,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 700.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/700",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/700/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2524.6538594097365,
+     "max_framework_displacement_A": 54.784120941662636,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 621.4298413392462,
+     "mobile_msd_at_fit_end_A2": 1403.943290486727,
+     "max_msd_A2": 1787.75704814538,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.0,
+      311.8
+     ],
+     "D_cm2_s": 7.631199726822471e-05,
+     "D_std_cm2_s": 8.455091675414646e-06,
+     "D_rsd": 0.11079636201495716,
+     "n_jump": 2347.287885769117,
+     "D_components_cm2_s": [
+      5.838626221542412e-05,
+      8.349351835430296e-05,
+      8.705621123494711e-05
+     ],
+     "D_components_std_cm2_s": [
+      9.850428149510238e-06,
+      1.4709889234463246e-05,
+      1.2736463623875446e-05
+     ],
+     "D_components_rsd": [
+      0.16871140189049494,
+      0.17618001402267114,
+      0.14630160723974428
+     ],
+     "conductivity_mS_cm": 1204.2644001720714,
+     "conductivity_std_mS_cm": 133.42811444319005,
+     "nernst_einstein_factor": 15780800.441367963,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 750.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/750",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/750/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2565.8609506454522,
+     "max_framework_displacement_A": 62.6467423796636,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 668.174339142816,
+     "mobile_msd_at_fit_end_A2": 1312.8413265122056,
+     "max_msd_A2": 1482.32032089794,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 7.801008990217458e-05,
+     "D_std_cm2_s": 9.185600966774565e-06,
+     "D_rsd": 0.11774888323155888,
+     "n_jump": 1946.2558045472065,
+     "D_components_cm2_s": [
+      6.999759855320819e-05,
+      9.527236354071578e-05,
+      6.87603076125997e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.1570020281414971e-05,
+      1.562659601190485e-05,
+      1.2819868019711785e-05
+     ],
+     "D_components_rsd": [
+      0.16529167457966576,
+      0.1640202408248919,
+      0.18644285438540797
+     ],
+     "conductivity_mS_cm": 1130.5383747912042,
+     "conductivity_std_mS_cm": 133.11963108208585,
+     "nernst_einstein_factor": 14492207.049227996,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 800.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/800",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/800/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2610.6687582058994,
+     "max_framework_displacement_A": 51.03546409970035,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 646.1873555480073,
+     "mobile_msd_at_fit_end_A2": 2391.1181623566436,
+     "max_msd_A2": 2973.280525264608,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.00013369595499391912,
+     "D_std_cm2_s": 1.2687321986210685e-05,
+     "D_rsd": 0.0948968275576306,
+     "n_jump": 3903.855596702595,
+     "D_components_cm2_s": [
+      0.0001253914323270552,
+      0.0001032915888117362,
+      0.00017240484384296596
+     ],
+     "D_components_std_cm2_s": [
+      1.856905418498379e-05,
+      1.5205037969489033e-05,
+      1.9896432626634838e-05
+     ],
+     "D_components_rsd": [
+      0.14808869984474385,
+      0.1472049964997867,
+      0.11540529942857869
+     ],
+     "conductivity_mS_cm": 1785.2762177909494,
+     "conductivity_std_mS_cm": 169.4170493824467,
+     "nernst_einstein_factor": 13353255.286385806,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 850.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/850",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/850/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2691.815331763145,
+     "max_framework_displacement_A": 57.17300833039888,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 966.0435387954337,
+     "mobile_msd_at_fit_end_A2": 2399.8663771543643,
+     "max_msd_A2": 2971.880821687496,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.0001285016134430342,
+     "D_std_cm2_s": 1.2196056489094298e-05,
+     "D_rsd": 0.09490975375574491,
+     "n_jump": 3902.017814967302,
+     "D_components_cm2_s": [
+      0.00012221266228610022,
+      8.887299181743265e-05,
+      0.00017441918622556983
+     ],
+     "D_components_std_cm2_s": [
+      1.5524767463867203e-05,
+      1.4699072090539228e-05,
+      2.1665536886530168e-05
+     ],
+     "D_components_rsd": [
+      0.127030760753118,
+      0.1653941404463439,
+      0.12421533063748466
+     ],
+     "conductivity_mS_cm": 1566.2940689215707,
+     "conductivity_std_mS_cm": 148.65658439043003,
+     "nernst_einstein_factor": 12188905.858492753,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 900.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/900",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/900/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2731.526450730512,
+     "max_framework_displacement_A": 83.83293661801876,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 1367.3306781319463,
+     "mobile_msd_at_fit_end_A2": 2657.995156230446,
+     "max_msd_A2": 3432.8870254712942,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.00014239504210997766,
+     "D_std_cm2_s": 1.2970756554317572e-05,
+     "D_rsd": 0.09108994500173477,
+     "n_jump": 4507.309388858007,
+     "D_components_cm2_s": [
+      0.00020407540573962732,
+      0.00011783169045649377,
+      0.00010527803013381185
+     ],
+     "D_components_std_cm2_s": [
+      2.2944839994194945e-05,
+      1.6491024334169708e-05,
+      1.4819417891326384e-05
+     ],
+     "D_components_rsd": [
+      0.11243314651776051,
+      0.13995406728259221,
+      0.1407645818647102
+     ],
+     "conductivity_mS_cm": 1615.3843067481098,
+     "conductivity_std_mS_cm": 147.14526765835078,
+     "nernst_einstein_factor": 11344385.891613282,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 950.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/950",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/950/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2800.62718725631,
+     "max_framework_displacement_A": 84.18660734982957,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 1464.2557093173943,
+     "mobile_msd_at_fit_end_A2": 2578.1776736433967,
+     "max_msd_A2": 3126.316256521643,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.0001453832317228938,
+     "D_std_cm2_s": 1.3598616448646992e-05,
+     "D_rsd": 0.09353634726298074,
+     "n_jump": 4104.788334426723,
+     "D_components_cm2_s": [
+      6.826860279495237e-05,
+      0.00011568980523463592,
+      0.0002521912871390932
+     ],
+     "D_components_std_cm2_s": [
+      1.1962276457091374e-05,
+      1.4967263446901681e-05,
+      2.9482752832066086e-05
+     ],
+     "D_components_rsd": [
+      0.17522368947582795,
+      0.12937409149013496,
+      0.11690631015259942
+     ],
+     "conductivity_mS_cm": 1523.9275615618826,
+     "conductivity_std_mS_cm": 142.5426176018797,
+     "nernst_einstein_factor": 10482141.189890103,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 1000.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/1000",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_npt/1000/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2872.365059735439,
+     "max_framework_displacement_A": 95.64544647406663,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 1766.0700799927693,
+     "mobile_msd_at_fit_end_A2": 2665.696699604174,
+     "max_msd_A2": 3219.087425643385,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.4,
+      311.8
+     ],
+     "D_cm2_s": 0.00014448693788592367,
+     "D_std_cm2_s": 1.3402503359251766e-05,
+     "D_rsd": 0.09275927329730943,
+     "n_jump": 4226.594953314903,
+     "D_components_cm2_s": [
+      0.00015134318044397965,
+      0.0001560524557482975,
+      0.000126065177465494
+     ],
+     "D_components_std_cm2_s": [
+      1.949238783110998e-05,
+      1.8149394708563087e-05,
+      1.9123600869377935e-05
+     ],
+     "D_components_rsd": [
+      0.12879594425019483,
+      0.11630316627529966,
+      0.1516961404715617
+     ],
+     "conductivity_mS_cm": 1402.8714044761364,
+     "conductivity_std_mS_cm": 130.12933200878226,
+     "nernst_einstein_factor": 9709330.303502876,
+     "framework_single_atom_moved_4A": true
+    }
+   ],
+   "arrhenius": {
+    "all (no framework melt)": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0,
+      550.0
+     ],
+     "n_points": 11,
+     "status": "ok",
+     "Ea_eV": 0.18498249376660414,
+     "Ea_std_eV": 0.013076161131388419,
+     "r_squared": 0.9434410813719856,
+     "slope": -0.9323067922889504,
+     "intercept": -2.5102643966804066,
+     "D_300K_cm2_s": 2.4101623377322052e-06,
+     "conductivity_300K_mS_cm": 130.7121846673643,
+     "conductivity_300K_range_mS_cm": [
+      70.68936500420182,
+      241.70078794030144
+     ],
+     "volume_for_extrapolation_A3": 1714.1068028845268
+    },
+    "all": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0,
+      550.0,
+      600.0,
+      700.0,
+      750.0,
+      800.0,
+      850.0,
+      900.0,
+      950.0,
+      1000.0
+     ],
+     "n_points": 19,
+     "status": "ok",
+     "Ea_eV": 0.1366428685362488,
+     "Ea_std_eV": 0.004720498842744102,
+     "r_squared": 0.9588242228615699,
+     "slope": -0.6886763815332984,
+     "intercept": -3.0872882294593933,
+     "D_300K_cm2_s": 4.141177370086948e-06,
+     "conductivity_300K_mS_cm": 224.591652049647,
+     "conductivity_300K_range_mS_cm": [
+      183.32307418607712,
+      275.15036170073455
+     ],
+     "volume_for_extrapolation_A3": 1714.1068028845268
+    },
+    "all (unweighted)": {
+     "temperature_window_K": null,
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0,
+      550.0,
+      600.0,
+      700.0,
+      750.0,
+      800.0,
+      850.0,
+      900.0,
+      950.0,
+      1000.0
+     ],
+     "n_points": 19,
+     "status": "ok",
+     "Ea_eV": 0.14795578482531083,
+     "Ea_std_eV": 0.006631090883378755,
+     "r_squared": 0.9669803360744031,
+     "slope": -0.7456931752964764,
+     "intercept": -3.001596443770813,
+     "D_300K_cm2_s": 3.2565641571527545e-06,
+     "conductivity_300K_mS_cm": 176.61574443628504,
+     "conductivity_300K_range_mS_cm": [
+      130.44101199063542,
+      239.13584160955875
+     ],
+     "volume_for_extrapolation_A3": 1714.1068028845268
+    }
+   }
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT 7,980 frames, 200 ep: NPT, 400 ps",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/200_epochs/09-27-2024/bestE_epoch197_e1_f15_sNA_mNA.pth.tar",
+   "temperatures": [
+    {
+     "temperature_K": 300.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/300",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/300/LYC.traj",
+       "chain": 0,
+       "n_frames": 762,
+       "frames_used": 662,
+       "simulated_time_ps": 76.1,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 66.1,
+     "n_frames_analyzed": 662,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1813.5778098259996,
+     "max_framework_displacement_A": 3.354085545958798,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 1.1790537634434235,
+     "mobile_msd_at_fit_end_A2": 17.071401560183702,
+     "max_msd_A2": 21.32266016642569,
+     "fit_ok": true,
+     "fit_window_ps": [
+      12.1,
+      52.8
+     ],
+     "D_cm2_s": 5.115675579500391e-06,
+     "D_std_cm2_s": 3.5208787809199635e-06,
+     "D_rsd": 0.6882529445434108,
+     "n_jump": 27.996210085114786,
+     "D_components_cm2_s": [
+      3.6436465814576168e-06,
+      4.305593961205716e-06,
+      7.397786195837847e-06
+     ],
+     "D_components_std_cm2_s": [
+      4.175891028713226e-06,
+      5.090560782275486e-06,
+      8.314080230148146e-06
+     ],
+     "D_components_rsd": [
+      1.146074663213546,
+      1.1823132483328622,
+      1.1238605726164168
+     ],
+     "conductivity_mS_cm": 262.22521967965423,
+     "conductivity_std_mS_cm": 180.47727957806478,
+     "nernst_einstein_factor": 51259157.3888006,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 330.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/330",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/330/LYC.traj",
+       "chain": 0,
+       "n_frames": 723,
+       "frames_used": 623,
+       "simulated_time_ps": 72.2,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 62.2,
+     "n_frames_analyzed": 623,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1807.023886322876,
+     "max_framework_displacement_A": 2.7089145281949083,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 1.115799074476295,
+     "mobile_msd_at_fit_end_A2": 19.27118311942723,
+     "max_msd_A2": 19.39648956537379,
+     "fit_ok": true,
+     "fit_window_ps": [
+      9.4,
+      49.7
+     ],
+     "D_cm2_s": 5.798169265257823e-06,
+     "D_std_cm2_s": 4.172818575824016e-06,
+     "D_rsd": 0.7196786407784296,
+     "n_jump": 25.467188078201648,
+     "D_components_cm2_s": [
+      3.2416164530585976e-06,
+      6.728417630324039e-06,
+      7.424473712390837e-06
+     ],
+     "D_components_std_cm2_s": [
+      4.062979517836349e-06,
+      7.900485478331502e-06,
+      8.457863054956536e-06
+     ],
+     "D_components_rsd": [
+      1.2533807057903972,
+      1.1741966554996701,
+      1.1391868814675787
+     ],
+     "conductivity_mS_cm": 271.1702035804688,
+     "conductivity_std_mS_cm": 195.15540353240186,
+     "nernst_einstein_factor": 46768245.48833017,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 350.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/350",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/350/LYC.traj",
+       "chain": 0,
+       "n_frames": 50,
+       "frames_used": 0,
+       "simulated_time_ps": 4.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "too_short",
+     "frame_interval_fs": 100
+    },
+    {
+     "temperature_K": 375.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/375",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/375/LYC.traj",
+       "chain": 0,
+       "n_frames": 70,
+       "frames_used": 0,
+       "simulated_time_ps": 6.9,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "too_short",
+     "frame_interval_fs": 100
+    },
+    {
+     "temperature_K": 400.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/400",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/400/LYC.traj",
+       "chain": 0,
+       "n_frames": 68,
+       "frames_used": 0,
+       "simulated_time_ps": 6.7,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "too_short",
+     "frame_interval_fs": 100
+    },
+    {
+     "temperature_K": 420.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/420",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/420/LYC.traj",
+       "chain": 0,
+       "n_frames": 59,
+       "frames_used": 0,
+       "simulated_time_ps": 5.8,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "too_short",
+     "frame_interval_fs": 100
+    },
+    {
+     "temperature_K": 425.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/425",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/425/LYC.traj",
+       "chain": 0,
+       "n_frames": 63,
+       "frames_used": 0,
+       "simulated_time_ps": 6.2,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "too_short",
+     "frame_interval_fs": 100
+    },
+    {
+     "temperature_K": 430.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/430",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/430/LYC.traj",
+       "chain": 0,
+       "n_frames": 68,
+       "frames_used": 0,
+       "simulated_time_ps": 6.7,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "too_short",
+     "frame_interval_fs": 100
+    },
+    {
+     "temperature_K": 450.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/450",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/450/LYC.traj",
+       "chain": 0,
+       "n_frames": 35,
+       "frames_used": 0,
+       "simulated_time_ps": 3.4,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "too_short",
+     "frame_interval_fs": 100
+    },
+    {
+     "temperature_K": 500.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/500",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/500/LYC.traj",
+       "chain": 0,
+       "n_frames": 38,
+       "frames_used": 0,
+       "simulated_time_ps": 3.7,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "too_short",
+     "frame_interval_fs": 100
+    },
+    {
+     "temperature_K": 550.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/550",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/550/LYC.traj",
+       "chain": 0,
+       "n_frames": 24,
+       "frames_used": 0,
+       "simulated_time_ps": 2.3,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "too_short",
+     "frame_interval_fs": 100
+    },
+    {
+     "temperature_K": 600.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/600",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/600/LYC.traj",
+       "chain": 0,
+       "n_frames": 39,
+       "frames_used": 0,
+       "simulated_time_ps": 3.8,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "too_short",
+     "frame_interval_fs": 100
+    },
+    {
+     "temperature_K": 700.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/700",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_50_itter_200epoch_npt/700/LYC.traj",
+       "chain": 0,
+       "n_frames": 26,
+       "frames_used": 0,
+       "simulated_time_ps": 2.5,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "too_short",
+     "frame_interval_fs": 100
+    }
+   ],
+   "arrhenius": {
+    "all (no framework melt)": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      300.0,
+      330.0
+     ],
+     "n_points": 2,
+     "status": "fewer_than_3_points"
+    },
+    "all": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      300.0,
+      330.0
+     ],
+     "n_points": 2,
+     "status": "fewer_than_3_points"
+    },
+    "all (unweighted)": {
+     "temperature_window_K": null,
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      300.0,
+      330.0
+     ],
+     "n_points": 2,
+     "status": "fewer_than_3_points"
+    }
+   }
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT 15,960 frames, 10 ep: NPT, 400 ps",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/25_itteration_10_epochs/09-29-2024/bestE_epoch7_e1_f33_sNA_mNA.pth.tar",
+   "temperatures": [
+    {
+     "temperature_K": 300.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/300",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/300/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1737.962007570077,
+     "max_framework_displacement_A": 2.3395366199674936,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.37601501070592946,
+     "mobile_msd_at_fit_end_A2": 69.44720911201964,
+     "max_msd_A2": 92.62214664441548,
+     "fit_ok": true,
+     "fit_window_ps": [
+      20.5,
+      311.8
+     ],
+     "D_cm2_s": 3.2485216077156793e-06,
+     "D_std_cm2_s": 1.14034131104703e-06,
+     "D_rsd": 0.3510339313546706,
+     "n_jump": 121.61095546954171,
+     "D_components_cm2_s": [
+      1.133171505975097e-06,
+      4.893784171683587e-06,
+      3.7186091454883517e-06
+     ],
+     "D_components_std_cm2_s": [
+      8.196594736875715e-07,
+      2.626400709868893e-06,
+      1.9244719202194694e-06
+     ],
+     "D_components_rsd": [
+      0.7233322311455868,
+      0.5366809441793066,
+      0.5175246563770647
+     ],
+     "conductivity_mS_cm": 173.7613322129337,
+     "conductivity_std_mS_cm": 60.99612356413108,
+     "nernst_einstein_factor": 53489357.066373505,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 330.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/330",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/330/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1744.7936396799835,
+     "max_framework_displacement_A": 2.6119573905542106,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.43196863443527495,
+     "mobile_msd_at_fit_end_A2": 178.84855417762358,
+     "max_msd_A2": 237.24496068553756,
+     "fit_ok": true,
+     "fit_window_ps": [
+      9.1,
+      311.8
+     ],
+     "D_cm2_s": 8.895657397358776e-06,
+     "D_std_cm2_s": 2.0846262445840523e-06,
+     "D_rsd": 0.23434201110341796,
+     "n_jump": 311.4977075630286,
+     "D_components_cm2_s": [
+      1.7226824947718542e-05,
+      3.438317381612503e-06,
+      6.021829862745295e-06
+     ],
+     "D_components_std_cm2_s": [
+      5.121362682324588e-06,
+      1.762025649589744e-06,
+      2.5271876423221186e-06
+     ],
+     "D_components_rsd": [
+      0.29728999382459287,
+      0.5124674234591423,
+      0.4196710468286126
+     ],
+     "conductivity_mS_cm": 430.87267201488515,
+     "conductivity_std_mS_cm": 100.97156848947158,
+     "nernst_einstein_factor": 48436293.43715691,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 350.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/350",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/350/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1761.2745463004198,
+     "max_framework_displacement_A": 3.2376935478405864,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.5240933842477251,
+     "mobile_msd_at_fit_end_A2": 105.6168961901155,
+     "max_msd_A2": 155.39144326111534,
+     "fit_ok": true,
+     "fit_window_ps": [
+      7.0,
+      311.8
+     ],
+     "D_cm2_s": 5.330537417949994e-06,
+     "D_std_cm2_s": 1.4932588313998241e-06,
+     "D_rsd": 0.28013288610852644,
+     "n_jump": 204.02573867483022,
+     "D_components_cm2_s": [
+      6.2131584667040275e-06,
+      6.013697073474016e-06,
+      3.7647567136719296e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.832685781890432e-06,
+      2.5198732924251706e-06,
+      1.835870078582693e-06
+     ],
+     "D_components_rsd": [
+      0.455917195267212,
+      0.4190223188228336,
+      0.48764640538806286
+     ],
+     "conductivity_mS_cm": 241.15973835471476,
+     "conductivity_std_mS_cm": 67.55677351848334,
+     "nernst_einstein_factor": 45241167.90600439,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 375.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/375",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/375/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1771.250645785308,
+     "max_framework_displacement_A": 2.250401422666026,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.5810931990669,
+     "mobile_msd_at_fit_end_A2": 243.0382626003751,
+     "max_msd_A2": 273.36756902543067,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.9,
+      311.8
+     ],
+     "D_cm2_s": 1.3707782515495134e-05,
+     "D_std_cm2_s": 3.0300662737148517e-06,
+     "D_rsd": 0.22104715115589968,
+     "n_jump": 358.92594231482275,
+     "D_components_cm2_s": [
+      1.7925664867905857e-05,
+      1.6013087534429297e-05,
+      7.184595144150264e-06
+     ],
+     "D_components_std_cm2_s": [
+      5.657380032557885e-06,
+      5.384477360245532e-06,
+      2.9287193500240944e-06
+     ],
+     "D_components_rsd": [
+      0.3156022426084105,
+      0.3362547883828472,
+      0.40763874529641014
+     ],
+     "conductivity_mS_cm": 575.5523439897971,
+     "conductivity_std_mS_cm": 127.22420598004507,
+     "nernst_einstein_factor": 41987268.42501322,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 400.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/400",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/400/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1797.3549516990038,
+     "max_framework_displacement_A": 3.0488006577361992,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.6424671160002431,
+     "mobile_msd_at_fit_end_A2": 277.4450319043923,
+     "max_msd_A2": 440.0665594545453,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.7,
+      311.8
+     ],
+     "D_cm2_s": 1.2847533260359157e-05,
+     "D_std_cm2_s": 2.3471684849289217e-06,
+     "D_rsd": 0.182694096785962,
+     "n_jump": 577.7982556474021,
+     "D_components_cm2_s": [
+      6.335191062505685e-06,
+      1.6396997188654408e-05,
+      1.5810411529917355e-05
+     ],
+     "D_components_std_cm2_s": [
+      2.8999649081264353e-06,
+      3.879398203956752e-06,
+      4.31672930030288e-06
+     ],
+     "D_components_rsd": [
+      0.4577549247550942,
+      0.23659199055306465,
+      0.2730307994914946
+     ],
+     "conductivity_mS_cm": 498.37335796448247,
+     "conductivity_std_mS_cm": 91.04987049550805,
+     "nernst_einstein_factor": 38791365.46018565,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 420.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/420",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/420/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1815.451317923292,
+     "max_framework_displacement_A": 3.0745190501082003,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.7465039180006499,
+     "mobile_msd_at_fit_end_A2": 546.553831841372,
+     "max_msd_A2": 694.6301249794798,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.1,
+      311.8
+     ],
+     "D_cm2_s": 3.1073253043354966e-05,
+     "D_std_cm2_s": 4.772120654066562e-06,
+     "D_rsd": 0.15357647451357148,
+     "n_jump": 912.0349317856691,
+     "D_components_cm2_s": [
+      3.351664173179558e-05,
+      3.058671614554835e-05,
+      2.9116401252720954e-05
+     ],
+     "D_components_std_cm2_s": [
+      7.485708243570103e-06,
+      7.605475119122896e-06,
+      6.941982115397388e-06
+     ],
+     "D_components_rsd": [
+      0.22334302772550096,
+      0.24865288195476362,
+      0.2384217079282301
+     ],
+     "conductivity_mS_cm": 1136.5321738328253,
+     "conductivity_std_mS_cm": 174.5446044284909,
+     "nernst_einstein_factor": 36575899.28698738,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 425.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/425",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/425/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2504.4040772228986,
+     "max_framework_displacement_A": 23.867211282653603,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 137.82443905290714,
+     "mobile_msd_at_fit_end_A2": 419.8046268491853,
+     "max_msd_A2": 520.0990940045562,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.4,
+      311.8
+     ],
+     "D_cm2_s": 2.2214167943003692e-05,
+     "D_std_cm2_s": 3.8043295326872623e-06,
+     "D_rsd": 0.17125689976092165,
+     "n_jump": 682.879311829798,
+     "D_components_cm2_s": [
+      1.689287696370747e-05,
+      3.4326770047093754e-05,
+      1.5422856818209853e-05
+     ],
+     "D_components_std_cm2_s": [
+      5.521299384264582e-06,
+      7.334118013721354e-06,
+      4.740389241935321e-06
+     ],
+     "D_components_rsd": [
+      0.3268418633561649,
+      0.2136559310316553,
+      0.30736129485027164
+     ],
+     "conductivity_mS_cm": 582.0571514572808,
+     "conductivity_std_mS_cm": 99.68130324224714,
+     "nernst_einstein_factor": 26202068.56051066,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 430.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/430",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/430/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2308.896999042272,
+     "max_framework_displacement_A": 21.248119580603607,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 69.50943339830862,
+     "mobile_msd_at_fit_end_A2": 255.27742816260877,
+     "max_msd_A2": 442.1389055923831,
+     "fit_ok": true,
+     "fit_window_ps": [
+      2.8,
+      311.8
+     ],
+     "D_cm2_s": 1.2114764937366956e-05,
+     "D_std_cm2_s": 2.209239978118938e-06,
+     "D_rsd": 0.18235929376596705,
+     "n_jump": 580.5192030991341,
+     "D_components_cm2_s": [
+      8.050247061754041e-06,
+      1.3950910616406116e-05,
+      1.4343137133940723e-05
+     ],
+     "D_components_std_cm2_s": [
+      2.6581165859439855e-06,
+      3.362049567996622e-06,
+      4.4696836665724354e-06
+     ],
+     "D_components_rsd": [
+      0.3301906842800446,
+      0.24099140625579588,
+      0.31162524800767955
+     ],
+     "conductivity_mS_cm": 340.3070043122193,
+     "conductivity_std_mS_cm": 62.05814496998822,
+     "nernst_einstein_factor": 28090268.863787152,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 450.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/450",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/450/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2145.587346593031,
+     "max_framework_displacement_A": 20.075686787442688,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 39.92627846705452,
+     "mobile_msd_at_fit_end_A2": 495.2475539292193,
+     "max_msd_A2": 625.343934443777,
+     "fit_ok": true,
+     "fit_window_ps": [
+      2.5,
+      311.8
+     ],
+     "D_cm2_s": 2.7203407341359828e-05,
+     "D_std_cm2_s": 4.344470899346283e-06,
+     "D_rsd": 0.15970318882594486,
+     "n_jump": 821.0636021722503,
+     "D_components_cm2_s": [
+      1.5268594288692988e-05,
+      3.252766439232645e-05,
+      3.381396334306005e-05
+     ],
+     "D_components_std_cm2_s": [
+      5.151075748235899e-06,
+      6.820518541780507e-06,
+      8.166122457201066e-06
+     ],
+     "D_components_rsd": [
+      0.33736411164258123,
+      0.2096836237461158,
+      0.24150148784250913
+     ],
+     "conductivity_mS_cm": 785.7664875193367,
+     "conductivity_std_mS_cm": 125.48941372940007,
+     "nernst_einstein_factor": 28884855.402825367,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 500.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/500",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/500/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2685.8513245757695,
+     "max_framework_displacement_A": 28.245427053148166,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 177.72856257643315,
+     "mobile_msd_at_fit_end_A2": 882.122682216702,
+     "max_msd_A2": 1150.4557393474154,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.9,
+      311.8
+     ],
+     "D_cm2_s": 4.779977676784096e-05,
+     "D_std_cm2_s": 6.130472112339949e-06,
+     "D_rsd": 0.12825315361021616,
+     "n_jump": 1510.5244993357403,
+     "D_components_cm2_s": [
+      3.951310741123094e-05,
+      7.380335268373441e-05,
+      3.0082870208557507e-05
+     ],
+     "D_components_std_cm2_s": [
+      8.302707031658436e-06,
+      1.2567356871132075e-05,
+      6.19156413812822e-06
+     ],
+     "D_components_rsd": [
+      0.2101253881464795,
+      0.17028165271822138,
+      0.2058169348603891
+     ],
+     "conductivity_mS_cm": 992.6652212958271,
+     "conductivity_std_mS_cm": 127.31244511037293,
+     "nernst_einstein_factor": 20767151.824099705,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 550.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/550",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/550/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2908.8924365985354,
+     "max_framework_displacement_A": 44.21337122791922,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 399.73899776834725,
+     "mobile_msd_at_fit_end_A2": 818.7720905490365,
+     "max_msd_A2": 999.7881673940935,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.3,
+      311.8
+     ],
+     "D_cm2_s": 4.390346347390911e-05,
+     "D_std_cm2_s": 5.912468108308654e-06,
+     "D_rsd": 0.13466974221344308,
+     "n_jump": 1312.701105608295,
+     "D_components_cm2_s": [
+      4.8598473362080644e-05,
+      2.9498505704814332e-05,
+      5.3613411354832314e-05
+     ],
+     "D_components_std_cm2_s": [
+      9.220267596472717e-06,
+      7.6085461355530645e-06,
+      9.873359052937507e-06
+     ],
+     "D_components_rsd": [
+      0.18972339990553916,
+      0.2579298833537627,
+      0.18415838133470303
+     ],
+     "conductivity_mS_cm": 765.3099175653491,
+     "conductivity_std_mS_cm": 103.06408931191694,
+     "nernst_einstein_factor": 17431652.471339907,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 600.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/600",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/600/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3004.641814207944,
+     "max_framework_displacement_A": 43.70654205787367,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 444.9097044040395,
+     "mobile_msd_at_fit_end_A2": 1014.1590759715248,
+     "max_msd_A2": 1355.550085112798,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.3,
+      311.8
+     ],
+     "D_cm2_s": 5.1438911696874175e-05,
+     "D_std_cm2_s": 6.239702351837957e-06,
+     "D_rsd": 0.12130315642383876,
+     "n_jump": 1779.8091170382663,
+     "D_components_cm2_s": [
+      5.906011183292063e-05,
+      4.590567129086975e-05,
+      4.9350951966832186e-05
+     ],
+     "D_components_std_cm2_s": [
+      9.83289803478139e-06,
+      8.317264947830797e-06,
+      9.767655840708108e-06
+     ],
+     "D_components_rsd": [
+      0.16648966162811168,
+      0.18118164300725584,
+      0.1979223389099517
+     ],
+     "conductivity_mS_cm": 795.750142818841,
+     "conductivity_std_mS_cm": 96.5270040486459,
+     "nernst_einstein_factor": 15469809.07193643,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 700.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/700",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/700/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3156.618955974624,
+     "max_framework_displacement_A": 62.52020038877451,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 817.4841909203147,
+     "mobile_msd_at_fit_end_A2": 1820.8891169447436,
+     "max_msd_A2": 2335.818336254867,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 9.546586128133311e-05,
+     "D_std_cm2_s": 9.731442142404351e-06,
+     "D_rsd": 0.1019363572672987,
+     "n_jump": 3066.8809778914438,
+     "D_components_cm2_s": [
+      9.860862915520344e-05,
+      9.583721867436354e-05,
+      9.195173601443222e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.4627950925038679e-05,
+      1.3492818044213163e-05,
+      1.4128342191058601e-05
+     ],
+     "D_components_rsd": [
+      0.14834351770589219,
+      0.14078891510884897,
+      0.15364954272142395
+     ],
+     "conductivity_mS_cm": 1204.9160953265891,
+     "conductivity_std_mS_cm": 122.82475757032972,
+     "nernst_einstein_factor": 12621434.292367212,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 750.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/750",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/750/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3476.292241909307,
+     "max_framework_displacement_A": 74.88449605673972,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 1119.894603360866,
+     "mobile_msd_at_fit_end_A2": 2703.8174870413363,
+     "max_msd_A2": 3134.3942074989254,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.000144498339173337,
+     "D_std_cm2_s": 1.3505871915092654e-05,
+     "D_rsd": 0.09346731590382718,
+     "n_jump": 4115.394516340804,
+     "D_components_cm2_s": [
+      0.00016208482455808216,
+      0.00014264998190965936,
+      0.0001287602110522697
+     ],
+     "D_components_std_cm2_s": [
+      2.0048311437177972e-05,
+      1.8531295085216793e-05,
+      1.833900424287115e-05
+     ],
+     "D_components_rsd": [
+      0.12369024362298506,
+      0.1299074478463847,
+      0.14242757209699278
+     ],
+     "conductivity_mS_cm": 1545.6609102035509,
+     "conductivity_std_mS_cm": 144.46877657419233,
+     "nernst_einstein_factor": 10696738.239665234,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 800.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/800",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/800/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3524.72284763542,
+     "max_framework_displacement_A": 95.48112773345349,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 1338.5399184087098,
+     "mobile_msd_at_fit_end_A2": 3731.0127691420507,
+     "max_msd_A2": 4408.326906412958,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.0001998114020506706,
+     "D_std_cm2_s": 1.700087474354408e-05,
+     "D_rsd": 0.08508460763031325,
+     "n_jump": 5788.041699887467,
+     "D_components_cm2_s": [
+      0.000288194132167813,
+      0.0001799943170233137,
+      0.00013124575696088503
+     ],
+     "D_components_std_cm2_s": [
+      2.9849301499525915e-05,
+      2.3444642740439e-05,
+      1.6470428181429528e-05
+     ],
+     "D_components_rsd": [
+      0.10357359213040784,
+      0.13025212755690693,
+      0.12549303354879643
+     ],
+     "conductivity_mS_cm": 1976.2151185151627,
+     "conductivity_std_mS_cm": 168.14548795195563,
+     "nernst_einstein_factor": 9890402.140384411,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 850.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/850",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/850/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3633.8748492370355,
+     "max_framework_displacement_A": 89.98659155748388,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 1433.5396946426179,
+     "mobile_msd_at_fit_end_A2": 2636.906699072682,
+     "max_msd_A2": 3823.710660790207,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.00012841724455334914,
+     "D_std_cm2_s": 1.1353191054521814e-05,
+     "D_rsd": 0.08840861750312116,
+     "n_jump": 5020.452707525394,
+     "D_components_cm2_s": [
+      0.00012420359141742442,
+      0.00015620359329516554,
+      0.0001048445489474575
+     ],
+     "D_components_std_cm2_s": [
+      1.720501966870621e-05,
+      1.8248436017365654e-05,
+      1.2617685717786289e-05
+     ],
+     "D_components_rsd": [
+      0.13852272283241346,
+      0.1168246877834816,
+      0.12034660689998866
+     ],
+     "conductivity_mS_cm": 1159.4802783189257,
+     "conductivity_std_mS_cm": 102.50804842831036,
+     "nernst_einstein_factor": 9029007.60993385,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 900.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/900",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/900/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3590.1438702488335,
+     "max_framework_displacement_A": 131.39988138690867,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 1980.548132022059,
+     "mobile_msd_at_fit_end_A2": 3156.081323054383,
+     "max_msd_A2": 4571.888494230591,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.0001675175295993716,
+     "D_std_cm2_s": 1.4116836335002517e-05,
+     "D_rsd": 0.08427080060674123,
+     "n_jump": 6002.794668731739,
+     "D_components_cm2_s": [
+      0.0001236643333071545,
+      0.00027355712401965653,
+      0.00010533113147130385
+     ],
+     "D_components_std_cm2_s": [
+      1.554259941007739e-05,
+      2.8677370728048415e-05,
+      1.3142102744538406e-05
+     ],
+     "D_components_rsd": [
+      0.1256837682654469,
+      0.10483137966455516,
+      0.12476940635655098
+     ],
+     "conductivity_mS_cm": 1445.888516646608,
+     "conductivity_std_mS_cm": 121.84618288590315,
+     "nernst_einstein_factor": 8631266.949223395,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 950.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/950",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/950/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3840.643872953408,
+     "max_framework_displacement_A": 116.98527687024513,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 2420.8436491459374,
+     "mobile_msd_at_fit_end_A2": 3352.26178369649,
+     "max_msd_A2": 3405.994882787976,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.4,
+      311.8
+     ],
+     "D_cm2_s": 0.00019197803017205914,
+     "D_std_cm2_s": 1.7525912351708355e-05,
+     "D_rsd": 0.09129123960695326,
+     "n_jump": 4472.00056386503,
+     "D_components_cm2_s": [
+      0.000258470594703419,
+      0.0001871698558052558,
+      0.00013029364000750285
+     ],
+     "D_components_std_cm2_s": [
+      3.0142454591830678e-05,
+      2.46195903790346e-05,
+      1.646665408699319e-05
+     ],
+     "D_components_rsd": [
+      0.1166185059713176,
+      0.13153608669042569,
+      0.12638110414326417
+     ],
+     "conductivity_mS_cm": 1467.414472750817,
+     "conductivity_std_mS_cm": 133.96208623460583,
+     "nernst_einstein_factor": 7643658.346924675,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 1000.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/1000",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/md_25_itter_npt/1000/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 4074.905400826196,
+     "max_framework_displacement_A": 97.56659880971267,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 2205.741054835925,
+     "mobile_msd_at_fit_end_A2": 4917.140325614699,
+     "max_msd_A2": 6372.929894831594,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.4,
+      311.8
+     ],
+     "D_cm2_s": 0.0002692522665369847,
+     "D_std_cm2_s": 2.0866221918730164e-05,
+     "D_rsd": 0.07749692207647196,
+     "n_jump": 8367.524633457679,
+     "D_components_cm2_s": [
+      0.0002786032553232237,
+      0.00030846337610519563,
+      0.00022069016818253512
+     ],
+     "D_components_std_cm2_s": [
+      2.7811988454154853e-05,
+      3.086682880968852e-05,
+      2.5578802017908064e-05
+     ],
+     "D_components_rsd": [
+      0.09982650210561453,
+      0.10006642992574252,
+      0.11590367721661063
+     ],
+     "conductivity_mS_cm": 1842.7683634447276,
+     "conductivity_std_mS_cm": 142.80887626686385,
+     "nernst_einstein_factor": 6844021.731537044,
+     "framework_single_atom_moved_4A": true
+    }
+   ],
+   "arrhenius": {
+    "all (no framework melt)": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0
+     ],
+     "n_points": 6,
+     "status": "ok",
+     "Ea_eV": 0.18100448245646875,
+     "Ea_std_eV": 0.02632184596639763,
+     "r_squared": 0.8061105686850214,
+     "slope": -0.9122577223000851,
+     "intercept": -2.4448340690285764,
+     "D_300K_cm2_s": 3.2681866876134547e-06,
+     "conductivity_300K_mS_cm": 174.81320469332456,
+     "conductivity_300K_range_mS_cm": [
+      47.4975492378067,
+      643.3943861428868
+     ],
+     "volume_for_extrapolation_A3": 1737.962007570077
+    },
+    "all": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0,
+      550.0,
+      600.0,
+      700.0,
+      750.0,
+      800.0,
+      850.0,
+      900.0,
+      950.0,
+      1000.0
+     ],
+     "n_points": 19,
+     "status": "ok",
+     "Ea_eV": 0.15344214926526958,
+     "Ea_std_eV": 0.0043906909159545475,
+     "r_squared": 0.9560139836303034,
+     "slope": -0.7733443044827861,
+     "intercept": -2.867090269868309,
+     "D_300K_cm2_s": 3.590007714741194e-06,
+     "conductivity_300K_mS_cm": 192.02720452482728,
+     "conductivity_300K_range_mS_cm": [
+      159.07595280898875,
+      231.80403213989877
+     ],
+     "volume_for_extrapolation_A3": 1737.962007570077
+    },
+    "all (unweighted)": {
+     "temperature_window_K": null,
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0,
+      550.0,
+      600.0,
+      700.0,
+      750.0,
+      800.0,
+      850.0,
+      900.0,
+      950.0,
+      1000.0
+     ],
+     "n_points": 19,
+     "status": "ok",
+     "Ea_eV": 0.1536149711516374,
+     "Ea_std_eV": 0.007954428998236522,
+     "r_squared": 0.956404519566593,
+     "slope": -0.7742153221409229,
+     "intercept": -2.8764303324372036,
+     "D_300K_cm2_s": 3.4902129621554207e-06,
+     "conductivity_300K_mS_cm": 186.68924737041644,
+     "conductivity_300K_range_mS_cm": [
+      129.78908227862772,
+      268.5347216564128
+     ],
+     "volume_for_extrapolation_A3": 1737.962007570077
+    }
+   }
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "FT 30,693 frames, 10 ep: NPT, 400 ps",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt",
+   "model_file": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/Fine_tune/13_itteration_10_epochs/09-30-2024/bestE_epoch7_e1_f32_sNA_mNA.pth.tar",
+   "temperatures": [
+    {
+     "temperature_K": 300.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/300",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/300/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "msd_fit_requirements_not_met",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1719.5585207339666,
+     "max_framework_displacement_A": 1.8558640645178022,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.30121231994669684,
+     "mobile_msd_at_fit_end_A2": 9.838361928645046,
+     "max_msd_A2": 15.325893599623932,
+     "fit_ok": false,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 330.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/330",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/330/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1715.806313956675,
+     "max_framework_displacement_A": 2.0804880943653092,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4031303275165842,
+     "mobile_msd_at_fit_end_A2": 54.654357278355654,
+     "max_msd_A2": 55.991540798366586,
+     "fit_ok": true,
+     "fit_window_ps": [
+      22.9,
+      311.8
+     ],
+     "D_cm2_s": 2.938440272600534e-06,
+     "D_std_cm2_s": 1.2930327809007624e-06,
+     "D_rsd": 0.4400405184198017,
+     "n_jump": 73.51573053950307,
+     "D_components_cm2_s": [
+      3.1802479308095306e-06,
+      3.0966013725920405e-06,
+      2.538471514400035e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.1048091486511327e-06,
+      2.221066533768002e-06,
+      1.9334948317699366e-06
+     ],
+     "D_components_rsd": [
+      0.6618380687430727,
+      0.7172594294592193,
+      0.7616767888872356
+     ],
+     "conductivity_mS_cm": 144.7316712183222,
+     "conductivity_std_mS_cm": 63.68779963467478,
+     "nernst_einstein_factor": 49254590.11975559,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 350.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/350",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/350/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1723.3422881123656,
+     "max_framework_displacement_A": 2.213080242388187,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.43698281184021126,
+     "mobile_msd_at_fit_end_A2": 74.28474830377968,
+     "max_msd_A2": 80.66981535309544,
+     "fit_ok": true,
+     "fit_window_ps": [
+      16.9,
+      311.8
+     ],
+     "D_cm2_s": 3.988474632992737e-06,
+     "D_std_cm2_s": 1.488819055975195e-06,
+     "D_rsd": 0.37328031214230517,
+     "n_jump": 105.91779264525331,
+     "D_components_cm2_s": [
+      5.9193611843692575e-06,
+      2.9375795573887164e-06,
+      3.1084831572202436e-06
+     ],
+     "D_components_std_cm2_s": [
+      3.3237368339376656e-06,
+      1.6575820263299384e-06,
+      2.127893737913969e-06
+     ],
+     "D_components_rsd": [
+      0.5615026234105073,
+      0.5642679607300243,
+      0.6845440783461844
+     ],
+     "conductivity_mS_cm": 184.41496297944224,
+     "conductivity_std_mS_cm": 68.83847494467784,
+     "nernst_einstein_factor": 46236965.24329331,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 375.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/375",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/375/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1743.3895868344564,
+     "max_framework_displacement_A": 2.7689798472955838,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.45891014295202026,
+     "mobile_msd_at_fit_end_A2": 141.21830168829,
+     "max_msd_A2": 181.57250145598363,
+     "fit_ok": true,
+     "fit_window_ps": [
+      9.4,
+      311.8
+     ],
+     "D_cm2_s": 6.452447156412458e-06,
+     "D_std_cm2_s": 1.6914886738108614e-06,
+     "D_rsd": 0.2621468464301727,
+     "n_jump": 238.40092449842047,
+     "D_components_cm2_s": [
+      8.73617343606233e-06,
+      4.3953577182759816e-06,
+      6.2258103148990625e-06
+     ],
+     "D_components_std_cm2_s": [
+      3.4689689920457825e-06,
+      2.406897728706236e-06,
+      2.2980623947250435e-06
+     ],
+     "D_components_rsd": [
+      0.39708105813537475,
+      0.5475999640935502,
+      0.36911860119244594
+     ],
+     "conductivity_mS_cm": 275.2502055790027,
+     "conductivity_std_mS_cm": 72.1559733717923,
+     "nernst_einstein_factor": 42658265.75665302,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 400.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/400",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/400/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1741.2957219999614,
+     "max_framework_displacement_A": 2.6399260801718336,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4788366329469083,
+     "mobile_msd_at_fit_end_A2": 199.85211025344057,
+     "max_msd_A2": 237.0666787022059,
+     "fit_ok": true,
+     "fit_window_ps": [
+      5.8,
+      311.8
+     ],
+     "D_cm2_s": 1.0706244780383875e-05,
+     "D_std_cm2_s": 2.5097051536747247e-06,
+     "D_rsd": 0.23441507317981747,
+     "n_jump": 311.2636270205078,
+     "D_components_cm2_s": [
+      3.701069894083298e-06,
+      1.530010241152904e-05,
+      1.3117562035539304e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.8965239455857592e-06,
+      4.921509089370854e-06,
+      4.80964188722188e-06
+     ],
+     "D_components_rsd": [
+      0.512425865995568,
+      0.32166510765721174,
+      0.36665669079293517
+     ],
+     "conductivity_mS_cm": 428.6803287420533,
+     "conductivity_std_mS_cm": 100.48913063281663,
+     "nernst_einstein_factor": 40040213.682344265,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 420.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/420",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/420/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1744.4526730932441,
+     "max_framework_displacement_A": 3.4761449112741882,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.5811403361084035,
+     "mobile_msd_at_fit_end_A2": 296.1348513003725,
+     "max_msd_A2": 447.34307166837084,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.0,
+      311.8
+     ],
+     "D_cm2_s": 1.5362260861354632e-05,
+     "D_std_cm2_s": 2.7886928228745595e-06,
+     "D_rsd": 0.1815288028267901,
+     "n_jump": 587.3521651050002,
+     "D_components_cm2_s": [
+      1.8810370587505555e-05,
+      1.7062747497980533e-05,
+      1.0213664498577801e-05
+     ],
+     "D_components_std_cm2_s": [
+      5.119267586654329e-06,
+      4.835998419639095e-06,
+      3.084811768787324e-06
+     ],
+     "D_components_rsd": [
+      0.27215134134862334,
+      0.2834243676296248,
+      0.302027912627918
+     ],
+     "conductivity_mS_cm": 584.7571817983312,
+     "conductivity_std_mS_cm": 106.15027115621872,
+     "nernst_einstein_factor": 38064526.24882506,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 425.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/425",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/425/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1747.393065798126,
+     "max_framework_displacement_A": 3.4857035445122517,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.5739911436409416,
+     "mobile_msd_at_fit_end_A2": 184.3238371473099,
+     "max_msd_A2": 249.53430994537504,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.7,
+      311.8
+     ],
+     "D_cm2_s": 8.8263654865044e-06,
+     "D_std_cm2_s": 2.0256156116735476e-06,
+     "D_rsd": 0.22949600430332667,
+     "n_jump": 327.63336798261844,
+     "D_components_cm2_s": [
+      9.929954263804123e-06,
+      4.386720704668211e-06,
+      1.216242149104087e-05
+     ],
+     "D_components_std_cm2_s": [
+      3.13760782701514e-06,
+      1.832895403570999e-06,
+      4.662224321424914e-06
+     ],
+     "D_components_rsd": [
+      0.3159740461697893,
+      0.4178281515895208,
+      0.38333027060928776
+     ],
+     "conductivity_mS_cm": 331.46011739639874,
+     "conductivity_std_mS_cm": 76.06877252838508,
+     "nernst_einstein_factor": 37553409.486974515,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 430.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/430",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/430/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1752.239360536626,
+     "max_framework_displacement_A": 2.786918594965055,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.6084248921382677,
+     "mobile_msd_at_fit_end_A2": 259.6755848309835,
+     "max_msd_A2": 372.55297649025044,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.3,
+      311.8
+     ],
+     "D_cm2_s": 1.323435623516958e-05,
+     "D_std_cm2_s": 2.5818308968494574e-06,
+     "D_rsd": 0.19508549195527794,
+     "n_jump": 489.15432297133833,
+     "D_components_cm2_s": [
+      6.431690731016137e-06,
+      1.9987763743154335e-05,
+      1.3283614231338284e-05
+     ],
+     "D_components_std_cm2_s": [
+      2.2482352430533677e-06,
+      5.715740985171056e-06,
+      3.9423868912794545e-06
+     ],
+     "D_components_rsd": [
+      0.3495558690674437,
+      0.28596200448530196,
+      0.2967857107728031
+     ],
+     "conductivity_mS_cm": 489.85759303358446,
+     "conductivity_std_mS_cm": 95.56410952498516,
+     "nernst_einstein_factor": 37014085.48545902,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 450.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/450",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/450/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1758.97816621702,
+     "max_framework_displacement_A": 2.9887739740540327,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.6448515141525797,
+     "mobile_msd_at_fit_end_A2": 400.6724336122747,
+     "max_msd_A2": 414.8044868934705,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.1,
+      311.8
+     ],
+     "D_cm2_s": 2.226177285782028e-05,
+     "D_std_cm2_s": 4.162394974086313e-06,
+     "D_rsd": 0.1869749997302715,
+     "n_jump": 544.6296788804715,
+     "D_components_cm2_s": [
+      1.891521054010859e-05,
+      2.3670676294806237e-05,
+      2.419943173854597e-05
+     ],
+     "D_components_std_cm2_s": [
+      5.781756052879473e-06,
+      6.123636688505903e-06,
+      7.161807930538498e-06
+     ],
+     "D_components_rsd": [
+      0.3056670207619207,
+      0.25870138276740057,
+      0.2959494259169252
+     ],
+     "conductivity_mS_cm": 784.3604655956196,
+     "conductivity_std_mS_cm": 146.65579784317663,
+     "nernst_einstein_factor": 35233513.099118866,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 500.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/500",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/500/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1796.187870191631,
+     "max_framework_displacement_A": 6.054974646701977,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.06976744186046512,
+     "framework_msd_at_fit_end_A2": 0.8708933895655256,
+     "mobile_msd_at_fit_end_A2": 470.1463193283226,
+     "max_msd_A2": 648.3375783791034,
+     "fit_ok": true,
+     "fit_window_ps": [
+      2.2,
+      311.8
+     ],
+     "D_cm2_s": 2.366933723696339e-05,
+     "D_std_cm2_s": 3.7293729140533457e-06,
+     "D_rsd": 0.15756135783258618,
+     "n_jump": 851.2537792520003,
+     "D_components_cm2_s": [
+      2.2725170705069058e-05,
+      1.861982273731824e-05,
+      2.966301826850289e-05
+     ],
+     "D_components_std_cm2_s": [
+      5.893172950788276e-06,
+      4.854577629700832e-06,
+      6.430339633527977e-06
+     ],
+     "D_components_rsd": [
+      0.25932359440863295,
+      0.2607209369384159,
+      0.21677968085789537
+     ],
+     "conductivity_mS_cm": 735.0099948589857,
+     "conductivity_std_mS_cm": 115.80917281050398,
+     "nernst_einstein_factor": 31053256.265712082,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 550.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/550",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/550/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2212.2306555554705,
+     "max_framework_displacement_A": 26.294269155259183,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 111.26173384653734,
+     "mobile_msd_at_fit_end_A2": 857.7008157957273,
+     "max_msd_A2": 1120.2193638716437,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.6,
+      311.8
+     ],
+     "D_cm2_s": 4.667316430374132e-05,
+     "D_std_cm2_s": 6.041200052991752e-06,
+     "D_rsd": 0.12943626478111941,
+     "n_jump": 1470.8247661211667,
+     "D_components_cm2_s": [
+      7.726295734300978e-05,
+      3.911304560776529e-05,
+      2.3643489960448895e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.2892338713871917e-05,
+      7.364647647590801e-06,
+      6.3420815402181095e-06
+     ],
+     "D_components_rsd": [
+      0.16686312765166667,
+      0.1882913368967786,
+      0.2682379610974191
+     ],
+     "conductivity_mS_cm": 1069.8011514218279,
+     "conductivity_std_mS_cm": 138.47106509858213,
+     "nernst_einstein_factor": 22921118.963774063,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 600.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/600",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/600/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2767.1771078233064,
+     "max_framework_displacement_A": 37.943055360002234,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 340.8902245004432,
+     "mobile_msd_at_fit_end_A2": 825.1076152089267,
+     "max_msd_A2": 1126.7338278851137,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.6,
+      311.8
+     ],
+     "D_cm2_s": 4.538552594479602e-05,
+     "D_std_cm2_s": 5.862781610653734e-06,
+     "D_rsd": 0.12917734208445303,
+     "n_jump": 1479.3781221137835,
+     "D_components_cm2_s": [
+      4.002514469135881e-05,
+      4.122462752453263e-05,
+      5.490680561849663e-05
+     ],
+     "D_components_std_cm2_s": [
+      7.274773941723076e-06,
+      8.591753625816274e-06,
+      1.056525366727328e-05
+     ],
+     "D_components_rsd": [
+      0.1817550941494449,
+      0.20841312928063088,
+      0.1924215686609554
+     ],
+     "conductivity_mS_cm": 762.3564461923085,
+     "conductivity_std_mS_cm": 98.47917944007173,
+     "nernst_einstein_factor": 16797347.3992477,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 700.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/700",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/700/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3137.1999446664504,
+     "max_framework_displacement_A": 73.0871425220806,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 704.3492264334247,
+     "mobile_msd_at_fit_end_A2": 828.1196916972282,
+     "max_msd_A2": 1180.1608421957458,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.0,
+      311.8
+     ],
+     "D_cm2_s": 4.047827003109921e-05,
+     "D_std_cm2_s": 5.146220737327263e-06,
+     "D_rsd": 0.1271353922332514,
+     "n_jump": 1549.5266826210732,
+     "D_components_cm2_s": [
+      3.7838732076057475e-05,
+      4.860047999905126e-05,
+      3.4995598018188896e-05
+     ],
+     "D_components_std_cm2_s": [
+      7.508630180177812e-06,
+      8.628109393615168e-06,
+      6.832544189235021e-06
+     ],
+     "D_components_rsd": [
+      0.19843767928283493,
+      0.177531361702263,
+      0.19524010378916282
+     ],
+     "conductivity_mS_cm": 514.0562164992994,
+     "conductivity_std_mS_cm": 65.35473871457963,
+     "nernst_einstein_factor": 12699559.93930455,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 750.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/750",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/750/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3177.4501392479665,
+     "max_framework_displacement_A": 61.07500620823892,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 677.8410459586827,
+     "mobile_msd_at_fit_end_A2": 1454.76647979749,
+     "max_msd_A2": 1877.865671658485,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.0,
+      311.8
+     ],
+     "D_cm2_s": 7.561626057905714e-05,
+     "D_std_cm2_s": 8.247988376892241e-06,
+     "D_rsd": 0.10907691432676617,
+     "n_jump": 2465.5986375544694,
+     "D_components_cm2_s": [
+      8.318061002046181e-05,
+      6.949846595699774e-05,
+      7.416970575971166e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.3581897722896e-05,
+      9.934276145846266e-06,
+      1.2648279270961457e-05
+     ],
+     "D_components_rsd": [
+      0.16328201632032938,
+      0.1429423802245234,
+      0.17053160911731555
+     ],
+     "conductivity_mS_cm": 884.9201815390654,
+     "conductivity_std_mS_cm": 96.524362827763,
+     "nernst_einstein_factor": 11702776.291269751,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 800.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/800",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/800/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3338.991192918454,
+     "max_framework_displacement_A": 59.21679984758942,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 829.7216494974059,
+     "mobile_msd_at_fit_end_A2": 1582.836704570776,
+     "max_msd_A2": 2069.757813033944,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 8.31971969134555e-05,
+     "D_std_cm2_s": 8.802005434023167e-06,
+     "D_rsd": 0.10579689894094998,
+     "n_jump": 2717.5490350048285,
+     "D_components_cm2_s": [
+      7.607861583585761e-05,
+      4.435311812110641e-05,
+      0.0001291598567834025
+     ],
+     "D_components_std_cm2_s": [
+      1.1340653303713199e-05,
+      8.585793095004206e-06,
+      1.730823722687032e-05
+     ],
+     "D_components_rsd": [
+      0.14906492684069164,
+      0.19357811713622153,
+      0.1340063209879193
+     ],
+     "conductivity_mS_cm": 868.6250398466342,
+     "conductivity_std_mS_cm": 91.89783555823301,
+     "nernst_einstein_factor": 10440556.55805576,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 850.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/850",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/850/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3354.3168266868906,
+     "max_framework_displacement_A": 78.71209999352817,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 1274.1915886810712,
+     "mobile_msd_at_fit_end_A2": 1652.920011190207,
+     "max_msd_A2": 2477.646882736741,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 8.526960028387548e-05,
+     "D_std_cm2_s": 8.538685965101867e-06,
+     "D_rsd": 0.10013751602769663,
+     "n_jump": 3253.0989146958373,
+     "D_components_cm2_s": [
+      0.0001085723127206117,
+      8.100326044600489e-05,
+      6.623322768500964e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.4259123703831851e-05,
+      1.1042813230130435e-05,
+      1.2038610345638463e-05
+     ],
+     "D_components_rsd": [
+      0.13133296460695965,
+      0.13632554009960313,
+      0.18176088900410214
+     ],
+     "conductivity_mS_cm": 834.0654500055996,
+     "conductivity_std_mS_cm": 83.52124236808375,
+     "nernst_einstein_factor": 9781510.025013238,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 900.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/900",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/900/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3408.6063393726863,
+     "max_framework_displacement_A": 83.10859286772977,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 1529.051096056427,
+     "mobile_msd_at_fit_end_A2": 2351.6348377774148,
+     "max_msd_A2": 3671.9168442225737,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.00012539787722924198,
+     "D_std_cm2_s": 1.12104535931835e-05,
+     "D_rsd": 0.0893990699116021,
+     "n_jump": 4821.1505780031,
+     "D_components_cm2_s": [
+      9.354479735321356e-05,
+      0.0001495659954044122,
+      0.00013308283893010008
+     ],
+     "D_components_std_cm2_s": [
+      1.2438257926063098e-05,
+      1.737992147352393e-05,
+      1.7183545413864857e-05
+     ],
+     "D_components_rsd": [
+      0.13296579048750062,
+      0.11620235887529298,
+      0.1291191678206555
+     ],
+     "conductivity_mS_cm": 1139.9865798843691,
+     "conductivity_std_mS_cm": 101.91373995337088,
+     "nernst_einstein_factor": 9090955.964113653,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 950.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/950",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/950/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3515.578477131291,
+     "max_framework_displacement_A": 82.35020208293194,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 1851.5257160209273,
+     "mobile_msd_at_fit_end_A2": 3128.4018022055047,
+     "max_msd_A2": 4240.843306279772,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.0001622447962791095,
+     "D_std_cm2_s": 1.3947576769090296e-05,
+     "D_rsd": 0.0859662503141013,
+     "n_jump": 5568.1392103039625,
+     "D_components_cm2_s": [
+      0.0001620639099807407,
+      0.000177364978058107,
+      0.00014730550079848076
+     ],
+     "D_components_std_cm2_s": [
+      1.7830484939398584e-05,
+      2.1812751705038124e-05,
+      1.87984342260046e-05
+     ],
+     "D_components_rsd": [
+      0.11002131777221416,
+      0.12298229303133335,
+      0.12761529015621445
+     ],
+     "conductivity_mS_cm": 1354.8127810862989,
+     "conductivity_std_mS_cm": 116.46817466760848,
+     "nernst_einstein_factor": 8350423.632420336,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 1000.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/1000",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_13_itter_npt/1000/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 3729.4860206857993,
+     "max_framework_displacement_A": 105.19399343784444,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 2115.7587126457506,
+     "mobile_msd_at_fit_end_A2": 3042.144784421082,
+     "max_msd_A2": 3933.175428836766,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.0001614858783306581,
+     "D_std_cm2_s": 1.4167193335884691e-05,
+     "D_rsd": 0.08773023054607895,
+     "n_jump": 5164.177675199704,
+     "D_components_cm2_s": [
+      0.00013948899542291568,
+      0.00026888789223337604,
+      7.608074733568229e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.6554311286205072e-05,
+      2.9668412053920825e-05,
+      1.181215702985848e-05
+     ],
+     "D_components_rsd": [
+      0.11867826014528368,
+      0.11033747859561746,
+      0.1552581624591707
+     ],
+     "conductivity_mS_cm": 1207.5760117800864,
+     "conductivity_std_mS_cm": 105.94092191538154,
+     "nernst_einstein_factor": 7477904.719987073,
+     "framework_single_atom_moved_4A": true
+    }
+   ],
+   "arrhenius": {
+    "all (no framework melt)": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0
+     ],
+     "n_points": 9,
+     "status": "ok",
+     "Ea_eV": 0.17563921534730362,
+     "Ea_std_eV": 0.025403161340495042,
+     "r_squared": 0.9185065590550223,
+     "slope": -0.885216920403283,
+     "intercept": -2.801457959946002,
+     "D_300K_cm2_s": 1.7693712735292855e-06,
+     "conductivity_300K_mS_cm": 95.86462253209041,
+     "conductivity_300K_range_mS_cm": [
+      28.81822811221737,
+      318.89628388790857
+     ],
+     "volume_for_extrapolation_A3": 1715.806313956675
+    },
+    "all": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0,
+      550.0,
+      600.0,
+      700.0,
+      750.0,
+      800.0,
+      850.0,
+      900.0,
+      950.0,
+      1000.0
+     ],
+     "n_points": 18,
+     "status": "ok",
+     "Ea_eV": 0.15518932548532394,
+     "Ea_std_eV": 0.0055055241467053114,
+     "r_squared": 0.9648723800197241,
+     "slope": -0.7821500256303107,
+     "intercept": -3.0515717764276054,
+     "D_300K_cm2_s": 2.194125533674437e-06,
+     "conductivity_300K_mS_cm": 118.87782921566682,
+     "conductivity_300K_range_mS_cm": [
+      94.06411118096551,
+      150.2373020018387
+     ],
+     "volume_for_extrapolation_A3": 1715.806313956675
+    },
+    "all (unweighted)": {
+     "temperature_window_K": null,
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0,
+      550.0,
+      600.0,
+      700.0,
+      750.0,
+      800.0,
+      850.0,
+      900.0,
+      950.0,
+      1000.0
+     ],
+     "n_points": 18,
+     "status": "ok",
+     "Ea_eV": 0.15917039205571884,
+     "Ea_std_eV": 0.007426498581697679,
+     "r_squared": 0.9663415381161072,
+     "slope": -0.802214494048693,
+     "intercept": -3.0290451315239006,
+     "D_300K_cm2_s": 1.981100716191694e-06,
+     "conductivity_300K_mS_cm": 107.33613413817376,
+     "conductivity_300K_range_mS_cm": [
+      76.75848319820601,
+      150.09475450392043
+     ],
+     "volume_for_extrapolation_A3": 1715.806313956675
+    }
+   }
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "segments": [
+    "LYC.traj"
+   ],
+   "frame_interval_fs": 100,
+   "equilibration_frames": 100,
+   "label": "CHGNet (pretrained): NPT, 400 ps",
+   "root": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt",
+   "model_file": "CHGNet.load() default",
+   "temperatures": [
+    {
+     "temperature_K": 300.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/300",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/300/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1533.3423752543868,
+     "max_framework_displacement_A": 2.473565714918491,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.35365590907925504,
+     "mobile_msd_at_fit_end_A2": 69.38981502258356,
+     "max_msd_A2": 93.64711193381686,
+     "fit_ok": true,
+     "fit_window_ps": [
+      17.2,
+      311.8
+     ],
+     "D_cm2_s": 3.5389230744285285e-06,
+     "D_std_cm2_s": 1.2362418018289958e-06,
+     "D_rsd": 0.34932711896503327,
+     "n_jump": 122.95671361360361,
+     "D_components_cm2_s": [
+      5.218719874776248e-06,
+      3.335016242347009e-06,
+      2.063033106162324e-06
+     ],
+     "D_components_std_cm2_s": [
+      2.6850651509665158e-06,
+      1.8436758593500266e-06,
+      1.4010204535005325e-06
+     ],
+     "D_components_rsd": [
+      0.51450647196917,
+      0.5528236522328133,
+      0.679107111425238
+     ],
+     "conductivity_mS_cm": 214.5554944745934,
+     "conductivity_std_mS_cm": 74.95005274292782,
+     "nernst_einstein_factor": 60627340.56722614,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 330.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/330",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/330/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1548.4827484893685,
+     "max_framework_displacement_A": 3.0841829264929124,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.41981793977345716,
+     "mobile_msd_at_fit_end_A2": 101.14602569152386,
+     "max_msd_A2": 133.53880001604048,
+     "fit_ok": true,
+     "fit_window_ps": [
+      10.9,
+      311.8
+     ],
+     "D_cm2_s": 5.1766709361474e-06,
+     "D_std_cm2_s": 1.5480150796668006e-06,
+     "D_rsd": 0.29903679387024545,
+     "n_jump": 175.33367181126425,
+     "D_components_cm2_s": [
+      3.7538524951910185e-06,
+      7.08112254991768e-06,
+      4.6950377633335106e-06
+     ],
+     "D_components_std_cm2_s": [
+      1.6579849825668929e-06,
+      3.559854745950297e-06,
+      2.330818479803625e-06
+     ],
+     "D_components_rsd": [
+      0.4416755812038173,
+      0.5027246345272871,
+      0.4964429675106015
+     ],
+     "conductivity_mS_cm": 282.5264801910772,
+     "conductivity_std_mS_cm": 84.48581281978514,
+     "nernst_einstein_factor": 54576866.80802238,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 350.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/350",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/350/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1557.4638446984613,
+     "max_framework_displacement_A": 2.808171788535178,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.4598427653064267,
+     "mobile_msd_at_fit_end_A2": 228.48892903523347,
+     "max_msd_A2": 264.47388667252966,
+     "fit_ok": true,
+     "fit_window_ps": [
+      8.8,
+      311.8
+     ],
+     "D_cm2_s": 1.303178593002643e-05,
+     "D_std_cm2_s": 2.9199813467856047e-06,
+     "D_rsd": 0.22406609212768758,
+     "n_jump": 347.2487220412403,
+     "D_components_cm2_s": [
+      7.265419845987411e-06,
+      2.409406080882576e-05,
+      7.735877135266129e-06
+     ],
+     "D_components_std_cm2_s": [
+      3.069852217674877e-06,
+      6.844974621589894e-06,
+      3.429457401232022e-06
+     ],
+     "D_components_rsd": [
+      0.4225292251170197,
+      0.28409385515797114,
+      0.4433184939814898
+     ],
+     "conductivity_mS_cm": 666.7251384074897,
+     "conductivity_std_mS_cm": 149.39049628625784,
+     "nernst_einstein_factor": 51161455.68899301,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 375.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/375",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/375/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1585.030041995375,
+     "max_framework_displacement_A": 4.568540370783025,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.023255813953488372,
+     "framework_msd_at_fit_end_A2": 0.9397201678247933,
+     "mobile_msd_at_fit_end_A2": 237.13561235488316,
+     "max_msd_A2": 264.9629357036614,
+     "fit_ok": true,
+     "fit_window_ps": [
+      6.1,
+      311.8
+     ],
+     "D_cm2_s": 1.3160510434876125e-05,
+     "D_std_cm2_s": 2.9465875640372386e-06,
+     "D_rsd": 0.2238961458689785,
+     "n_jump": 347.89083326519744,
+     "D_components_cm2_s": [
+      1.0351426712273705e-05,
+      2.0040029300319357e-05,
+      9.090075292035315e-06
+     ],
+     "D_components_std_cm2_s": [
+      4.2283193651632415e-06,
+      5.89301055065776e-06,
+      3.6217885965864284e-06
+     ],
+     "D_components_rsd": [
+      0.4084769648370998,
+      0.29406197278183865,
+      0.39843328907955516
+     ],
+     "conductivity_mS_cm": 617.4941946657865,
+     "conductivity_std_mS_cm": 138.25457028213833,
+     "nernst_einstein_factor": 46920231.37866983,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 400.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/400",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/400/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1587.728266259538,
+     "max_framework_displacement_A": 4.936846403937136,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.06976744186046512,
+     "framework_msd_at_fit_end_A2": 1.5092720992494253,
+     "mobile_msd_at_fit_end_A2": 270.6127987229258,
+     "max_msd_A2": 356.27682898378777,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.6,
+      311.8
+     ],
+     "D_cm2_s": 1.6091341271362148e-05,
+     "D_std_cm2_s": 3.1955536237000723e-06,
+     "D_rsd": 0.19858839420597071,
+     "n_jump": 467.7840792301405,
+     "D_components_cm2_s": [
+      2.15966000539662e-05,
+      1.7460045006129407e-05,
+      9.21737875399082e-06
+     ],
+     "D_components_std_cm2_s": [
+      6.339979146127718e-06,
+      5.0357583549361625e-06,
+      3.5994026593175893e-06
+     ],
+     "D_components_rsd": [
+      0.29356376143861523,
+      0.2884161153747509,
+      0.3905017636124768
+     ],
+     "conductivity_mS_cm": 706.6184757215449,
+     "conductivity_std_mS_cm": 140.3262284098123,
+     "nernst_einstein_factor": 43912963.11508338,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 420.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/420",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/420/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1588.0641212666358,
+     "max_framework_displacement_A": 2.6274042623900455,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.6210150640816977,
+     "mobile_msd_at_fit_end_A2": 272.8203354644898,
+     "max_msd_A2": 377.42851748063345,
+     "fit_ok": true,
+     "fit_window_ps": [
+      4.0,
+      311.8
+     ],
+     "D_cm2_s": 1.3885548034683506e-05,
+     "D_std_cm2_s": 2.6949148743775067e-06,
+     "D_rsd": 0.1940805553836343,
+     "n_jump": 495.5558070629094,
+     "D_components_cm2_s": [
+      1.8998839685622293e-05,
+      1.3664495281740693e-05,
+      8.993309136687503e-06
+     ],
+     "D_components_std_cm2_s": [
+      5.737023481034782e-06,
+      3.860467482293146e-06,
+      3.1212488302232298e-06
+     ],
+     "D_components_rsd": [
+      0.30196704514415035,
+      0.2825181174054582,
+      0.3470634426976761
+     ],
+     "conductivity_mS_cm": 580.5967650202587,
+     "conductivity_std_mS_cm": 112.68254260907322,
+     "nernst_einstein_factor": 41813024.849291965,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 425.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/425",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/425/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1613.1808358669296,
+     "max_framework_displacement_A": 5.939270482673105,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.09302325581395349,
+     "framework_msd_at_fit_end_A2": 1.9345564136744058,
+     "mobile_msd_at_fit_end_A2": 295.15858176473444,
+     "max_msd_A2": 342.8210942158855,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.4,
+      311.8
+     ],
+     "D_cm2_s": 1.6510462067490254e-05,
+     "D_std_cm2_s": 3.3296770797615847e-06,
+     "D_rsd": 0.2016707385990032,
+     "n_jump": 450.1169788556321,
+     "D_components_cm2_s": [
+      1.1722456255348925e-05,
+      2.214200124796273e-05,
+      1.56669286991591e-05
+     ],
+     "D_components_std_cm2_s": [
+      3.956444934255244e-06,
+      6.400558591122295e-06,
+      5.229560336918304e-06
+     ],
+     "D_components_rsd": [
+      0.3375098911074996,
+      0.28906865822307753,
+      0.33379614073299463
+     ],
+     "conductivity_mS_cm": 671.6084543882794,
+     "conductivity_std_mS_cm": 135.44377304581923,
+     "nernst_einstein_factor": 40677750.36476433,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 430.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/430",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/430/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1621.9278161382617,
+     "max_framework_displacement_A": 4.548341357619624,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.11627906976744186,
+     "framework_msd_at_fit_end_A2": 4.424797712568279,
+     "mobile_msd_at_fit_end_A2": 402.77006669990527,
+     "max_msd_A2": 491.28225347955316,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.4,
+      311.8
+     ],
+     "D_cm2_s": 2.1380072854869732e-05,
+     "D_std_cm2_s": 3.7426154213816695e-06,
+     "D_rsd": 0.175051574743779,
+     "n_jump": 645.0433985323779,
+     "D_components_cm2_s": [
+      3.6076237218225286e-05,
+      1.4731902547254215e-05,
+      1.3332078799129692e-05
+     ],
+     "D_components_std_cm2_s": [
+      8.103145874874492e-06,
+      4.689135265977028e-06,
+      4.259528033256924e-06
+     ],
+     "D_components_rsd": [
+      0.22461172504933188,
+      0.3182980101135006,
+      0.31949466376803765
+     ],
+     "conductivity_mS_cm": 854.9448765554802,
+     "conductivity_std_mS_cm": 149.65944696016254,
+     "nernst_einstein_factor": 39987930.9279692,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 450.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/450",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/450/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1603.8971418680887,
+     "max_framework_displacement_A": 3.2964156087284224,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.0,
+     "framework_msd_at_fit_end_A2": 0.7141311718308722,
+     "mobile_msd_at_fit_end_A2": 318.8789622680877,
+     "max_msd_A2": 400.5834645058485,
+     "fit_ok": true,
+     "fit_window_ps": [
+      3.1,
+      311.8
+     ],
+     "D_cm2_s": 1.6529863757176437e-05,
+     "D_std_cm2_s": 3.133419333015124e-06,
+     "D_rsd": 0.18956111066884931,
+     "n_jump": 525.9577717506152,
+     "D_components_cm2_s": [
+      1.7976833418551377e-05,
+      1.4263246323074085e-05,
+      1.7349511529903836e-05
+     ],
+     "D_components_std_cm2_s": [
+      5.182993861173894e-06,
+      4.635183407678082e-06,
+      4.973673228104974e-06
+     ],
+     "D_components_rsd": [
+      0.28831517434128584,
+      0.32497394370730354,
+      0.2866751158689562
+     ],
+     "conductivity_mS_cm": 638.7180033665439,
+     "conductivity_std_mS_cm": 121.0760941223519,
+     "nernst_einstein_factor": 38640246.08728216,
+     "framework_single_atom_moved_4A": false
+    },
+    {
+     "temperature_K": 500.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/500",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/500/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1662.6642787366875,
+     "max_framework_displacement_A": 6.901275932544674,
+     "framework_melt_flag": false,
+     "framework_fraction_moved_4A": 0.5348837209302325,
+     "framework_msd_at_fit_end_A2": 9.163323578665393,
+     "mobile_msd_at_fit_end_A2": 679.7533831851341,
+     "max_msd_A2": 704.0395467134088,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.9,
+      311.8
+     ],
+     "D_cm2_s": 3.726661490724927e-05,
+     "D_std_cm2_s": 5.694895973249191e-06,
+     "D_rsd": 0.15281495213404517,
+     "n_jump": 924.3893071584619,
+     "D_components_cm2_s": [
+      3.6263650441186644e-05,
+      4.576432187532315e-05,
+      2.9771872405238064e-05
+     ],
+     "D_components_std_cm2_s": [
+      8.43899390570632e-06,
+      1.0177346497692564e-05,
+      7.07428103574981e-06
+     ],
+     "D_components_rsd": [
+      0.2327122008688261,
+      0.22238604398900425,
+      0.23761626206973668
+     ],
+     "conductivity_mS_cm": 1250.185005782167,
+     "conductivity_std_mS_cm": 191.04696181730284,
+     "nernst_einstein_factor": 33547050.326241877,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 550.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/550",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/550/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1719.3850326134145,
+     "max_framework_displacement_A": 28.174538112459945,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 460.4734407664918,
+     "mobile_msd_at_fit_end_A2": 816.6705980276236,
+     "max_msd_A2": 1069.175904721199,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.9,
+      311.8
+     ],
+     "D_cm2_s": 4.1810737390613374e-05,
+     "D_std_cm2_s": 5.500046157247104e-06,
+     "D_rsd": 0.13154626061395128,
+     "n_jump": 1403.8057640504521,
+     "D_components_cm2_s": [
+      4.363615412289394e-05,
+      4.1158241903649646e-05,
+      4.063781614529658e-05
+     ],
+     "D_components_std_cm2_s": [
+      8.501096540020255e-06,
+      7.791270710628075e-06,
+      8.50044714861542e-06
+     ],
+     "D_components_rsd": [
+      0.19481773109697834,
+      0.18930037703911728,
+      0.20917578637156323
+     ],
+     "conductivity_mS_cm": 1233.0506218411222,
+     "conductivity_std_mS_cm": 162.20319845090694,
+     "nernst_einstein_factor": 29491243.13023825,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 600.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/600",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/600/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1876.580703834522,
+     "max_framework_displacement_A": 28.187239432448184,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 203.61120997792315,
+     "mobile_msd_at_fit_end_A2": 644.4405189327481,
+     "max_msd_A2": 872.0211875052129,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.3,
+      311.8
+     ],
+     "D_cm2_s": 2.9489772328224803e-05,
+     "D_std_cm2_s": 4.1689156019706855e-06,
+     "D_rsd": 0.14136818540238766,
+     "n_jump": 1144.9457137861239,
+     "D_components_cm2_s": [
+      2.5203719290299244e-05,
+      4.0140655415118844e-05,
+      2.3124942279256298e-05
+     ],
+     "D_components_std_cm2_s": [
+      5.900535205282067e-06,
+      7.730691581360834e-06,
+      5.24968059078899e-06
+     ],
+     "D_components_rsd": [
+      0.23411366938819805,
+      0.19259006863273823,
+      0.22701378137052028
+     ],
+     "conductivity_mS_cm": 730.4354353877649,
+     "conductivity_std_mS_cm": 103.2603320543713,
+     "nernst_einstein_factor": 24769110.70244722,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 700.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/700",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/700/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1970.510739186274,
+     "max_framework_displacement_A": 40.32707656798012,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 413.79714090100134,
+     "mobile_msd_at_fit_end_A2": 1507.4387487322138,
+     "max_msd_A2": 1768.6526534515688,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.0,
+      311.8
+     ],
+     "D_cm2_s": 7.707824497074776e-05,
+     "D_std_cm2_s": 8.56938155979078e-06,
+     "D_rsd": 0.11117769434219704,
+     "n_jump": 2322.2042121926347,
+     "D_components_cm2_s": [
+      0.00010639054348992765,
+      3.758127894968299e-05,
+      8.726291247263264e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.5769873347239743e-05,
+      8.257461862105773e-06,
+      1.3006451130143413e-05
+     ],
+     "D_components_rsd": [
+      0.1482262692711287,
+      0.21972274741265632,
+      0.14904901477156737
+     ],
+     "conductivity_mS_cm": 1558.4177362245919,
+     "conductivity_std_mS_cm": 173.26129073543635,
+     "nernst_einstein_factor": 20218645.829520803,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 750.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/750",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/750/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 1952.1963516727596,
+     "max_framework_displacement_A": 49.21530446053372,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 455.09376619530065,
+     "mobile_msd_at_fit_end_A2": 1384.6923354135774,
+     "max_msd_A2": 1644.009579228585,
+     "fit_ok": true,
+     "fit_window_ps": [
+      1.0,
+      311.8
+     ],
+     "D_cm2_s": 7.847271557032296e-05,
+     "D_std_cm2_s": 8.932284420165254e-06,
+     "D_rsd": 0.11382662566533241,
+     "n_jump": 2158.55044364945,
+     "D_components_cm2_s": [
+      8.138913677868135e-05,
+      8.808900103566067e-05,
+      6.59400088966268e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.2733017922756415e-05,
+      1.477186361604946e-05,
+      1.1442492025629264e-05
+     ],
+     "D_components_rsd": [
+      0.15644616009850146,
+      0.16769248648953838,
+      0.17352882138016534
+     ],
+     "conductivity_mS_cm": 1494.7302798581145,
+     "conductivity_std_mS_cm": 170.14010403604715,
+     "nernst_einstein_factor": 19047770.540304787,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 800.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/800",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/800/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2060.5490615429003,
+     "max_framework_displacement_A": 60.222079334783935,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 602.723377638471,
+     "mobile_msd_at_fit_end_A2": 1912.075967843289,
+     "max_msd_A2": 2308.333036602359,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.00010588093607148094,
+     "D_std_cm2_s": 1.0832043699417078e-05,
+     "D_rsd": 0.10230400392478861,
+     "n_jump": 3030.7933501133875,
+     "D_components_cm2_s": [
+      0.0001239573702951581,
+      0.00012117366254099265,
+      7.251177537829193e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.785867969537995e-05,
+      1.793264695319598e-05,
+      1.0736049313530505e-05
+     ],
+     "D_components_rsd": [
+      0.14407114036750043,
+      0.14799129263860802,
+      0.14805939114744926
+     ],
+     "conductivity_mS_cm": 1791.3223169838993,
+     "conductivity_std_mS_cm": 183.25944534728225,
+     "nernst_einstein_factor": 16918270.497481864,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 850.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/850",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/850/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2109.2562867775737,
+     "max_framework_displacement_A": 68.08529577562008,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 720.4822116795382,
+     "mobile_msd_at_fit_end_A2": 2509.482030193892,
+     "max_msd_A2": 3137.637412674412,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.00013061135432576465,
+     "D_std_cm2_s": 1.2204282581913673e-05,
+     "D_rsd": 0.09343967563091284,
+     "n_jump": 4119.652777398917,
+     "D_components_cm2_s": [
+      0.00015052526560280552,
+      0.00012232914993783994,
+      0.00011897964743664846
+     ],
+     "D_components_std_cm2_s": [
+      1.895703660423363e-05,
+      1.6855313173275673e-05,
+      1.5848911642113943e-05
+     ],
+     "D_components_rsd": [
+      0.12593923371147536,
+      0.13778656339752623,
+      0.13320691381736366
+     ],
+     "conductivity_mS_cm": 2031.7092865688228,
+     "conductivity_std_mS_cm": 189.84225671330412,
+     "nernst_einstein_factor": 15555380.28877206,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 900.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/900",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/900/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2114.2963255346235,
+     "max_framework_displacement_A": 95.15735195635548,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 969.9422070929071,
+     "mobile_msd_at_fit_end_A2": 1837.1181178601103,
+     "max_msd_A2": 2146.104484974077,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 9.516515396290098e-05,
+     "D_std_cm2_s": 9.955793355468753e-06,
+     "D_rsd": 0.10461595385375935,
+     "n_jump": 2817.7906301084663,
+     "D_components_cm2_s": [
+      5.748237289022721e-05,
+      0.00011031953573437938,
+      0.00011769355326409623
+     ],
+     "D_components_std_cm2_s": [
+      8.90694796352003e-06,
+      1.5922412347725905e-05,
+      1.76411580318621e-05
+     ],
+     "D_components_rsd": [
+      0.15495094436218607,
+      0.14432994339337063,
+      0.14989060609187793
+     ],
+     "conductivity_mS_cm": 1394.7568434723016,
+     "conductivity_std_mS_cm": 145.91381757391335,
+     "nernst_einstein_factor": 14656171.77497586,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 950.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/950",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/950/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2123.6431314213874,
+     "max_framework_displacement_A": 62.11206834965387,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 831.3311177620968,
+     "mobile_msd_at_fit_end_A2": 2417.5951436865475,
+     "max_msd_A2": 3307.4669662265783,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.00012834029460807438,
+     "D_std_cm2_s": 1.18136733489498e-05,
+     "D_rsd": 0.09204960441322343,
+     "n_jump": 4342.635455113501,
+     "D_components_cm2_s": [
+      0.0001065954263642755,
+      0.00021318448246015613,
+      6.524097499979143e-05
+     ],
+     "D_components_std_cm2_s": [
+      1.5158740021695326e-05,
+      2.347710885270377e-05,
+      1.0003568834998286e-05
+     ],
+     "D_components_rsd": [
+      0.14220816538499856,
+      0.11012578674478152,
+      0.15333260784392427
+     ],
+     "conductivity_mS_cm": 1774.1355574408976,
+     "conductivity_std_mS_cm": 163.30847623786826,
+     "nernst_einstein_factor": 13823683.067416614,
+     "framework_single_atom_moved_4A": true
+    },
+    {
+     "temperature_K": 1000.0,
+     "directory": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/1000",
+     "segments": [
+      {
+       "path": "/path/to/data/RCHnet/JOBS/LYC_fiinetune2/data_grabber/MD/MD_RCHGNet_npt/1000/LYC.traj",
+       "chain": 0,
+       "n_frames": 4001,
+       "frames_used": 3901,
+       "simulated_time_ps": 400.0,
+       "continuation_of_previous": false
+      }
+     ],
+     "status": "ok",
+     "frame_interval_fs": 100,
+     "n_independent_chains": 1,
+     "analyzed_time_ps": 390.0,
+     "n_frames_analyzed": 3901,
+     "n_atoms": 58,
+     "n_diffusing_ions": 15,
+     "mean_volume_A3": 2185.150519784835,
+     "max_framework_displacement_A": 93.94225409540772,
+     "framework_melt_flag": true,
+     "framework_fraction_moved_4A": 1.0,
+     "framework_msd_at_fit_end_A2": 1482.7664619536838,
+     "mobile_msd_at_fit_end_A2": 3709.323939698165,
+     "max_msd_A2": 5100.575017778388,
+     "fit_ok": true,
+     "fit_window_ps": [
+      0.7,
+      311.8
+     ],
+     "D_cm2_s": 0.00019734593462647309,
+     "D_std_cm2_s": 1.6165328457367806e-05,
+     "D_rsd": 0.08191366337474731,
+     "n_jump": 6696.949097254634,
+     "D_components_cm2_s": [
+      0.00027743926132147464,
+      0.00014456345487300925,
+      0.00017003508768493515
+     ],
+     "D_components_std_cm2_s": [
+      2.90804685339725e-05,
+      1.7137088099142414e-05,
+      1.963907073484797e-05
+     ],
+     "D_components_rsd": [
+      0.10481742344417633,
+      0.11854370881075282,
+      0.11550010649118489
+     ],
+     "conductivity_mS_cm": 2518.695912020704,
+     "conductivity_std_mS_cm": 206.31560908061613,
+     "nernst_einstein_factor": 12762846.707675893,
+     "framework_single_atom_moved_4A": true
+    }
+   ],
+   "arrhenius": {
+    "all (no framework melt)": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": true,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0
+     ],
+     "n_points": 10,
+     "status": "ok",
+     "Ea_eV": 0.12941797801228364,
+     "Ea_std_eV": 0.017143161855071806,
+     "r_squared": 0.8773055509424232,
+     "slope": -0.6522631276524447,
+     "intercept": -3.195918029817516,
+     "D_300K_cm2_s": 4.26453364060354e-06,
+     "conductivity_300K_mS_cm": 258.5473333892636,
+     "conductivity_300K_range_mS_cm": [
+      113.60114581085837,
+      588.4335331792894
+     ],
+     "volume_for_extrapolation_A3": 1533.3423752543868
+    },
+    "all": {
+     "temperature_window_K": null,
+     "weighted": true,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0,
+      550.0,
+      600.0,
+      700.0,
+      750.0,
+      800.0,
+      850.0,
+      900.0,
+      950.0,
+      1000.0
+     ],
+     "n_points": 19,
+     "status": "ok",
+     "Ea_eV": 0.13662946190596645,
+     "Ea_std_eV": 0.0047340896376784625,
+     "r_squared": 0.9559647109223439,
+     "slope": -0.688608812477333,
+     "intercept": -3.1323514807556654,
+     "D_300K_cm2_s": 3.7349587610650755e-06,
+     "conductivity_300K_mS_cm": 226.44061681163734,
+     "conductivity_300K_range_mS_cm": [
+      184.79682798988847,
+      277.46879370050885
+     ],
+     "volume_for_extrapolation_A3": 1533.3423752543868
+    },
+    "all (unweighted)": {
+     "temperature_window_K": null,
+     "weighted": false,
+     "exclude_framework_melt": false,
+     "temperatures_used_K": [
+      300.0,
+      330.0,
+      350.0,
+      375.0,
+      400.0,
+      420.0,
+      425.0,
+      430.0,
+      450.0,
+      500.0,
+      550.0,
+      600.0,
+      700.0,
+      750.0,
+      800.0,
+      850.0,
+      900.0,
+      950.0,
+      1000.0
+     ],
+     "n_points": 19,
+     "status": "ok",
+     "Ea_eV": 0.13237302021657607,
+     "Ea_std_eV": 0.006803032436789419,
+     "r_squared": 0.9570285539848994,
+     "slope": -0.6671564608671995,
+     "intercept": -3.1788614628640945,
+     "D_300K_cm2_s": 3.9562494554019915e-06,
+     "conductivity_300K_mS_cm": 239.8568831015595,
+     "conductivity_300K_range_mS_cm": [
+      175.76168116194663,
+      327.3257514997588
+     ],
+     "volume_for_extrapolation_A3": 1533.3423752543868
+    }
+   }
+  }
+ ]
+}

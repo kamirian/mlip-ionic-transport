@@ -1,0 +1,57 @@
+{
+ "study": "aimd_na_conductors",
+ "description": "AIMD (VASP, PBE, NVT Nose-Hoover MDALGO=2, 2 fs) of the three Na-ion oxide conductors at 800-1300 K: the data sets used to fine-tune / train their MACE models.",
+ "specie": "Na",
+ "charge": 1,
+ "site_distance": 3.38,
+ "arrhenius_windows": {
+  "all": null
+ },
+ "series": [
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "reader": "vasp_runs",
+   "run_dir_regex": "^RUN_(\\d+)$",
+   "min_run_index": 1,
+   "stride": 10,
+   "frame_interval_fs": 20,
+   "equilibration_frames": 500,
+   "segments": [],
+   "label": "AIMD (PBE) 20258",
+   "root": "/path/to/data/MACE_env/jobs/data_sets/20258/67_AIMD",
+   "model_file": "VASP PBE"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "reader": "vasp_runs",
+   "run_dir_regex": "^RUN_(\\d+)$",
+   "min_run_index": 1,
+   "stride": 10,
+   "frame_interval_fs": 20,
+   "equilibration_frames": 500,
+   "segments": [],
+   "label": "AIMD (PBE) 45802",
+   "root": "/path/to/data/MACE_env/jobs/data_sets/45802/10_AIMD",
+   "model_file": "VASP PBE"
+  },
+  {
+   "temperature_dir_regex": "^(\\d+)$",
+   "reader": "vasp_runs",
+   "run_dir_regex": "^RUN_(\\d+)$",
+   "min_run_index": 1,
+   "stride": 10,
+   "frame_interval_fs": 20,
+   "equilibration_frames": 500,
+   "segments": [],
+   "label": "AIMD (PBE) 75421",
+   "root": "/path/to/data/MACE_env/jobs/data_sets/75421/12_AIMD",
+   "model_file": "VASP PBE"
+  }
+ ],
+ "fit": {
+  "lower_bound_in_a_square": 0.5,
+  "upper_bound": 0.8,
+  "minimum_msd_diff_in_a_square": 0.5,
+  "time_intervals_number": 1000
+ }
+}

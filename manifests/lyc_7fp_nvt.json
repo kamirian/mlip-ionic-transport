@@ -1,0 +1,106 @@
+{
+ "study": "lyc_7fp_nvt",
+ "description": "Li15Y7Cl36 (58 atoms), NVT Nose-Hoover chain, 2 fs, 200,000 steps per job, 40 temperatures 300-1025 K, continuation jobs stitched per temperature.",
+ "specie": "Li",
+ "charge": 1,
+ "site_distance": 3.38,
+ "arrhenius_windows": {
+  "all": null,
+  "500-1000K": [
+   500,
+   1000
+  ]
+ },
+ "series": [
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "MACE-MPA-0 (medium)",
+   "root": "/path/to/data/MACE_env/jobs/md/LYC_ase_NVT_correct_T",
+   "model_file": "MACE_env/foundation_models/imporved_highpressure_accuracy_mace-mpa-0/mace-mpa-0-medium.model"
+  },
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "CHGNet (pretrained)",
+   "root": "/path/to/data/CHGNET_2/jobs/MD/MD_ase_LYC_correct_T",
+   "model_file": "chgnet CHGNetCalculator() default"
+  },
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "M3GNet-MP-2021.2.8-PES",
+   "root": "/path/to/data/M3GNet_2/jobs/MD/LYC_ase_NVT_MP2021_2_8_pes_correct_T",
+   "model_file": "M3GNet_2/pretrained_models/M3GNet-MP-2021.2.8-PES/"
+  },
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "UMA s1.1 (omat)",
+   "root": "/path/to/data/Facebook_env/jobs/MD/LYC_ase_NVT_correct_T",
+   "model_file": "Facebook/Models/uma-s-1p1.pt"
+  },
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "M3GNet-MatPES-PBE",
+   "root": "/path/to/data/M3GNet_2/jobs/MD/LYC_ase_NVT_m3gnet_matpes_PBE_correct_T",
+   "model_file": "M3GNet_2/pretrained_models/M3GNet-MatPES-PBE-v2025.1-PES/"
+  },
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "TensorNet-MatPES-PBE",
+   "root": "/path/to/data/M3GNet_2/jobs/MD/LYC_ase_NVT_tensornet_matpes_pbe_correct_T",
+   "model_file": "M3GNet_2/pretrained_models/TensorNet-MatPES-PBE-v2025.1-PES/"
+  },
+  {
+   "temperature_dir_regex": "^ase_test_(\\d+)K$",
+   "segments": [
+    "md_nvt_nhc.traj",
+    "run{n}_md_nvt_nhc.traj"
+   ],
+   "frame_interval_fs": 200,
+   "equilibration_frames": 100,
+   "label": "MACE-MatPES-PBE",
+   "root": "/path/to/data/MACE_env/jobs/md/LYC_ase_NVT_matpes_correct_T",
+   "model_file": "MACE_env/foundation_models/matpes/MACE-matpes-pbe-omat-ft.model"
+  }
+ ],
+ "fit": {
+  "lower_bound_in_a_square": 0.5,
+  "upper_bound": 0.8,
+  "minimum_msd_diff_in_a_square": 0.5,
+  "time_intervals_number": 1000
+ }
+}
